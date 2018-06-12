@@ -1,18 +1,25 @@
 package fiuba.algo3.tp2;
 
+import java.util.ArrayList;
+
 public class Campo {
 	
-	private CartaMonstruo monstruosCampo[];
-	private CartaEfecto efectosCampo[];
-	private Carta mazo[];
-	private Carta cementerio[];
-	private CartaCampo efectoDeCampo;
+	private ArrayList<CartaMonstruo> monstruos;
+	private ArrayList<CartaEfecto> efectos;
+	private ArrayList<Carta> mazo;
+	private ArrayList<Carta> cementerio;
+	private CartaCampo cartaDeCampo;
 	
 	public void campo() {
-		monstruosCampo = new CartaMonstruo[4];
-		efectosCampo = new CartaEfecto[4];
-		mazo = new Carta[49];
-		cementerio = new Carta[49];
-		efectoDeCampo = new CartaCampo();
+		monstruos = new ArrayList<CartaMonstruo>();
+		efectos = new ArrayList<CartaEfecto>();
+		mazo = new ArrayList<Carta>();
+		cementerio = new ArrayList<Carta>();
+		cartaDeCampo = new CartaCampo();
+	}
+	
+	
+	public void agregarCarta(CartaEfecto unaCarta, String modoCarta) {
+		this.efectos.add(unaCarta);		
 	}
 }
