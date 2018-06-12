@@ -20,6 +20,7 @@ public class Campo {
 	
 	
 	public void agregarCarta(CartaEfecto unaCarta, String modoCarta) {
+		unaCarta.cambiarModo(modoCarta);
 		this.efectos.add(unaCarta);		
 	}
 }
