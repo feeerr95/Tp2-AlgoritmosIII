@@ -6,7 +6,16 @@ public abstract class Carta {
 	protected EstadoCarta estado;
 	
 	public Carta() {
-		
+		nombreCarta = "Indefinido";
+		estado = new EstadoVerticalBocaAbajo();
+	}
+	
+	public void cambiarEstado(EstadoCarta unEstado) {
+		this.estado = unEstado;
+	}
+
+	public String obtenerNombre() {
+		return nombreCarta;
 	}
 	
 	//public abstract void agregarCarta();

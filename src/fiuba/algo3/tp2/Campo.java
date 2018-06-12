@@ -19,8 +19,24 @@ public class Campo {
 	}
 	
 	
-	public void agregarCarta(CartaEfecto unaCarta, String modoCarta) {
-		unaCarta.cambiarModo(modoCarta);
+	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
+		unaCarta.cambiarEstado(unEstado);
+		this.monstruos.add(unaCarta);		
+	}
+	
+	public void agregarCarta(CartaEfecto unaCarta, EstadoCarta unEstado) {
+		unaCarta.cambiarEstado(unEstado);
 		this.efectos.add(unaCarta);		
+	}
+	
+	public void agregarCarta(CartaCampo unaCarta, EstadoCarta unEstado) {
+		unaCarta.cambiarEstado(unEstado);
+		this.cartaDeCampo = unaCarta;	
+	}
+
+
+	public boolean cartaEnJuego(Carta unaCarta, EstadoCarta unEstado) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

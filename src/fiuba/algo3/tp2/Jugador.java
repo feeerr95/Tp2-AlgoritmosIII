@@ -7,16 +7,15 @@ public class Jugador {
 	private String nombreJugador;
 	private int puntosDeVida;
 	private Campo campoDeJuego;
-	private Map<String, EstadoCarta> estados;
+	private BaseDatosCartas coleccionCartas;
 	
 	public Jugador() {
+
+		
 		puntosDeVida = 8000;
 		campoDeJuego = new Campo();
-		estados = new HashMap<String, EstadoCarta>;
-		estados.put("PA", VERTICAL);
-		estados.put("PAO", VERTICAL_OCULTA);
-		estados.put("PD", HORIZONTAL);
-		estados.put("PDO", HORIZONTAL_OCULTA);
+		coleccionCartas = new BaseDatosCartas();
+
 	}
 	
 	public Jugador(Campo unCampo) {
@@ -24,14 +23,19 @@ public class Jugador {
 		campoDeJuego = unCampo;
 	}
 	
-	public void agregarCarta(Carta unaCarta , String modoCarta) {
-		EstadoCarta unEstado;
+	public void agregarCarta(String nombreCarta , String modoCarta) {
 		
-        for (Entry<String, EstadoCarta> entry : testMap.entrySet()) {
-            if (entry.getValue().equals(modoCarta)) {
-                unEstado = entry.getKey();
-            }
-        }
+		//hay que decidir si pasar el estado por argumento o convertirlo aca
+		
+		EstadoCarta unEstado = new EstadoVerticalBocaAbajo();
+		Carta unaCarta = coleccionCartas.buscarCarta(nombreCarta);
 		campoDeJuego.agregarCarta(unaCarta, unEstado);
+	}
+
+	public boolean cartaEnJuego(String nombreCarta, String modoCarta) {
+		EstadoCarta unEstado = new EstadoVerticalBocaAbajo();
+		Carta unaCarta = coleccionCartas.buscarCarta(nombreCarta);
+		//hay que decidir si pasar el estado por argumento o convertirlo aca
+		return campoDeJuego.cartaEnJuego(unaCarta, unEstado);
 	}
 }
