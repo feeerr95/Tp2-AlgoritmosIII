@@ -2,7 +2,7 @@ package fiuba.algo3.tp2Tests;
 
 import org.junit.Test;
 
-public class JuegoTest {
+public class AlGoOhTest {
 
     @Test
     public void test01AgregarCartaMonstruoEnPA() {
@@ -205,3 +205,4 @@ public class JuegoTest {
 
     }
 }
+
