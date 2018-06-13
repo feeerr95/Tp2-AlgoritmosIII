@@ -18,10 +18,9 @@ public class Campo {
 		this.cementerio = new ZonaCementerio();
 		this.zonaCampo = new ZonaCampo();
 	}
-
-	public void agregarCarta(Carta carta, EstadoCarta){
-
-	}
+	
+	
+	
 	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
 		unaCarta.cambiarEstado(unEstado);
 		this.zonaAtaque.agregarCarta(unaCarta);

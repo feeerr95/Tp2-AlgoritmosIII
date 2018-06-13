@@ -19,6 +19,7 @@ public class Jugador {
 	public Jugador(Campo unCampo) {
 		this.puntosDeVida = 8000;
 		this.campoDeJuego = unCampo;
+		this.coleccionCartas = new BaseDatosCartas();
 	}
 
 	private EstadoCarta detectarEstadoCarta(String estadoDeLaCarta){
@@ -26,6 +27,7 @@ public class Jugador {
 		if(estadoDeLaCarta.equals("HBAB")) return new EstadoVerticalBocaAbajo();
 		if(estadoDeLaCarta.equals("VBAR")) return new EstadoVerticalBocaArriba();
 		if(estadoDeLaCarta.equals("VBAB")) return new EstadoVerticalBocaAbajo();
+		return null;//hay que manejar la excepción
 	} //REFACTORIZAR
 	
 	public void agregarCarta(String nombreCarta , String modoCarta) {
