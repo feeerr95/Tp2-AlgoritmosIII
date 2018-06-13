@@ -10,8 +10,8 @@ public class AlGoOhTest {
     public void test01AgregarCartaMonstruoEnPA() {
         Campo campo1 = new Campo();
         Jugador jugador1 = new Jugador(campo1);
-        jugador1.agregarCarta("Huevo Monstruoso", "PA");
-        assertEquals(true, jugador1.cartaEnJuego("Huevo Monstruoso", "PA"));
+        jugador1.agregarCarta("Huevo Monstruoso", "VBAR");
+        assertEquals(true, jugador1.cartaEnJuego("Huevo Monstruoso", "VBAR"));
 
     }
 
@@ -19,9 +19,9 @@ public class AlGoOhTest {
     public void test02AgregarCartaMonstruoEnPD() {
         Campo campo1 = new Campo();
         Jugador jugador1 = new Jugador(campo1);
-        jugador1.agregarCarta("Huevo Monstruoso", "PD");
+        jugador1.agregarCarta("Huevo Monstruoso", "HBAR");
 
-        assertEquals(true, jugador1.cartaEnJuego("Huevo Monstruoso", "PD"));
+        assertEquals(true, jugador1.cartaEnJuego("Huevo Monstruoso", "HBAR"));
 
     }
 
@@ -29,8 +29,8 @@ public class AlGoOhTest {
     public void test03AgregarCartaMagica() {
         Campo campo1 = new Campo();
         Jugador jugador1 = new Jugador(campo1);
-        jugador1.agregarCarta("Agujero Negro", "PA");
-        assertEquals(true, jugador1.cartaEnJuego("Agujero Negro", "PA"));
+        jugador1.agregarCarta("Agujero Negro", "VBAR");
+        assertEquals(true, jugador1.cartaEnJuego("Agujero Negro", "VBAR"));
 
     }
 
@@ -38,8 +38,8 @@ public class AlGoOhTest {
     public void test04AgregarCartaTrampa() {
         Campo campo1 = new Campo();
         Jugador jugador1 = new Jugador(campo1);
-        jugador1.agregarCarta("Cilindro Magico", "PADV");
-        assertEquals(true, jugador1.cartaEnJuego("Cilindro Magico", "PADV"));
+        jugador1.agregarCarta("Cilindro Magico", "VBAB");
+        assertEquals(true, jugador1.cartaEnJuego("Cilindro Magico", "VBAB"));
 
     }
 }
