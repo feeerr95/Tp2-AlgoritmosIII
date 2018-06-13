@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2;
 
-import java.util.ArrayList;
-import java.util.Stack;
 
 public class Campo {
 	
@@ -19,7 +17,8 @@ public class Campo {
 		this.zonaCampo = new ZonaCampo();
 	}
 
-	public void agregarCarta(Carta carta, EstadoCarta){
+	public void agregarCarta(Carta carta, EstadoCarta estado){
+
 
 	}
 	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
