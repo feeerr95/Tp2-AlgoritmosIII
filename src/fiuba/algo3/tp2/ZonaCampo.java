@@ -6,10 +6,6 @@ public class ZonaCampo implements Zona {
 
    private Carta campo;
 
-   	public ZonaCampo() {
-   		campo = null;
-   	}
-   
     public ZonaCampo(CartaCampo unCampo){
        campo = unCampo;
     }

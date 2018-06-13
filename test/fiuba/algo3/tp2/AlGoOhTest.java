@@ -10,8 +10,8 @@ public class AlGoOhTest {
     public void test01AgregarCartaMonstruoEnPA() {
         Campo campo1 = new Campo();
         Jugador jugador1 = new Jugador(campo1);
-        jugador1.agregarCarta("Huevo Monstruoso", "VBAR");
-        assertEquals(true, jugador1.cartaEnJuego("Huevo Monstruoso", "VBAR"));
+        jugador1.agregarCarta("Huevo Monstruoso", "PA");
+        assertEquals(true, jugador1.cartaEnJuego("Huevo Monstruoso", "PA"));
 
     }
 
