@@ -27,7 +27,8 @@ public class Jugador {
 	public void agregarCarta(String nombreCarta , String modoCarta) {
 		EstadoCarta estado = detectarEstadoCarta(modoCarta);
 		Carta carta = this.mazo.agarrarCarta(nombreCarta);
-		this.campoDeJuego.agregarCarta(carta, estado); //HAY QUE VER EL EJERCICIO DE PIEDRA PAPEL O TIJERA
+		
+		this.campoDeJuego.agregarCarta(carta, estado); 
 	}
 
 	public boolean cartaEnJuego(String nombreCarta, String modoCarta) {

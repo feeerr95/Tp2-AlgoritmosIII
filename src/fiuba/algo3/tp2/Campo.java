@@ -9,7 +9,7 @@ public class Campo {
 	private Zona cementerio;
 	private Zona zonaCampo;
 	
-	public void campo() {
+	public Campo() {
 		this.zonaAtaque = new ZonaAtaque();
 		this.zonaDefensa = new ZonaDefensa();
 		this.mazo = new Mazo();
@@ -17,7 +17,8 @@ public class Campo {
 		this.zonaCampo = new ZonaCampo();
 	}
 
-	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
+	public void agregarCarta(Carta unaCarta, EstadoCarta unEstado) {
+		unaCarta = (CartaMonstruo)unaCarta;
 		unaCarta.cambiarEstado(unEstado);
 		this.zonaAtaque.agregarCarta(unaCarta);
 	}
