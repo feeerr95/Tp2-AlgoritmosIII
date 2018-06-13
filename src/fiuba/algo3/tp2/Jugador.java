@@ -15,17 +15,13 @@ public class Jugador {
 		this.campoDeJuego = new Campo();
 		this.mazo = new Mazo();
 	}
-	
-	public Jugador(Campo unCampo) {
-		this.puntosDeVida = 8000;
-		this.campoDeJuego = unCampo;
-	}
 
 	private EstadoCarta detectarEstadoCarta(String estadoDeLaCarta){
 		if(estadoDeLaCarta.equals("HBAR")) return new EstadoHorizontalBocaArriba();
 		if(estadoDeLaCarta.equals("HBAB")) return new EstadoVerticalBocaAbajo();
 		if(estadoDeLaCarta.equals("VBAR")) return new EstadoVerticalBocaArriba();
 		if(estadoDeLaCarta.equals("VBAB")) return new EstadoVerticalBocaAbajo();
+		return null;//hay que manejar la excepci�n
 	} //REFACTORIZAR
 	
 	public void agregarCarta(String nombreCarta , String modoCarta) {
