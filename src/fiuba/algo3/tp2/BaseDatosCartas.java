@@ -1,26 +1,27 @@
 package fiuba.algo3.tp2;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class BaseDatosCartas {
 	
-	private ArrayList<Carta> coleccion;
+	private HashMap<String, Carta> cartas;
 	
 	public BaseDatosCartas() {
-		coleccion = new ArrayList<Carta>();
+		this.cartas = new HashMap<>();
 		CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900);
-		coleccion.add(huevoMonstruoso);
+		this.cartas.putIfAbsent("Huevo Monstruoso", huevoMonstruoso);
 		CartaMonstruo insectoComeHombre = new CartaMonstruo("Insecto Come-Hombres", 450, 600);
-		coleccion.add(insectoComeHombre);
+		this.cartas.putIfAbsent("Insecto Come-Hombres", insectoComeHombre);
 	}
-	
+
+	private boolean estaLaCarta(String nombreCarta){
+		return this.cartas.containsKey(nombreCarta);
+	}
+
 	public Carta buscarCarta(String nombreCarta) {
-		for(Carta cartaActual: coleccion ) {
-			if(cartaActual.obtenerNombre() == nombreCarta) {
-				return cartaActual;
-			}
+		if(!this.estaLaCarta(nombreCarta)){
+			//LANZAR EXCEPCION DE QUE NO EXISTE LA CARTA
 		}
-		//falta manejar la excepcion
-		return null;
+		return this.cartas.get(nombreCarta);
 	}
 }

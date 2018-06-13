@@ -1,37 +1,40 @@
 package fiuba.algo3.tp2;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Campo {
 	
-	private ArrayList<CartaMonstruo> monstruos;
-	private ArrayList<CartaEfecto> efectos;
-	private ArrayList<Carta> mazo;
-	private ArrayList<Carta> cementerio;
-	private CartaCampo cartaDeCampo;
+	private Zona zonaAtaque;
+	private Zona zonaDefensa;
+	private Mazo mazo;
+	private Zona cementerio;
+	private Zona zonaCampo;
 	
 	public void campo() {
-		monstruos = new ArrayList<>();
-		efectos = new ArrayList<>();
-		mazo = new ArrayList<>();
-		cementerio = new ArrayList<>();
-		cartaDeCampo = new CartaCampo();
+		this.zonaAtaque = new ZonaAtaque();
+		this.zonaDefensa = new ZonaDefensa();
+		this.mazo = new Mazo();
+		this.cementerio = new ZonaCementerio();
+		this.zonaCampo = new ZonaCampo();
 	}
-	
-	
+
+	public void agregarCarta(Carta carta, EstadoCarta){
+
+	}
 	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
 		unaCarta.cambiarEstado(unEstado);
-		this.monstruos.add(unaCarta);
+		this.zonaAtaque.agregarCarta(unaCarta);
 	}
 	
 	public void agregarCarta(CartaEfecto unaCarta, EstadoCarta unEstado) {
 		unaCarta.cambiarEstado(unEstado);
-		this.efectos.add(unaCarta);		
+		this.zonaDefensa.agregarCarta(unaCarta);
 	}
 	
 	public void agregarCarta(CartaCampo unaCarta, EstadoCarta unEstado) {
 		unaCarta.cambiarEstado(unEstado);
-		this.cartaDeCampo = unaCarta;	
+		this.zonaCampo.agregarCarta(unaCarta);
 	}
 
 
@@ -41,8 +44,7 @@ public class Campo {
 	}
 
 	public void agregarCartaAlCementerio(Carta unaCarta){
-		//Hasta ahora solo estamos destruyendo monstruos pero habria que adaptarlo.
-		monstruos.remove(monstruos.indexOf(unaCarta));
-		this.cementerio.add(unaCarta);
+		unaCarta = zonaAtaque.removerCarta(unaCarta);
+		this.cementerio.agregarCarta(unaCarta);
 	}
 }

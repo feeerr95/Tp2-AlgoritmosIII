@@ -1,6 +1,6 @@
 package fiuba.algo3.tp2;
 
-public class EstadoHorizontalBocaArriba extends EstadoCarta{
+public class EstadoHorizontalBocaArriba implements EstadoCarta{
 	
 	public EstadoHorizontalBocaArriba() {
 

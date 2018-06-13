@@ -7,40 +7,41 @@ public class Jugador {
 	private String nombreJugador;
 	private int puntosDeVida;
 	private Campo campoDeJuego;
-	private BaseDatosCartas coleccionCartas;
+	private BaseDatosCartas coleccionCartas; //Mazo va a tener que tener esto, y jugador solo tener un atributo mazo
 	
 	public Jugador() {
 
-		
-		puntosDeVida = 8000;
-		campoDeJuego = new Campo();
-		coleccionCartas = new BaseDatosCartas();
-
+		this.puntosDeVida = 8000;
+		this.campoDeJuego = new Campo();
+		this.coleccionCartas = new BaseDatosCartas();
 	}
 	
 	public Jugador(Campo unCampo) {
-		puntosDeVida = 8000;
-		campoDeJuego = unCampo;
+		this.puntosDeVida = 8000;
+		this.campoDeJuego = unCampo;
 	}
+
+	private EstadoCarta detectarEstadoCarta(String estadoDeLaCarta){
+		if(estadoDeLaCarta.equals("HBAR")) return new EstadoHorizontalBocaArriba();
+		if(estadoDeLaCarta.equals("HBAB")) return new EstadoVerticalBocaAbajo();
+		if(estadoDeLaCarta.equals("VBAR")) return new EstadoVerticalBocaArriba();
+		if(estadoDeLaCarta.equals("VBAB")) return new EstadoVerticalBocaAbajo();
+	} //REFACTORIZAR
 	
 	public void agregarCarta(String nombreCarta , String modoCarta) {
-		
-		//hay que decidir si pasar el estado por argumento o convertirlo aca
-		
-		EstadoCarta unEstado = new EstadoVerticalBocaAbajo();
-		Carta unaCarta = coleccionCartas.buscarCarta(nombreCarta);
-		campoDeJuego.agregarCarta(unaCarta, unEstado);
+		EstadoCarta estado = detectarEstadoCarta(modoCarta);
+		Carta carta = this.coleccionCartas.buscarCarta(nombreCarta);
+		this.campoDeJuego.agregarCarta(carta, estado); //HAY QUE VER EL EJERCICIO DE PIEDRA PAPEL O TIJERA
 	}
 
 	public boolean cartaEnJuego(String nombreCarta, String modoCarta) {
-		EstadoCarta unEstado = new EstadoVerticalBocaAbajo();
-		Carta unaCarta = coleccionCartas.buscarCarta(nombreCarta);
-		//hay que decidir si pasar el estado por argumento o convertirlo aca
-		return campoDeJuego.cartaEnJuego(unaCarta, unEstado);
+		EstadoCarta estado = detectarEstadoCarta(modoCarta);
+		Carta carta = this.coleccionCartas.buscarCarta(nombreCarta);
+		return this.campoDeJuego.cartaEnJuego(carta, estado);
 	}
 
 	public void destruirCarta(String nombreCarta){
-		Carta unaCarta = coleccionCartas.buscarCarta(nombreCarta);
-		campoDeJuego.agregarCartaAlCementerio(unaCarta);
+		Carta unaCarta = this.coleccionCartas.buscarCarta(nombreCarta);
+		this.campoDeJuego.agregarCartaAlCementerio(unaCarta);
 	}
 }
