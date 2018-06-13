@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/TP2-AlGoOh.iml" filepath="$PROJECT_DIR$/TP2-AlGoOh.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/Tp2-AlgoritmosIII.iml" filepath="$PROJECT_DIR$/Tp2-AlgoritmosIII.iml" />
+>>>>>>> b3e3e47d996d27934cba74131d5b2853a8f0796a
     </modules>
   </component>
 </project>
