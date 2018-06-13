@@ -9,5 +9,4 @@ public class ZonaAtaque extends ZonaDeJuego {
     public ZonaAtaque(){
         this.casilleros = new ArrayList<>(5);
     }
-
 }

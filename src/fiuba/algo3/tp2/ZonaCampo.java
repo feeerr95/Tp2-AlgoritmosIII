@@ -6,12 +6,16 @@ public class ZonaCampo implements Zona {
 
    private Carta campo;
 
-    public ZonaCampo(CartaCampo unCampo){
-       campo = unCampo;
+    public ZonaCampo(){
     }
 
     @Override
     public void agregarCarta(Carta unaCarta) {
         campo = unaCarta;
+    }
+
+    @Override
+    public Carta removerCarta(Carta unaCarta) {
+        return null;
     }
 }

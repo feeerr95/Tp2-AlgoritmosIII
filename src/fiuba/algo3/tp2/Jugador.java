@@ -15,11 +15,6 @@ public class Jugador {
 		this.campoDeJuego = new Campo();
 		this.mazo = new Mazo();
 	}
-	
-	public Jugador(Campo unCampo) {
-		this.puntosDeVida = 8000;
-		this.campoDeJuego = unCampo;
-	}
 
 	private EstadoCarta detectarEstadoCarta(String estadoDeLaCarta){
 		if(estadoDeLaCarta.equals("HBAR")) return new EstadoHorizontalBocaArriba();

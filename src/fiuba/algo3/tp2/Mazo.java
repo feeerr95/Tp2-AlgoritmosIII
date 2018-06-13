@@ -8,7 +8,11 @@ public class Mazo {
         this.baseDatosCartas = new BaseDatosCartas();
     }
     //esto es para los tests, en realidad solo tiene que sacar de arriba el mazo
+
+
     public Carta agarrarCarta(String nombreDeLaCarta){
-        return this.baseDatosCartas.buscarCarta(nombreDeLaCarta);
+        Carta carta = this.baseDatosCartas.buscarCarta(nombreDeLaCarta);
+
+        return carta;
     }
 }

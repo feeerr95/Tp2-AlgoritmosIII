@@ -22,6 +22,7 @@ public class BaseDatosCartas {
 		if(!this.estaLaCarta(nombreCarta)){
 			//LANZAR EXCEPCION DE QUE NO EXISTE LA CARTA
 		}
-		return this.cartas.get(nombreCarta);
+		Carta carta = this.cartas.get(nombreCarta);
+		return carta;
 	}
 }
