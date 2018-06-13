@@ -38,12 +38,9 @@ public class Jugador {
 		//hay que decidir si pasar el estado por argumento o convertirlo aca
 		return campoDeJuego.cartaEnJuego(unaCarta, unEstado);
 	}
-<<<<<<< HEAD
 
 	public void destruirCarta(String nombreCarta){
 		Carta unaCarta = coleccionCartas.buscarCarta(nombreCarta);
 		campoDeJuego.agregarCartaAlCementerio(unaCarta);
 	}
-=======
->>>>>>> b3e3e47d996d27934cba74131d5b2853a8f0796a
 }
