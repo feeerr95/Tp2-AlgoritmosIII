@@ -16,4 +16,10 @@ public class CartaMonstruo extends Carta{
 		atk = unAtaque;
 		def = unaDefensa;
 	}
+
+	@Override
+	public void agregarCarta(Campo campo, EstadoCarta unEstado) {
+		this.cambiarEstado(unEstado);
+		campo.agregarAZonaAtaque(this);
+	}
 }

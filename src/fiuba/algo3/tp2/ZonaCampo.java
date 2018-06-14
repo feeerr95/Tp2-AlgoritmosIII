@@ -9,8 +9,7 @@ public class ZonaCampo implements Zona {
     public ZonaCampo(){
     }
 
-    @Override
-    public void agregarCarta(Carta unaCarta) {
+    public void agregarCarta(CartaCampo unaCarta) {
         campo = unaCarta;
     }
 

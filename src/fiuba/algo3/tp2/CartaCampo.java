@@ -4,4 +4,11 @@ public class CartaCampo extends Carta{
 	
 	public CartaCampo(){
 	}
+
+/*	@Override
+	public void agregarCarta(Campo campo, EstadoCarta unEstado) {
+		this.cambiarEstado(unEstado);
+		campo.
+		
+	}*/
 }

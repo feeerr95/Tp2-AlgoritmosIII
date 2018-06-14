@@ -17,4 +17,7 @@ public abstract class Carta {
 	public String obtenerNombre() {
 		return nombreCarta;
 	}
+
+	public abstract void agregarCarta(Campo campo, EstadoCarta unEstado);
+	
 }

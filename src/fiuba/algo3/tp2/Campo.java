@@ -3,11 +3,11 @@ package fiuba.algo3.tp2;
 
 public class Campo {
 	
-	private Zona zonaAtaque;
-	private Zona zonaDefensa;
+	private ZonaAtaque zonaAtaque;
+	private ZonaDefensa zonaDefensa;
 	private Mazo mazo;
-	private Zona cementerio;
-	private Zona zonaCampo;
+	private ZonaCementerio cementerio;
+	private ZonaCampo zonaCampo;
 	
 	public Campo() {
 		this.zonaAtaque = new ZonaAtaque();
@@ -16,9 +16,30 @@ public class Campo {
 		this.cementerio = new ZonaCementerio();
 		this.zonaCampo = new ZonaCampo();
 	}
-
+	
+	public void agregarAZonaAtaque(CartaMonstruo unaCarta){
+		this.zonaAtaque.agregarCarta(unaCarta);
+	}
+	
+	public void agregarAZonaDefensa(CartaEfecto unaCarta){
+		this.zonaDefensa.agregarCarta(unaCarta);
+	}
+	
+	public void agregarACementerio(Carta unaCarta){
+		this.cementerio.agregarCarta(unaCarta);
+	}
+	
+	public void agregarAZonaCampo(CartaCampo unaCarta){
+		this.zonaCampo.agregarCarta(unaCarta);
+	}
+	
+	
 	public void agregarCarta(Carta unaCarta, EstadoCarta unEstado) {
-		unaCarta = (CartaMonstruo)unaCarta;
+		unaCarta.agregarCarta(this, unEstado);
+	}
+	
+/*
+	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
 		unaCarta.cambiarEstado(unEstado);
 		this.zonaAtaque.agregarCarta(unaCarta);
 	}
@@ -32,7 +53,7 @@ public class Campo {
 		unaCarta.cambiarEstado(unEstado);
 		this.zonaCampo.agregarCarta(unaCarta);
 	}
-
+*/
 
 	public boolean cartaEnJuego(Carta unaCarta, EstadoCarta unEstado) {
 		return true;

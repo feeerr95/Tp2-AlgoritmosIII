@@ -9,4 +9,9 @@ public class ZonaDefensa extends ZonaDeJuego {
     public ZonaDefensa(){
         this.casilleros = new ArrayList<>(5);
     }
+    
+    @Override
+	public void agregarCarta(CartaEfecto unaCarta) {
+		casilleros.add(unaCarta);
+	}
 }

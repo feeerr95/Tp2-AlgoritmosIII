@@ -11,13 +11,16 @@ public abstract class ZonaDeJuego implements Zona {
         return casilleros.contains(unaCarta);
     }
 
-    @Override
-    public void agregarCarta(Carta unaCarta) {
-        casilleros.add(unaCarta);
-    }
-
     public Carta removerCarta(Carta unaCarta) {
         int posCarta = casilleros.indexOf(unaCarta);
         return casilleros.remove(posCarta);
     }
+
+	public void agregarCarta(CartaMonstruo unaCarta) {
+		
+	}
+	
+	public void agregarCarta(CartaEfecto unaCarta) {
+		
+	}
 }

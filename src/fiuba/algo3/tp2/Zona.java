@@ -1,9 +1,8 @@
 package fiuba.algo3.tp2;
 
-public interface Zona {
-
-    public abstract void agregarCarta(Carta unaCarta);
-
+public interface Zona {   
+	
     Carta removerCarta(Carta unaCarta);
+    
 }
 

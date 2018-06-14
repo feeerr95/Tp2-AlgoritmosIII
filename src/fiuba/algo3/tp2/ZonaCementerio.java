@@ -10,7 +10,6 @@ public class ZonaCementerio implements Zona {
         this.stackCartas = new Stack<>();
     }
 
-    @Override
     public void agregarCarta(Carta unaCarta) {
         this.stackCartas.push(unaCarta);
     }
