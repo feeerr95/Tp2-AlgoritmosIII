@@ -6,12 +6,14 @@ public class Jugador {
 	private int puntosDeVida;
 	private Campo campoDeJuego;
 	private Mazo mazo;
+	private Jugador enemigo;
 	
 	public Jugador() {
 
 		this.puntosDeVida = 8000;
 		this.campoDeJuego = new Campo();
 		this.mazo = new Mazo();
+		this.enemigo = null;
 	}
 
 	private EstadoCarta detectarEstadoCarta(String estadoDeLaCarta){
@@ -43,7 +45,18 @@ public class Jugador {
 		return this.campoDeJuego.cartaEnCementerio(carta);
 	}
 
-	public void atacar(String string, String string2) {
+	public void atacar(String nombreCartaJugador, String nombreCartaEnemigo) {
+		CartaMonstruo cartaJugador = this.campoDeJuego.obtenerCartaMonstruo(nombreCartaJugador);
+		this.enemigo.recibirAtaque(cartaJugador , nombreCartaEnemigo);
 		
+	}
+
+//	private void recibirAtaque(CartaMonstruo cartaEnemigo, String nombreCartaJugador) {
+//		CartaMonstruo cartaAtacada = this.campoDeJuego.obtenerCartaMonstruo(nombreCartaJugador);
+//		this.campoDeJuego.agregarCartaAlCementerio(cartaAtacada.recibirAtaque(cartaEnemigo));
+//	} HAY QUE RESOLVER ESTE METODO
+
+	public void agregarEnemigo(Jugador unEnemigo){
+		this.enemigo = unEnemigo;
 	}
 }

@@ -16,4 +16,9 @@ public class CartaMonstruo extends Carta{
 		this.cambiarEstado(unEstado);
 		campo.agregarCarta(this);
 	}
+
+	public void recibirAtaque(CartaMonstruo cartaEnemigo) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -57,4 +57,8 @@ public class Campo {
 		resultado = cementerio.cartaEnCementerio(carta); 
 		return resultado;
 	}
+	
+	public CartaMonstruo obtenerCartaMonstruo(String nombreCarta) {
+		return this.zonaAtaque.obtenerCartaMonstruo(nombreCarta);
+	}
 }

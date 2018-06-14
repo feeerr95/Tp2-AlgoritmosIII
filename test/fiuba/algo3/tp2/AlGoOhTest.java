@@ -54,6 +54,8 @@ public class AlGoOhTest {
         jugador1.jugarCarta("Insecto Come-Hombres", "VBAR");
         Jugador jugador2 = new Jugador();
         jugador2.jugarCarta("Huevo Monstruoso", "VBAR");
+        jugador1.agregarEnemigo(jugador2);
+        jugador2.agregarEnemigo(jugador1);
         jugador1.atacar("Insecto Come-Hombres", "Huevo Monstruoso");
         jugador1.destruirCarta("Insecto Come-Hombres");
 
