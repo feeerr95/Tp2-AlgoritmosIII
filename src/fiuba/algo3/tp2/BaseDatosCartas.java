@@ -12,6 +12,8 @@ public class BaseDatosCartas {
 		this.cartas.putIfAbsent("Huevo Monstruoso", huevoMonstruoso);
 		CartaMonstruo insectoComeHombre = new CartaMonstruo("Insecto Come-Hombres", 450, 600);
 		this.cartas.putIfAbsent("Insecto Come-Hombres", insectoComeHombre);
+		CartaMagica agujeroNegro = new CartaMagica("Agujero Negro");
+	    this.cartas.putIfAbsent("Agujero Negro", agujeroNegro);
 	}
 
 	private boolean estaLaCarta(String nombreCarta){
