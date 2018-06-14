@@ -1,7 +1,5 @@
 package fiuba.algo3.tp2;
 
-import java.util.HashMap;
-
 public class Jugador {
 	
 	private String nombreJugador;
@@ -24,17 +22,15 @@ public class Jugador {
 		return null;
 	} //REFACTORIZAR
 	
-	public void agregarCarta(String nombreCarta , String modoCarta) {
+	public void jugarCarta(String nombreCarta , String modoCarta) {
 		EstadoCarta estado = detectarEstadoCarta(modoCarta);
 		Carta carta = this.mazo.agarrarCarta(nombreCarta);
-		
 		this.campoDeJuego.agregarCarta(carta, estado); 
 	}
 
-	public boolean cartaEnJuego(String nombreCarta, String modoCarta) {
-		EstadoCarta estado = detectarEstadoCarta(modoCarta);
+	public boolean cartaEstaEnJuego(String nombreCarta, String modoCarta) {
 		Carta carta = this.mazo.agarrarCarta(nombreCarta);
-		return this.campoDeJuego.cartaEnJuego(carta, estado);
+		return this.campoDeJuego.cartaEstaEnJuego(carta, modoCarta);
 	}
 
 	public void destruirCarta(String nombreCarta){

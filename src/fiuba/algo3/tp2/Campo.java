@@ -1,6 +1,8 @@
 package fiuba.algo3.tp2;
 
 
+import java.util.ArrayList;
+
 public class Campo {
 	
 	private ZonaAtaque zonaAtaque;
@@ -8,6 +10,7 @@ public class Campo {
 	private Mazo mazo;
 	private ZonaCementerio cementerio;
 	private ZonaCampo zonaCampo;
+	private ArrayList<ZonaDeJuego> zonas;
 	
 	public Campo() {
 		this.zonaAtaque = new ZonaAtaque();
@@ -15,48 +18,33 @@ public class Campo {
 		this.mazo = new Mazo();
 		this.cementerio = new ZonaCementerio();
 		this.zonaCampo = new ZonaCampo();
+		this.zonas = new ArrayList<>();
+		this.zonas.add(zonaAtaque);
+		this.zonas.add(zonaDefensa);
 	}
-	
-	public void agregarAZonaAtaque(CartaMonstruo unaCarta){
-		this.zonaAtaque.agregarCarta(unaCarta);
-	}
-	
-	public void agregarAZonaDefensa(CartaEfecto unaCarta){
-		this.zonaDefensa.agregarCarta(unaCarta);
-	}
-	
-	public void agregarACementerio(Carta unaCarta){
-		this.cementerio.agregarCarta(unaCarta);
-	}
-	
-	public void agregarAZonaCampo(CartaCampo unaCarta){
-		this.zonaCampo.agregarCarta(unaCarta);
-	}
-	
-	
+
 	public void agregarCarta(Carta unaCarta, EstadoCarta unEstado) {
 		unaCarta.agregarCarta(this, unEstado);
 	}
-	
-/*
-	public void agregarCarta(CartaMonstruo unaCarta, EstadoCarta unEstado) {
-		unaCarta.cambiarEstado(unEstado);
+
+	public void agregarCarta(CartaMonstruo unaCarta) {
 		this.zonaAtaque.agregarCarta(unaCarta);
 	}
 	
-	public void agregarCarta(CartaEfecto unaCarta, EstadoCarta unEstado) {
-		unaCarta.cambiarEstado(unEstado);
+	public void agregarCarta(CartaEfecto unaCarta) {
 		this.zonaDefensa.agregarCarta(unaCarta);
 	}
 	
-	public void agregarCarta(CartaCampo unaCarta, EstadoCarta unEstado) {
-		unaCarta.cambiarEstado(unEstado);
+	public void agregarCarta(CartaCampo unaCarta) {
 		this.zonaCampo.agregarCarta(unaCarta);
 	}
-*/
 
-	public boolean cartaEnJuego(Carta unaCarta, EstadoCarta unEstado) {
-		return true;
+	public boolean cartaEstaEnJuego(Carta unaCarta, String unEstado){
+		boolean resultado = false;
+		for(ZonaDeJuego zona : zonas){
+			resultado = resultado || zona.cartaEstaEnJuego(unaCarta, unEstado); //es una OR
+		}
+		return resultado;
 	}
 
 	public void agregarCartaAlCementerio(Carta unaCarta){

@@ -9,8 +9,18 @@ public class ZonaAtaque extends ZonaDeJuego {
     public ZonaAtaque(){
         this.casilleros = new ArrayList<>(5);
     }
-    
-   @Override
+
+    @Override
+    public boolean cartaEstaEnJuego(Carta unaCarta, String unEstado) {
+        return (this.casilleros.contains(unaCarta) && unaCarta.tieneEstado(unEstado));
+    }
+
+    @Override
+    public Carta removerCarta(Carta unaCarta) {
+        int posCarta = casilleros.indexOf(unaCarta);
+        return casilleros.remove(posCarta);
+    }
+
     public void agregarCarta(CartaMonstruo unaCarta) {
         casilleros.add(unaCarta);
     }

@@ -1,6 +1,5 @@
 package fiuba.algo3.tp2;
 
-import java.util.Stack;
 
 public class ZonaCampo implements Zona {
 

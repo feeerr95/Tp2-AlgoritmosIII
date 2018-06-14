@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2;
 
-public class CartaEfecto extends Carta{
+public abstract class CartaEfecto extends Carta{
+
+    public abstract void agregarCarta(Campo campo, EstadoCarta unEstado);
 
 }

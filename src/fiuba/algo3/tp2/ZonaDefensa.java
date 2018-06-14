@@ -9,9 +9,19 @@ public class ZonaDefensa extends ZonaDeJuego {
     public ZonaDefensa(){
         this.casilleros = new ArrayList<>(5);
     }
-    
+
     @Override
-	public void agregarCarta(CartaEfecto unaCarta) {
-		casilleros.add(unaCarta);
+    public boolean cartaEstaEnJuego(Carta unaCarta, String unEstado) {
+        return (this.casilleros.contains(unaCarta) && unaCarta.tieneEstado(unEstado));
+    }
+
+    @Override
+    public Carta removerCarta(Carta unaCarta) {
+        int posCarta = casilleros.indexOf(unaCarta);
+        return casilleros.remove(posCarta);
+    }
+
+    public void agregarCarta(CartaEfecto unaCarta) {
+        casilleros.add(unaCarta);
 	}
 }

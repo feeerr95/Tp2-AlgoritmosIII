@@ -6,7 +6,6 @@ public abstract class Carta {
 	protected EstadoCarta estado;
 	
 	public Carta() {
-		nombreCarta = "Indefinido";
 		estado = new EstadoVerticalBocaAbajo();
 	}
 	
@@ -19,5 +18,8 @@ public abstract class Carta {
 	}
 
 	public abstract void agregarCarta(Campo campo, EstadoCarta unEstado);
-	
+
+	public boolean tieneEstado(String unEstado){
+		return this.estado.es(unEstado);
+	}
 }
