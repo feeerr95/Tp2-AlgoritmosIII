@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef67b903-a759-4c52-82a2-1e1a5509e6ca" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/fiuba/algo3/tp2/BaseDatosCartas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiuba/algo3/tp2/BaseDatosCartas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaEfecto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaEfecto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMagica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMagica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TP2-AlGoOh.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tp2-AlgoritmosIII.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Tp2-AlgoritmosIII.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tp2-AlgoritmosIII/fiuba/algo3/tp2/Campo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tp2-AlgoritmosIII/fiuba/algo3/tp2/Campo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tp2-AlgoritmosIII/fiuba/algo3/tp2/Jugador.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tp2-AlgoritmosIII/fiuba/algo3/tp2/Jugador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tp2-AlgoritmosIII/fiuba/algo3/tp2/ZonaCementerio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tp2-AlgoritmosIII/fiuba/algo3/tp2/ZonaCementerio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Tp2-AlgoritmosIII/fiuba/algo3/tp2/AlGoOhTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Tp2-AlgoritmosIII/fiuba/algo3/tp2/AlGoOhTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,107 +23,17 @@
       <file leaf-file-name="AlGoOhTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/fiuba/algo3/tp2/AlGoOhTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+            <state relative-caret-position="45">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Campo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Campo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-              <folding>
-                <element signature="e#635#636#0" expanded="true" />
-                <element signature="e#679#680#0" expanded="true" />
-                <element signature="e#829#830#0" expanded="true" />
-                <element signature="e#875#876#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Carta.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Carta.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding>
-                <element signature="e#138#139#0" expanded="true" />
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#236#237#0" expanded="true" />
-                <element signature="e#265#266#0" expanded="true" />
-                <element signature="e#443#444#0" expanded="true" />
-                <element signature="e#481#482#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartaMonstruo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMonstruo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="16" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseDatosCartas.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/BaseDatosCartas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartaTrampa.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaTrampa.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartaMagica.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMagica.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-              <folding>
-                <element signature="e#125#126#0" expanded="true" />
-                <element signature="e#152#153#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CartaEfecto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaEfecto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZonaDeJuego.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaDeJuego.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Jugador.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Jugador.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Jugador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="30">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -155,7 +69,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="202" />
     <option name="y" value="-14" />
     <option name="width" value="974" />
@@ -166,32 +80,33 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Tp2-AlgoritmosIII" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tp2-AlgoritmosIII" type="462c0819:PsiDirectoryNode" />
+              <item name="TP2-AlGoOh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP2-AlGoOh" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Tp2-AlgoritmosIII" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tp2-AlgoritmosIII" type="462c0819:PsiDirectoryNode" />
+              <item name="TP2-AlGoOh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP2-AlGoOh" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Tp2-AlgoritmosIII" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tp2-AlgoritmosIII" type="462c0819:PsiDirectoryNode" />
+              <item name="TP2-AlGoOh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP2-AlGoOh" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tp2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Tp2-AlgoritmosIII" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tp2-AlgoritmosIII" type="462c0819:PsiDirectoryNode" />
+              <item name="TP2-AlGoOh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP2-AlGoOh" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Tp2-AlgoritmosIII" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Tp2-AlgoritmosIII" type="462c0819:PsiDirectoryNode" />
+              <item name="TP2-AlGoOh" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TP2-AlGoOh" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="tp2" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -199,14 +114,13 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../libs" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -262,6 +176,29 @@
       <option name="PACKAGE_NAME" value="fiuba.algo3.tp2" />
       <option name="MAIN_CLASS_NAME" value="fiuba.algo3.tp2.AlGoOhTest" />
       <option name="METHOD_NAME" value="test01AgregarCartaMonstruoEnPA" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="AlGoOhTest.test02AgregarCartaMonstruoEnPD" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tp2-AlgoritmosIII" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fiuba.algo3.tp2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="fiuba.algo3.tp2" />
+      <option name="MAIN_CLASS_NAME" value="fiuba.algo3.tp2.AlGoOhTest" />
+      <option name="METHOD_NAME" value="test02AgregarCartaMonstruoEnPD" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -337,10 +274,12 @@
       <item itemvalue="JUnit.AlGoOhTest.test01AgregarCartaMonstruoEnPA" />
       <item itemvalue="JUnit.AlGoOhTest" />
       <item itemvalue="JUnit.fiuba.algo3.tp2 in Tp2-AlgoritmosIII" />
+      <item itemvalue="JUnit.AlGoOhTest.test02AgregarCartaMonstruoEnPD" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AlGoOhTest" />
+        <item itemvalue="JUnit.AlGoOhTest.test02AgregarCartaMonstruoEnPD" />
         <item itemvalue="JUnit.AlGoOhTest.test01AgregarCartaMonstruoEnPA" />
         <item itemvalue="JUnit.fiuba.algo3.tp2 in Tp2-AlgoritmosIII" />
       </list>
@@ -368,18 +307,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AlGoOhTest - 2018.06.14 at 00h 40m 52s.xml">
-      <configuration name="AlGoOhTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AlGoOhTest - 2018.06.14 at 00h 41m 44s.xml">
-      <configuration name="AlGoOhTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AlGoOhTest - 2018.06.14 at 00h 42m 26s.xml">
-      <configuration name="AlGoOhTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AlGoOhTest - 2018.06.14 at 00h 43m 34s.xml">
-      <configuration name="AlGoOhTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AlGoOhTest - 2018.06.14 at 00h 43m 38s.xml">
       <configuration name="AlGoOhTest" configurationId="JUnit" />
     </history-entry>
@@ -398,37 +325,49 @@
     <history-entry file="AlGoOhTest - 2018.06.14 at 00h 52m 00s.xml">
       <configuration name="AlGoOhTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AlGoOhTest - 2018.06.14 at 12h 00m 47s.xml">
+      <configuration name="AlGoOhTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlGoOhTest_test02AgregarCartaMonstruoEnPD - 2018.06.14 at 12h 04m 02s.xml">
+      <configuration name="AlGoOhTest.test02AgregarCartaMonstruoEnPD" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlGoOhTest - 2018.06.14 at 12h 04m 13s.xml">
+      <configuration name="AlGoOhTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlGoOhTest - 2018.06.14 at 12h 05m 47s.xml">
+      <configuration name="AlGoOhTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Messages" order="3" weight="0.32943678" />
       <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.32831326" />
       <window_info anchor="bottom" id="Version Control" order="2" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="5" weight="0.32943678" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.24980783" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info id="UI Designer" order="1" />
       <window_info anchor="right" id="Theme Preview" order="2" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.3995749" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32943678" />
+      <window_info anchor="bottom" id="Messages" order="3" weight="0.32943678" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -439,192 +378,147 @@
     <option name="LAST_COMMIT_MESSAGE" value="Andan las 4 primeras pruebas, se fija que lo que este en el campo sea la carta y en esa posicion" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaCampo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../libs/junit-jar-4.11.jar!/org/junit/Assert.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="302" selection-start-line="302" selection-end-line="302" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Zona.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoHorizontalBocaAbajo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-          <folding>
-            <element signature="e#219#220#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoVerticalBocaAbajo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-          <folding>
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoVerticalBocaArriba.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#211#212#0" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoCarta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoHorizontalBocaArriba.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="40" lean-forward="true" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
-          <folding>
-            <element signature="e#219#220#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaCampo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaCementerio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaAtaque.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaDefensa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
-          <folding>
-            <element signature="e#663#664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaDeJuego.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Jugador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMonstruo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="8" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Campo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="34" column="48" lean-forward="true" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
-          <folding>
-            <element signature="e#635#636#0" expanded="true" />
-            <element signature="e#679#680#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#875#876#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaTrampa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/fiuba/algo3/tp2/AlGoOhTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Carta.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding>
-            <element signature="e#138#139#0" expanded="true" />
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#236#237#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-            <element signature="e#443#444#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/test/fiuba/algo3/tp2/AlGoOhTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Campo.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Carta.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMonstruo.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/BaseDatosCartas.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaTrampa.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaEfecto.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaDeJuego.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Jugador.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMagica.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaCampo.java" />
+    <entry file="jar://$PROJECT_DIR$/../libs/junit-jar-4.11.jar!/org/junit/Assert.class" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoVerticalBocaArriba.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaCampo.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaDefensa.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMonstruo.java" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaTrampa.java" />
+    <entry file="file://$PROJECT_DIR$/Tp2-AlgoritmosIII.iml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaEfecto.java">
+    <entry file="file://$PROJECT_DIR$/TP2-AlGoOh.iml" />
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoVerticalBocaAbajo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/BaseDatosCartas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="62" selection-start-line="18" selection-start-column="62" selection-end-line="18" selection-end-column="62" />
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaMagica.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
+        <state relative-caret-position="45">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/CartaEfecto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/BaseDatosCartas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoCarta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoHorizontalBocaArriba.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Campo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Carta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaAtaque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
-            <element signature="e#125#126#0" expanded="true" />
-            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#175#176#0" expanded="true" />
+            <element signature="e#227#228#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/EstadoHorizontalBocaAbajo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Zona.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaDeJuego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/ZonaCementerio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/fiuba/algo3/tp2/AlGoOhTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Juego.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fiuba/algo3/tp2/Jugador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -685,7 +579,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
