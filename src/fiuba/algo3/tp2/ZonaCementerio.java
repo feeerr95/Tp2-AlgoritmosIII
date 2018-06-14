@@ -17,4 +17,9 @@ public class ZonaCementerio implements Zona {
     public Carta removerCarta(Carta unaCarta) {
         return this.stackCartas.pop();
     }
+
+	public boolean cartaEnCementerio(Carta carta) {
+		return stackCartas.contains(carta);
+	}
+    
 }

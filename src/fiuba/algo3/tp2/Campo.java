@@ -51,4 +51,10 @@ public class Campo {
 		unaCarta = zonaAtaque.removerCarta(unaCarta);
 		this.cementerio.agregarCarta(unaCarta);
 	}
+
+	public boolean cartaEnCementerio(Carta carta) {
+		boolean resultado = false;
+		resultado = cementerio.cartaEnCementerio(carta); 
+		return resultado;
+	}
 }

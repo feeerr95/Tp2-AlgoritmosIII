@@ -39,30 +39,27 @@ public class AlGoOhTest {
     }
 
 
-//    @Test
-//    public void test05AgregarCartaAlCementerio(){
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.destriurCarta("Huevo Monstruoso");
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Huevo Monstruoso"));
-//    }
-//
-//    @Test
-//    public void test06AtaqueCartaMonstruoConDerrota() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.atacar("Insecto Come-Hombres", "Huevo Monstruoso");
-//        jugador1.destruirCarta("Insecto Come-Hombres");
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
-//    }
-//
+    @Test
+    public void test05AgregarCartaAlCementerio(){
+        Jugador jugador1 = new Jugador();
+        jugador1.jugarCarta("Huevo Monstruoso", "VBAR");
+        jugador1.destruirCarta("Huevo Monstruoso");
+
+        assertEquals(true, jugador1.cartaEnCementerio("Huevo Monstruoso"));
+    }
+
+    @Test
+    public void test06AtaqueCartaMonstruoConDerrota() {
+        Jugador jugador1 = new Jugador();
+        jugador1.jugarCarta("Insecto Come-Hombres", "VBAR");
+        Jugador jugador2 = new Jugador();
+        jugador2.jugarCarta("Huevo Monstruoso", "VBAR");
+        jugador1.atacar("Insecto Come-Hombres", "Huevo Monstruoso");
+        jugador1.destruirCarta("Insecto Come-Hombres");
+
+        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
+    }
+
 //    @Test
 //    public void test06AtaqueCartaMonstruoConDerrotaPuntosDeVidaCorrectos() {
 //        Campo campo1 = new Campo();

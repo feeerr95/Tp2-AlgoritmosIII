@@ -37,4 +37,13 @@ public class Jugador {
 		Carta carta = this.mazo.agarrarCarta(nombreCarta);
 		this.campoDeJuego.agregarCartaAlCementerio(carta);
 	}
+
+	public boolean cartaEnCementerio(String nombreCarta) {
+		Carta carta = this.mazo.agarrarCarta(nombreCarta);
+		return this.campoDeJuego.cartaEnCementerio(carta);
+	}
+
+	public void atacar(String string, String string2) {
+		
+	}
 }
