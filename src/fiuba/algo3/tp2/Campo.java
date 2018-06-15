@@ -1,54 +1,42 @@
 package fiuba.algo3.tp2;
 
-
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class Campo {
 	
 	private ZonaAtaque zonaAtaque;
-	private ZonaDefensa zonaDefensa;
-	private Mazo mazo;
-	private ZonaCementerio cementerio;
-	private ZonaCampo zonaCampo;
-	private ArrayList<ZonaDeJuego> zonas;
+	private ZonaDefensa  zonaDefensa;
+	private Stack<Carta> cementerio;
+	private CartaTerreno terreno;
+
 	
 	public Campo() {
-		this.zonaAtaque = new ZonaAtaque();
 		this.zonaDefensa = new ZonaDefensa();
-		this.mazo = new Mazo();
-		this.cementerio = new ZonaCementerio();
-		this.zonaCampo = new ZonaCampo();
-		this.zonas = new ArrayList<>();
-		this.zonas.add(zonaAtaque);
-		this.zonas.add(zonaDefensa);
+		this.zonaAtaque = new ZonaAtaque();
+		this.cementerio = new Stack<>();
 	}
 
-	public void agregarCarta(Carta unaCarta, EstadoCarta unEstado) {
-		unaCarta.agregarCarta(this, unEstado);
-	}
-
-	public void agregarCarta(CartaMonstruo unaCarta) {
+	public void agregarCartaMonstruo(CartaMonstruo unaCarta){
 		this.zonaAtaque.agregarCarta(unaCarta);
 	}
-	
-	public void agregarCarta(CartaEfecto unaCarta) {
+
+	public void agregarCartaEfecto(CartaEfecto unaCarta){
 		this.zonaDefensa.agregarCarta(unaCarta);
 	}
-	
-	public void agregarCarta(CartaCampo unaCarta) {
-		this.zonaCampo.agregarCarta(unaCarta);
+
+	public void agregarCartaCampo(CartaTerreno unaCarta){
+		this.terreno = unaCarta;
 	}
 
-	public boolean cartaEstaEnJuego(Carta unaCarta, String unEstado){
-		boolean resultado = false;
-		for(ZonaDeJuego zona : zonas){
-			resultado = resultado || zona.cartaEstaEnJuego(unaCarta, unEstado); //es una OR
-		}
-		return resultado;
+	public boolean eliminarUnaCarta(){
+		return this.zonaAtaque.eliminarUnaCarta();
 	}
 
-	public void agregarCartaAlCementerio(Carta unaCarta){
-		unaCarta = zonaAtaque.removerCarta(unaCarta);
-		this.cementerio.agregarCarta(unaCarta);
+	public int cantidadDeMonstruos(){
+		return zonaAtaque.cantidadDeMonstruos();
+	}
+
+	public void eliminarCartasDestruidas(){
+		this.zonaAtaque.eliminarCartasDestruidas(cementerio);
 	}
 }
