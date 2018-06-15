@@ -19,4 +19,24 @@ public class Jugador {
 	public int puntosDeVida(){
 		return this.puntosDeVida;
 	}
+
+	public boolean cartaEnCementerio(String nombreCarta) {
+		Carta carta = this.mazo.agarrarCarta(nombreCarta);
+		return this.campoDeJuego.cartaEnCementerio(carta);
+	}
+
+	public void atacar(String nombreCartaJugador, String nombreCartaEnemigo) {
+		CartaMonstruo cartaJugador = this.campoDeJuego.obtenerCartaMonstruo(nombreCartaJugador);
+		this.enemigo.recibirAtaque(cartaJugador , nombreCartaEnemigo);
+		
+	}
+
+//	private void recibirAtaque(CartaMonstruo cartaEnemigo, String nombreCartaJugador) {
+//		CartaMonstruo cartaAtacada = this.campoDeJuego.obtenerCartaMonstruo(nombreCartaJugador);
+//		this.campoDeJuego.agregarCartaAlCementerio(cartaAtacada.recibirAtaque(cartaEnemigo));
+//	} HAY QUE RESOLVER ESTE METODO
+
+	public void agregarEnemigo(Jugador unEnemigo){
+		this.enemigo = unEnemigo;
+	}
 }

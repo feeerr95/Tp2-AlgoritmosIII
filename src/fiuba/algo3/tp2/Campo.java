@@ -39,4 +39,14 @@ public class Campo {
 	public void eliminarCartasDestruidas(){
 		this.zonaAtaque.eliminarCartasDestruidas(cementerio);
 	}
+
+	public boolean cartaEnCementerio(Carta carta) {
+		boolean resultado = false;
+		resultado = cementerio.cartaEnCementerio(carta); 
+		return resultado;
+	}
+	
+	public CartaMonstruo obtenerCartaMonstruo(String nombreCarta) {
+		return this.zonaAtaque.obtenerCartaMonstruo(nombreCarta);
+	}
 }

@@ -28,4 +28,9 @@ public class CartaMonstruo extends Carta{
 	protected void colocarEnCampo(Campo campo){
 		nivel.colocarEnCampo(campo, this);
 	}
+
+	public void recibirAtaque(CartaMonstruo cartaEnemigo) {
+		// TODO Auto-generated method stub
+		
+	}
 }
