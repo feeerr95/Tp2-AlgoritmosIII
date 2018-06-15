@@ -6,156 +6,139 @@ import static org.junit.Assert.assertEquals;
 
 public class AlGoOhTest {
 
-    @Test
-    public void test01AgregarCartaMonstruoEnPA() {
-        Jugador jugador1 = new Jugador();
-        jugador1.jugarCarta("Huevo Monstruoso", "VBAR");
-        assertEquals(true, jugador1.cartaEstaEnJuego("Huevo Monstruoso", "VBAR"));
-
-    }
-    @Test
-    public void test02AgregarCartaMonstruoEnPD() {
-        Jugador jugador1 = new Jugador();
-        jugador1.jugarCarta("Huevo Monstruoso", "HBAR");
-
-        assertEquals(true, jugador1.cartaEstaEnJuego("Huevo Monstruoso", "HBAR"));
-
-    }
 
     @Test
-    public void test03AgregarCartaMagica() {
-        Jugador jugador1 = new Jugador();
-        jugador1.jugarCarta("Agujero Negro", "VBAR");
-        assertEquals(true, jugador1.cartaEstaEnJuego("Agujero Negro", "VBAR"));
+    public void AtacarAMonstruoConMayorAtaqueAmbosPoscionAtaque() {
 
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador(campo1);
+        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacante);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador(campo2);
+        CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900, new NivelBasico() );
+        huevoMonstruoso.cambiarEstado(new PosicionVertical());
+        huevoMonstruoso.asignarDuenio(atacado);
+
+        insectoComeHombres.atacarOtraCarta(huevoMonstruoso);
+
+        //Los puntos de vida del atacante tienen que disminuir 150
+        assertEquals(7850,atacante.puntosDeVida());
+
+        //Confirmo que la carta atacante fue destruida
+        assertEquals(true, insectoComeHombres.estaDestruida());
     }
 
     @Test
-    public void test04AgregarCartaTrampa() {
-        Jugador jugador1 = new Jugador();
-        jugador1.jugarCarta("Cilindro Magico", "VBAB");
-        assertEquals(true, jugador1.cartaEstaEnJuego("Cilindro Magico", "VBAB"));
+    public void AtacarAMonstruoConMenorAtaqueAmbosPoscionAtaque() {
+
+        //Seteo el atacante
+        Campo campo2 = new Campo();
+        Jugador atacante = new Jugador(campo2);
+        CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900, new NivelBasico() );
+        huevoMonstruoso.cambiarEstado(new PosicionVertical());
+        huevoMonstruoso.asignarDuenio(atacante);
+
+        //Seteo el atacado
+        Campo campo1 = new Campo();
+        Jugador atacado = new Jugador(campo1);
+        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacado);
+
+        huevoMonstruoso.atacarOtraCarta(insectoComeHombres);
+
+        //Los puntos de vida del atacado tienen que disminuir 150
+        assertEquals(7850, atacado.puntosDeVida());
+
+        //Confirmo que la carta atacada fue destruida
+        assertEquals(true, insectoComeHombres.estaDestruida());
+    }
+
+    @Test
+    public void AtacarAMonstruoConIgualAtaqueAmbosEnPosicionAtaque() {
+
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador(campo1);
+        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacante);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador(campo2);
+        CartaMonstruo insectoComeHombres2 = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres2.cambiarEstado(new PosicionVertical());
+        insectoComeHombres2.asignarDuenio(atacado);
+
+        insectoComeHombres.atacarOtraCarta(insectoComeHombres2);
+
+        assertEquals(8000, atacado.puntosDeVida());
+        assertEquals(8000,atacante.puntosDeVida());
+
+        assertEquals(true, insectoComeHombres.estaDestruida());
+        assertEquals(true, insectoComeHombres2.estaDestruida());
+    }
+
+    @Test
+    public void AtacarMonstruoEnModoDefensaConMenorDefensaQueElAtaqueDelAtacante() {
+
+       //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador(campo1);
+        CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
+        abismoReluciente.cambiarEstado(new PosicionVertical());
+        abismoReluciente.asignarDuenio(atacante);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador(campo2);
+        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres.cambiarEstado(new PosicionHorizontal());
+        insectoComeHombres.asignarDuenio(atacado);
+
+        abismoReluciente.atacarOtraCarta(insectoComeHombres);
+
+        assertEquals(8000,atacado.puntosDeVida());
+        assertEquals(true, insectoComeHombres.estaDestruida());
 
     }
 
 
-//    @Test
-//    public void test05AgregarCartaAlCementerio(){
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.destriurCarta("Huevo Monstruoso");
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Huevo Monstruoso"));
-//    }
-//
-//    @Test
-//    public void test06AtaqueCartaMonstruoConDerrota() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.atacar("Insecto Come-Hombres", "Huevo Monstruoso");
-//        jugador1.destruirCarta("Insecto Come-Hombres");
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
-//    }
-//
-//    @Test
-//    public void test06AtaqueCartaMonstruoConDerrotaPuntosDeVidaCorrectos() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.atacar("Insecto Come-Hombres", "Huevo Monstruoso");
-//        jugador1.destruirCarta("Insecto Come-Hombres");
-//
-//        assertEquals(7500, jugador1.obtenerPuntosDeVida());
-//    }
-//
-//    @Test
-//    public void test07AtaqueCartaMonstruoConVictoria() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador2.atacar("Huevo Monstruoso","Insecto Come-Hombres");
-//        jugador1.destruirCarta("Insecto Come-Hombres");
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
-//        assertEquals(false, jugador1.cartaEstaEnJuego("Insecto Come-Hombres"));
-//    }
-//
-//    @Test
-//    public void test07AtaqueCartaMonstruoConVictoriaConPuntosDeVidaCorrectos() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador2.atacar("Huevo Monstruoso","Insecto Come-Hombres");
-//        jugador1.destruirCarta("Insecto Come-Hombres");
-//
-//        assertEquals(7500, jugador1.obtenerPuntosDeVida());
-//    }
-//
-//
-//
-//    @Test
-//    public void test08AtaqueCartaMonstruoConEmpate() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Insecto Come-Hombres", "PA");
-//        jugador2.atacar("Insecto Come-Hombres","Insecto Come-Hombres");
-//
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
-//        assertEquals(true, jugador2.cartaEnCementerio("Insecto Come-Hombres"));
-//        assertEquals(8000, jugador1.obtenerPuntosDeVida());
-//        assertEquals(8000, jugador2.obtenerPuntosDeVida());
-//    }
-//
-//    @Test
-//    public void test09AtaqueCartaMonstruoEnPDConVictoria() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PD");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador2.atacar("Huevo Monstruoso","Insecto Come-Hombres");
-//        jugador1.destruirCarta("Insecto Come-Hombres");
-//
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
-//        assertEquals(8000, jugador1.obtenerPuntosDeVida());
-//    }
-//    @Test
-//    public void test10AtaqueCartaMonstruoEnPDConDerrota() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Huevo Monstruoso", "PD");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Insecto Come-Hombres", "PA");
-//        jugador2.atacar("Insecto Come-Hombres", "Huevo Monstruoso");
-//        jugador2.destruirCarta("Insecto Come-Hombres");
-//
-//
-//        assertEquals(true, jugador1.cartaEstaEnJuego("Huevo Monstruoso"));
-//        assertEquals(8000, jugador1.obtenerPuntosDeVida());
-//    }
-//
+
+    @Test
+    public void AtacarMonstruoEnModoDefensaConMayorDefensaQueElAtaqueDelAtacante() {
+
+        //Seteo el atacante
+        Campo campo2 = new Campo();
+        Jugador atacante = new Jugador(campo2);
+        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacante);
+
+        //Seteo el atacado
+        Campo campo1 = new Campo();
+        Jugador atacado = new Jugador(campo1);
+        CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
+        abismoReluciente.cambiarEstado(new PosicionHorizontal());
+        abismoReluciente.asignarDuenio(atacado);
+
+        insectoComeHombres.atacarOtraCarta(abismoReluciente);
+
+        //El atacante recibe daño por tenes menor puntos de ataque que la defensa del atacado
+        assertEquals(8000, atacado.puntosDeVida());
+        assertEquals(6650, atacante.puntosDeVida());
+
+        //La carta atacante es destruida
+        assertEquals(false, abismoReluciente.estaDestruida());
+        assertEquals(true, insectoComeHombres.estaDestruida());
+    }
+
 //    @Test
 //    public void test11ColocarAgujeroNegro() {
 //        Campo campo1 = new Campo();
@@ -174,33 +157,35 @@ public class AlGoOhTest {
 //
 //    }
 //
-//    @Test
-//    public void test12ColocarMonstruoConSacrificio() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.jugarCarta("Chica Maga Oscura","PA");
-//
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Huevo Monstruoso"));
-//        assertEquals(true, jugador1.cartaEstaEnJuego("Chica Maga Oscura"));
-//    }
-//
-//    @Test
-//    public void test13ColocarMonstruoConDosSacrificios() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Huevo Monstruoso", "PA");
-//        jugador1.jugarCarta("Insecto Come-Hombres", "PA");
-//        jugador1.jugarCarta("Dragon Blanco De Ojos Azules","PA");
-//
-//
-//        assertEquals(true, jugador1.cartaEnCementerio("Huevo Monstruoso"));
-//        assertEquals(true, jugador1.cartaEnCementerio("Insecto Come-Hombres"));
-//        assertEquals(true, jugador1.cartaEstaEnJuego("Dragon Blanco De Ojos Azules"));
-//
-//
-//    }
+    @Test
+    public void ColocarMonstruoConUnSacrificio() {
+
+    Campo campo = new Campo();
+    CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+    insectoComeHombres.colocarEnCampo(campo);
+    CartaMonstruo chicaMagaOscura = new CartaMonstruo("Chica Maga Oscura", 2000, 1700, new NivelMedio());
+    chicaMagaOscura.colocarEnCampo(campo);
+
+    assertEquals(true, insectoComeHombres.estaDestruida());
+}
+
+    @Test
+    public void ColocarMonstruoConDosSacrificios(){
+
+        Campo campo = new Campo();
+        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
+        insectoComeHombres.colocarEnCampo(campo);
+        CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
+        abismoReluciente.colocarEnCampo(campo);
+        CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo("Dragon Blanco De Ojos Azules", 3000, 2500, new NivelAlto());
+        dragonBlancoDeOjosAzules.colocarEnCampo(campo);
+
+
+        assertEquals(true, insectoComeHombres.estaDestruida());
+        assertEquals(true, abismoReluciente.estaDestruida());
+    }
+
+
 }
 
 

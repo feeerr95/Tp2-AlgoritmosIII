@@ -8,9 +8,9 @@ public class BaseDatosCartas {
 	
 	public BaseDatosCartas() {
 		this.cartas = new HashMap<>();
-		CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900);
+		CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900, new NivelBasico());
 		this.cartas.putIfAbsent("Huevo Monstruoso", huevoMonstruoso);
-		CartaMonstruo insectoComeHombre = new CartaMonstruo("Insecto Come-Hombres", 450, 600);
+		CartaMonstruo insectoComeHombre = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
 		this.cartas.putIfAbsent("Insecto Come-Hombres", insectoComeHombre);
 
 		CartaTrampa cilindroMagico = new CartaTrampa("Cilindro Magico");
