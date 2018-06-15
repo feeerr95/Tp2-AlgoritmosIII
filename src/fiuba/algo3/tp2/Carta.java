@@ -2,7 +2,7 @@ package fiuba.algo3.tp2;
 
 import java.util.Stack;
 
-public abstract class Carta {
+public abstract class Carta extends EfedtoDeCarta{
 	
 	protected String nombreCarta;
 	protected PosicionCarta posicion;
