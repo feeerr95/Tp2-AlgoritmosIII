@@ -6,7 +6,7 @@ public class CartaTerreno extends Carta{
 	}
 
 	@Override
-	protected void colocarEnCampo(Campo campo) {
+	protected void colocarEnCampo(Tablero unTablero, Campo campo) {
 		campo.agregarCartaCampo(this);
 	}
 }

@@ -5,4 +5,5 @@ import java.util.Stack;
 public interface ZonaDeJuego {
 
     void eliminarCartasDestruidas (Stack cementerio);
+    void destruirTodasLasCartas(Stack cementerio);
 }

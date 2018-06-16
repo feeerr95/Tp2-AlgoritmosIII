@@ -18,6 +18,14 @@ public class ZonaDefensa implements ZonaDeJuego {
         }
     }
 
+    @Override
+    public void destruirTodasLasCartas(Stack cementerio) {
+        for(CartaEfecto carta: casilleros){
+            carta.destruir();
+        }
+        this.eliminarCartasDestruidas(cementerio);
+    }
+
     public void agregarCarta(CartaEfecto unaCarta) {
         if(casilleros.size() < 5) {
             casilleros.add(unaCarta);

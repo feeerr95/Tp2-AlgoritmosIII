@@ -18,7 +18,7 @@ public class Jugador {
 		return this.puntosDeVida;
 	}
 
-	public void limpiarZonaAtaque() {
-		this.campoDeJuego.limpiarZonaAtaque();
+	public void destruirTodasLasCartas(){
+		this.campoDeJuego.destruirTodasLasCartas();
 	}
 }

@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 
+import javafx.scene.control.Tab;
 import org.junit.Test;
 
 import fiuba.algo3.tp2.BaseDatosCartas.*;
@@ -142,38 +143,49 @@ public class AlGoOhTest {
     }
 
     @Test
-    public void test11ColocarAgujeroNegro() {
-    	//Agrego 3 cartas monstruo al campo
+    public void ColocarYUtilizarAgujeroNegroQueEliminaATodasLasCartas() {
+
     	Campo campo1 = new Campo();
+    	Jugador jugador1 = new Jugador(campo1);
+    	Campo campo2 = new Campo();
+    	Jugador jugador2 = new Jugador(campo2);
+
+    	Tablero tablero = new Tablero();
+    	tablero.cargarJugadores(jugador1, jugador2);
+
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
-        CartaMonstruo huevoMonstruoso2 = new HuevoMonstruoso();
-        campo1.agregarCartaMonstruo(insectoComeHombres);
-        campo1.agregarCartaMonstruo(huevoMonstruoso);
-        campo1.agregarCartaMonstruo(huevoMonstruoso2);
-        Jugador jugador = new Jugador(campo1);
-        insectoComeHombres.asignarDuenio(jugador);
-        huevoMonstruoso.asignarDuenio(jugador);
-        huevoMonstruoso2.asignarDuenio(jugador);
-        
-        //Creo y uso agujero negro
-        CartaMagica agujeroNegro = new AgujeroNegro();
-        agujeroNegro.asignarDuenio(jugador);
+        CartaMonstruo piernaDerechaDeExodia = new PiernaDerechaDeExodia();
+        CartaMonstruo cabezaDeExodia = new CabezaDeExodia();
+        CartaEfecto agujeroNegro = new AgujeroNegro();
+        CartaEfecto agujeroNegro2 = new AgujeroNegro();
+
+        insectoComeHombres.colocarEnCampo(tablero,campo1);
+        huevoMonstruoso.colocarEnCampo(tablero,campo1);
+        piernaDerechaDeExodia.colocarEnCampo(tablero,campo2);
+        cabezaDeExodia.colocarEnCampo(tablero,campo2);
+        agujeroNegro.colocarEnCampo(tablero,campo1);
+        agujeroNegro2.colocarEnCampo(tablero, campo2);
+
         agujeroNegro.usarEfecto();
 
         assertEquals(true, insectoComeHombres.estaDestruida());
         assertEquals(true, huevoMonstruoso.estaDestruida());
-        assertEquals(true, huevoMonstruoso.estaDestruida());
+        assertEquals(true, cabezaDeExodia.estaDestruida());
+        assertEquals(true, piernaDerechaDeExodia.estaDestruida());
+        assertEquals(true, agujeroNegro.estaDestruida());
+        assertEquals(true, agujeroNegro2.estaDestruida());
     }
 
     @Test
     public void ColocarMonstruoConUnSacrificio() {
 
     Campo campo = new Campo();
+    Tablero tablero = new Tablero();
     CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
-    insectoComeHombres.colocarEnCampo(campo);
+    insectoComeHombres.colocarEnCampo(tablero, campo);
     CartaMonstruo chicaMagaOscura = new CartaMonstruo("Chica Maga Oscura", 2000, 1700, new NivelMedio());
-    chicaMagaOscura.colocarEnCampo(campo);
+    chicaMagaOscura.colocarEnCampo(tablero, campo);
 
     assertEquals(true, insectoComeHombres.estaDestruida());
 }
@@ -182,12 +194,13 @@ public class AlGoOhTest {
     public void ColocarMonstruoConDosSacrificios(){
 
         Campo campo = new Campo();
+        Tablero tablero = new Tablero();
         CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
-        insectoComeHombres.colocarEnCampo(campo);
+        insectoComeHombres.colocarEnCampo(tablero, campo);
         CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
-        abismoReluciente.colocarEnCampo(campo);
+        abismoReluciente.colocarEnCampo(tablero, campo);
         CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo("Dragon Blanco De Ojos Azules", 3000, 2500, new NivelAlto());
-        dragonBlancoDeOjosAzules.colocarEnCampo(campo);
+        dragonBlancoDeOjosAzules.colocarEnCampo(tablero, campo);
 
 
         assertEquals(true, insectoComeHombres.estaDestruida());

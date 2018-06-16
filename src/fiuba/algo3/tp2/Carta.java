@@ -9,11 +9,17 @@ public abstract class Carta{
 	protected Jugador duenio;
 	protected String estado;
 	protected boolean bocaAbajo;
+	protected Tablero tablero;
 
 	public Carta() {
 		posicion = new PosicionVertical();
 		estado = "En juego";
 		bocaAbajo = true;
+
+	}
+
+	public void establecerTablero(Tablero unTablero){
+		this.tablero = unTablero;
 	}
 
 	public void asignarDuenio(Jugador duenioNuevo){
@@ -40,7 +46,7 @@ public abstract class Carta{
 		this.bocaAbajo = !this.bocaAbajo;
 	}
 	
-	protected abstract void colocarEnCampo(Campo campo);
+	protected abstract void colocarEnCampo(Tablero tablero, Campo campo);
 
 	public void usarEfecto() {
 		
