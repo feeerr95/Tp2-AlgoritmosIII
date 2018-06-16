@@ -8,9 +8,5 @@ public class CartaMagica extends CartaEfecto {
 		nombreCarta = nombre;
 	}
 
-	@Override
-	public void usarEfecto() {
-		
-	}
 }
 

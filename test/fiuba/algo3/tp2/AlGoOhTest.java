@@ -2,6 +2,8 @@ package fiuba.algo3.tp2;
 
 import org.junit.Test;
 
+import fiuba.algo3.tp2.BaseDatosCartas.*;
+
 import static org.junit.Assert.assertEquals;
 
 public class AlGoOhTest {
@@ -139,24 +141,31 @@ public class AlGoOhTest {
         assertEquals(true, insectoComeHombres.estaDestruida());
     }
 
-//    @Test
-//    public void test11ColocarAgujeroNegro() {
-//        Campo campo1 = new Campo();
-//        Jugador jugador1 = new Jugador(campo1);
-//        jugador1.jugarCarta("Huevo Monstruoso", "PA");
-//        Campo campo2 = new Campo();
-//        Jugador jugador2 = new Jugador(campo2);
-//        jugador2.jugarCarta("Insecto Come-Hombres", "PA");
-//
-//        jugador1.jugarCarta("Agujero Negro", "PA");
-//
-//        assertEquals(true, jugador1.campoVacio());
-//        assertEquals(true, jugador2.campoVacio());
-//        assertEquals(8000, jugador1.obtenerPuntosDeVida());
-//        assertEquals(8000, jugador2.obtenerPuntosDeVida());
-//
-//    }
-//
+    @Test
+    public void test11ColocarAgujeroNegro() {
+    	//Agrego 3 cartas monstruo al campo
+    	Campo campo1 = new Campo();
+        CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+        CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
+        CartaMonstruo huevoMonstruoso2 = new HuevoMonstruoso();
+        campo1.agregarCartaMonstruo(insectoComeHombres);
+        campo1.agregarCartaMonstruo(huevoMonstruoso);
+        campo1.agregarCartaMonstruo(huevoMonstruoso2);
+        Jugador jugador = new Jugador(campo1);
+        insectoComeHombres.asignarDuenio(jugador);
+        huevoMonstruoso.asignarDuenio(jugador);
+        huevoMonstruoso2.asignarDuenio(jugador);
+        
+        //Creo y uso agujero negro
+        CartaMagica agujeroNegro = new AgujeroNegro();
+        agujeroNegro.asignarDuenio(jugador);
+        agujeroNegro.usarEfecto();
+
+        assertEquals(true, insectoComeHombres.estaDestruida());
+        assertEquals(true, huevoMonstruoso.estaDestruida());
+        assertEquals(true, huevoMonstruoso.estaDestruida());
+    }
+
     @Test
     public void ColocarMonstruoConUnSacrificio() {
 

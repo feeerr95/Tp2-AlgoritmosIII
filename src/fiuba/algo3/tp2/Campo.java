@@ -39,4 +39,8 @@ public class Campo {
 	public void eliminarCartasDestruidas(){
 		this.zonaAtaque.eliminarCartasDestruidas(cementerio);
 	}
+
+	public void limpiarZonaAtaque() {	
+		this.zonaAtaque.limpiarZonaAtaque(cementerio);
+	}
 }

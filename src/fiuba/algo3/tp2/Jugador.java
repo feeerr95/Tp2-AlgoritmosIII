@@ -6,10 +6,8 @@ public class Jugador {
 	private Campo campoDeJuego;
 
 	public Jugador(Campo campo) {
-
 		this.campoDeJuego = campo;
 		this.puntosDeVida = 8000;
-		this.campoDeJuego = new Campo();
 	}
 
 	public void restarPuntosDeVida(int cantidad){
@@ -18,5 +16,9 @@ public class Jugador {
 
 	public int puntosDeVida(){
 		return this.puntosDeVida;
+	}
+
+	public void limpiarZonaAtaque() {
+		this.campoDeJuego.limpiarZonaAtaque();
 	}
 }

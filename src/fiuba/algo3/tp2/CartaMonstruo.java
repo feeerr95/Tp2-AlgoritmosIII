@@ -2,9 +2,9 @@ package fiuba.algo3.tp2;
 
 public class CartaMonstruo extends Carta{
 
-	private int atk;
-	private int def;
-	private Nivel nivel;
+	protected int atk;
+	protected int def;
+	protected Nivel nivel;
 
 	public CartaMonstruo(String unNombre, int unAtaque, int unaDefensa, Nivel nivelDeLaCarta) {
 		nivel = nivelDeLaCarta;
@@ -28,4 +28,5 @@ public class CartaMonstruo extends Carta{
 	protected void colocarEnCampo(Campo campo){
 		nivel.colocarEnCampo(campo, this);
 	}
+	
 }

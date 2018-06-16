@@ -36,5 +36,12 @@ public class ZonaAtaque implements ZonaDeJuego {
     public int cantidadDeMonstruos(){
         return casilleros.size();
     }
+	public void limpiarZonaAtaque(Stack cementerio) {
+		for(CartaMonstruo carta: casilleros) {
+			carta.destruir();
+			carta.mandarAlCementerio(cementerio);
+		}
+		
+	}
 
 }

@@ -2,16 +2,18 @@ package fiuba.algo3.tp2;
 
 import java.util.Stack;
 
-public abstract class Carta implements EfectoDeCarta{
+public abstract class Carta{
 	
 	protected String nombreCarta;
 	protected PosicionCarta posicion;
 	protected Jugador duenio;
 	protected String estado;
+	protected boolean bocaAbajo;
 
 	public Carta() {
 		posicion = new PosicionVertical();
 		estado = "En juego";
+		bocaAbajo = true;
 	}
 
 	public void asignarDuenio(Jugador duenioNuevo){
@@ -34,6 +36,13 @@ public abstract class Carta implements EfectoDeCarta{
 		if(this.estaDestruida()) cementerio.push(this);
 	}
 
+	public void darVuelta() {
+		this.bocaAbajo = !this.bocaAbajo;
+	}
+	
 	protected abstract void colocarEnCampo(Campo campo);
 
+	public void usarEfecto() {
+		
+	}
 }
