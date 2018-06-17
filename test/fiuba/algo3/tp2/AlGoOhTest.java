@@ -174,7 +174,9 @@ public class AlGoOhTest {
         assertEquals(true, cabezaDeExodia.estaDestruida());
         assertEquals(true, piernaDerechaDeExodia.estaDestruida());
         assertEquals(true, agujeroNegro.estaDestruida());
-        assertEquals(true, agujeroNegro2.estaDestruida());
+
+        //Solo elimina a las cartas monstruo
+        assertEquals(false, agujeroNegro2.estaDestruida());
     }
 
     @Test

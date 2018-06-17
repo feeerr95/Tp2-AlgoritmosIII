@@ -18,7 +18,7 @@ public class Jugador {
 		return this.puntosDeVida;
 	}
 
-	public void destruirTodasLasCartas(){
-		this.campoDeJuego.destruirTodasLasCartas();
+	public void destruirTodasLasCartasMonstruo(){
+		this.campoDeJuego.destruirTodasLasCartasMonstruo();
 	}
 }

@@ -18,7 +18,6 @@ public class ZonaAtaque implements ZonaDeJuego {
         }
     }
 
-    @Override
     public void destruirTodasLasCartas(Stack cementerio) {
         for(CartaMonstruo carta: casilleros){
             carta.destruir();

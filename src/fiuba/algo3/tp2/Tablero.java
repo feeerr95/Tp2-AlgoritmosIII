@@ -14,8 +14,8 @@ public class Tablero {
     }
 
 
-    public void eliminarTodasLasCartas(){
-        this.jugador1.destruirTodasLasCartas();
-        this.jugador2.destruirTodasLasCartas();
+    public void eliminarTodasLasCartasMonstruo(){
+        this.jugador1.destruirTodasLasCartasMonstruo();
+        this.jugador2.destruirTodasLasCartasMonstruo();
     }
 }

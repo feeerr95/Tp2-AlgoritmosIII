@@ -40,8 +40,7 @@ public class Campo {
 		this.zonaAtaque.eliminarCartasDestruidas(cementerio);
 	}
 
-	public void destruirTodasLasCartas(){
+	public void destruirTodasLasCartasMonstruo(){
 		this.zonaAtaque.destruirTodasLasCartas(cementerio);
-		this.zonaDefensa.destruirTodasLasCartas(cementerio);
 	}
 }

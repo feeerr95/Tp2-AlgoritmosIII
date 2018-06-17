@@ -10,6 +10,7 @@ public class AgujeroNegro extends CartaMagica{
 	
 	@Override
 	public void usarEfecto() {
-		tablero.eliminarTodasLasCartas();
+		tablero.eliminarTodasLasCartasMonstruo();
+		this.destruir();
 	}
 }
