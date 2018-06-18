@@ -149,23 +149,22 @@ public class AlGoOhTest {
     	Campo campo2 = new Campo();
     	Jugador jugador2 = new Jugador(campo2);
 
-    	Tablero tablero = new Tablero();
-    	tablero.cargarJugadores(jugador1, jugador2);
-
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
         CartaMonstruo piernaDerechaDeExodia = new PiernaDerechaDeExodia();
         CartaMonstruo cabezaDeExodia = new CabezaDeExodia();
         CartaEfecto agujeroNegro = new AgujeroNegro();
         CartaEfecto agujeroNegro2 = new AgujeroNegro();
+        
+        insectoComeHombres.colocarEnCampo(campo1);
+        huevoMonstruoso.colocarEnCampo(campo1);
+        piernaDerechaDeExodia.colocarEnCampo(campo2);
+        cabezaDeExodia.colocarEnCampo(campo2);
+        agujeroNegro.colocarEnCampo(campo1);
+        agujeroNegro2.colocarEnCampo(campo2);
 
-        insectoComeHombres.colocarEnCampo(tablero,campo1);
-        huevoMonstruoso.colocarEnCampo(tablero,campo1);
-        piernaDerechaDeExodia.colocarEnCampo(tablero,campo2);
-        cabezaDeExodia.colocarEnCampo(tablero,campo2);
-        agujeroNegro.colocarEnCampo(tablero,campo1);
-        agujeroNegro2.colocarEnCampo(tablero, campo2);
-
+        agujeroNegro.asignarDuenio(jugador1);
+        agujeroNegro.asignarEnemigo(jugador2);
         agujeroNegro.usarEfecto();
 
         assertEquals(true, insectoComeHombres.estaDestruida());

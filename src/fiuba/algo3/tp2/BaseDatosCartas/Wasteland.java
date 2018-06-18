@@ -10,6 +10,7 @@ public class Wasteland extends CartaMagica{
 	
 	@Override
 	public void usarEfecto() {
-		tablero.bonificarCartas(this.duenio, 200, 0 , 0, 300);
+		this.duenio.bonificarCartas(200, 0);
+		this.enemigo.bonificarCartas(0, 300);
 	}
 }

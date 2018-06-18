@@ -10,6 +10,7 @@ public class Sogen extends CartaMagica{
 	
 	@Override
 	public void usarEfecto() {
-		tablero.bonificarCartas(this.duenio, 0, 500 , 200, 0);
+		this.duenio.bonificarCartas(0, 500);
+		this.enemigo.bonificarCartas(200, 0);
 	}
 }

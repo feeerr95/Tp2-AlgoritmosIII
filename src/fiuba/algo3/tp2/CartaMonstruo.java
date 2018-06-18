@@ -29,9 +29,8 @@ public class CartaMonstruo extends Carta{
 		this.duenio.restarPuntosDeVida(cantidad);
 	}
 
-	protected void colocarEnCampo(Tablero unTablero, Campo campo){
+	protected void colocarEnCampo(Campo campo){
 		nivel.colocarEnCampo(campo, this);
-		tablero = unTablero;
 	}
 
 	public void cambiarBonificaciones(int atkDuenio, int defDuenio) {

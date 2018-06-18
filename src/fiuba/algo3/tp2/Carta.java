@@ -7,9 +7,10 @@ public abstract class Carta{
 	protected String nombreCarta;
 	protected PosicionCarta posicion;
 	protected Jugador duenio;
+	protected Jugador enemigo;
 	protected String estado;
 	protected boolean bocaAbajo;
-	protected Tablero tablero;
+	
 
 	public Carta() {
 		posicion = new PosicionVertical();
@@ -18,8 +19,8 @@ public abstract class Carta{
 
 	}
 
-	public void establecerTablero(Tablero unTablero){
-		this.tablero = unTablero;
+	public void asignarEnemigo(Jugador unEnemigo){
+		this.enemigo = unEnemigo;
 	}
 
 	public void asignarDuenio(Jugador duenioNuevo){
@@ -46,7 +47,7 @@ public abstract class Carta{
 		this.bocaAbajo = !this.bocaAbajo;
 	}
 	
-	protected abstract void colocarEnCampo(Tablero tablero, Campo campo);
+	protected abstract void colocarEnCampo(Campo campo);
 
 	public void usarEfecto() {
 		
