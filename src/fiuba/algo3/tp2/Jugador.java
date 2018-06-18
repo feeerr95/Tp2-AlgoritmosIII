@@ -55,4 +55,8 @@ public class Jugador {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public void agregarEnemigo(Jugador unEnemigo) {
+		this.enemigo = unEnemigo;
+	}
 }

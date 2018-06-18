@@ -181,12 +181,11 @@ public class AlGoOhTest {
     public void ColocarMonstruoConUnSacrificio() {
 
     Campo campo = new Campo();
-    Tablero tablero = new Tablero();
-    CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
-    insectoComeHombres.colocarEnCampo(tablero, campo);
-    CartaMonstruo chicaMagaOscura = new CartaMonstruo("Chica Maga Oscura", 2000, 1700, new NivelMedio());
-    chicaMagaOscura.colocarEnCampo(tablero, campo);
-
+ 
+    CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+    insectoComeHombres.colocarEnCampo(campo);
+    CartaMonstruo chicaMagaOscura = new ChicaMagaOscura();
+    chicaMagaOscura.colocarEnCampo(campo);
     assertEquals(true, insectoComeHombres.estaDestruida());
 }
 
@@ -194,13 +193,12 @@ public class AlGoOhTest {
     public void ColocarMonstruoConDosSacrificios(){
 
         Campo campo = new Campo();
-        Tablero tablero = new Tablero();
-        CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
-        insectoComeHombres.colocarEnCampo(tablero, campo);
-        CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
-        abismoReluciente.colocarEnCampo(tablero, campo);
-        CartaMonstruo dragonBlancoDeOjosAzules = new CartaMonstruo("Dragon Blanco De Ojos Azules", 3000, 2500, new NivelAlto());
-        dragonBlancoDeOjosAzules.colocarEnCampo(tablero, campo);
+        CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+        insectoComeHombres.colocarEnCampo(campo);
+        CartaMonstruo abismoReluciente = new AbismoReluciente();
+        abismoReluciente.colocarEnCampo(campo);
+        CartaMonstruo dragonBlancoDeOjosAzules = new DragonBlancoDeOjosAzules();
+        dragonBlancoDeOjosAzules.colocarEnCampo(campo);
 
 
         assertEquals(true, insectoComeHombres.estaDestruida());
@@ -210,15 +208,13 @@ public class AlGoOhTest {
     @Test
     public void UsarBonificadoresDeCampoYAtacar() {
     	
-    	Tablero tablero = new Tablero();
-    	
         //Seteo el atacante
         Campo campo1 = new Campo();
         Jugador atacante = new Jugador("jugador1", campo1);
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.cambiarEstado(new PosicionVertical());
         insectoComeHombres.asignarDuenio(atacante);
-        insectoComeHombres.colocarEnCampo(tablero, campo1);
+        insectoComeHombres.colocarEnCampo(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
@@ -226,12 +222,15 @@ public class AlGoOhTest {
         CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
         huevoMonstruoso.cambiarEstado(new PosicionVertical());
         huevoMonstruoso.asignarDuenio(atacado);
-        huevoMonstruoso.colocarEnCampo(tablero, campo2);
+        huevoMonstruoso.colocarEnCampo(campo2);
 
-        tablero.cargarJugadores(atacante, atacado);
+        atacante.agregarEnemigo(atacado);
+        atacado.agregarEnemigo(atacante);
+        
         CartaMagica cartaDeCampo = new Wasteland();
         cartaDeCampo.asignarDuenio(atacante);
-        cartaDeCampo.colocarEnCampo(tablero, campo1);
+        cartaDeCampo.asignarEnemigo(atacado);
+        cartaDeCampo.colocarEnCampo(campo1);
         cartaDeCampo.usarEfecto();
         
         //Como esta vez hay un efecto de campo, Insecto come hombres debería ganar
@@ -246,16 +245,17 @@ public class AlGoOhTest {
         CartaMonstruo acechadorDelCraneo = new AcechadorDelCraneo();
         acechadorDelCraneo.cambiarEstado(new PosicionHorizontal());
         acechadorDelCraneo.asignarDuenio(atacante);
-        acechadorDelCraneo.colocarEnCampo(tablero, campo1);
+        acechadorDelCraneo.colocarEnCampo(campo1);
         
         CartaMonstruo cabezaDeExodia = new CabezaDeExodia();
         cabezaDeExodia.cambiarEstado(new PosicionVertical());
         cabezaDeExodia.asignarDuenio(atacado);
-        cabezaDeExodia.colocarEnCampo(tablero, campo2);
+        cabezaDeExodia.colocarEnCampo(campo2);
         
         CartaMagica cartaDeCampo2 = new Sogen();
         cartaDeCampo2.asignarDuenio(atacante);
-        cartaDeCampo2.colocarEnCampo(tablero, campo1);
+        cartaDeCampo2.asignarEnemigo(atacado);
+        cartaDeCampo2.colocarEnCampo(campo1);
         cartaDeCampo2.usarEfecto();
         
         //Normalmente la Cabeza de exodia debería destruir a la otra carta, pero no sucede ya que hay un efecto de campo
