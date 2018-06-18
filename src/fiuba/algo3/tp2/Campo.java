@@ -43,4 +43,9 @@ public class Campo {
 	public void destruirTodasLasCartasMonstruo(){
 		this.zonaAtaque.destruirTodasLasCartas(cementerio);
 	}
+
+	//Por el momento solo bonifica a las cartas actuales
+	public void bonificarCartas(int atkDuenio, int defDuenio) {
+		this.zonaAtaque.bonificarCartas(atkDuenio, defDuenio);		
+	}
 }

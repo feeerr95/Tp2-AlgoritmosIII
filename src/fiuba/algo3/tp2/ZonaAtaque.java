@@ -12,9 +12,10 @@ public class ZonaAtaque implements ZonaDeJuego {
     }
     @Override
 
-    public void eliminarCartasDestruidas(Stack cementerio) {
+    public void eliminarCartasDestruidas(  Stack cementerio) {
         for(CartaMonstruo carta: casilleros){
-            carta.mandarAlCementerio(cementerio);
+            carta.cambiarBonificaciones(0, 0);
+        	carta.mandarAlCementerio(cementerio);
         }
     }
 
@@ -44,6 +45,12 @@ public class ZonaAtaque implements ZonaDeJuego {
 
     public int cantidadDeMonstruos(){
         return casilleros.size();
+	}
+	public void bonificarCartas(int atkDuenio, int defDuenio) {
+		for(CartaMonstruo carta: casilleros) {
+			carta.cambiarBonificaciones(atkDuenio, defDuenio);
+		}
+		
 	}
 
 }

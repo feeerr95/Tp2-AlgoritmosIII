@@ -18,4 +18,14 @@ public class Tablero {
         this.jugador1.destruirTodasLasCartasMonstruo();
         this.jugador2.destruirTodasLasCartasMonstruo();
     }
+
+    //El dueño que se pasa por parámetro tiene que ser uno de los jugadores que esta agregado en tablero
+	public void bonificarCartas(Jugador duenio, int atkDuenio, int defDuenio, int atkEnemigo, int defEnemigo) {
+		duenio.bonificarCartas(atkDuenio, defDuenio);
+		if(duenio.obtenerNombre() == jugador1.obtenerNombre()) {
+			jugador2.bonificarCartas(atkEnemigo, defEnemigo);
+		}else {
+			jugador1.bonificarCartas(atkEnemigo, defEnemigo);
+		}	
+	}
 }

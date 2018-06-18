@@ -5,20 +5,24 @@ public class CartaMonstruo extends Carta{
 	protected int atk;
 	protected int def;
 	protected Nivel nivel;
+	private int bonificadorAtaque;
+	private int bonificadorDefensa;
 
 	public CartaMonstruo(String unNombre, int unAtaque, int unaDefensa, Nivel nivelDeLaCarta) {
 		nivel = nivelDeLaCarta;
 		nombreCarta = unNombre;
 		atk = unAtaque;
 		def = unaDefensa;
+		bonificadorAtaque = 0;
+		bonificadorDefensa = 0;
 	}
 
 	public void atacarOtraCarta(CartaMonstruo otraCarta){
-		otraCarta.recibirAtaque(this, this.duenio, this.posicion, this.atk);
+		otraCarta.recibirAtaque(this, this.duenio, this.posicion, this.atk + this.bonificadorAtaque);
 	}
 
 	private void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
-		this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk, this.def);
+		this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk + this.bonificadorAtaque, this.def + this.bonificadorDefensa);
 	}
 
 	public void restarPuntosDeVida(int cantidad){
@@ -28,6 +32,11 @@ public class CartaMonstruo extends Carta{
 	protected void colocarEnCampo(Tablero unTablero, Campo campo){
 		nivel.colocarEnCampo(campo, this);
 		tablero = unTablero;
+	}
+
+	public void cambiarBonificaciones(int atkDuenio, int defDuenio) {
+		this.bonificadorAtaque = atkDuenio;
+		this.bonificadorDefensa = defDuenio;
 	}
 	
 }

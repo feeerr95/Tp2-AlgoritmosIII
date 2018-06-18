@@ -9,8 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class AlGoOhTest {
 
-
-    @Test
+	@Test
     public void AtacarAMonstruoConMayorAtaqueAmbosPoscionAtaque() {
 
         //Seteo el atacante
@@ -139,7 +138,7 @@ public class AlGoOhTest {
 
         //La carta atacante es destruida
         assertEquals(false, abismoReluciente.estaDestruida());
-        assertEquals(true, insectoComeHombres.estaDestruida());
+        assertEquals(false, insectoComeHombres.estaDestruida());
     }
 
     @Test
@@ -209,7 +208,68 @@ public class AlGoOhTest {
         assertEquals(true, abismoReluciente.estaDestruida());
     }
 
+    @Test
+    public void UsarBonificadoresDeCampoYAtacar() {
+    	
+    	Tablero tablero = new Tablero();
+    	
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador("jugador1", campo1);
+        CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacante);
+        insectoComeHombres.colocarEnCampo(tablero, campo1);
 
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador("jugador2", campo2);
+        CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
+        huevoMonstruoso.cambiarEstado(new PosicionVertical());
+        huevoMonstruoso.asignarDuenio(atacado);
+        huevoMonstruoso.colocarEnCampo(tablero, campo2);
+
+        tablero.cargarJugadores(atacante, atacado);
+        CartaMagica cartaDeCampo = new Wasteland();
+        cartaDeCampo.asignarDuenio(atacante);
+        cartaDeCampo.colocarEnCampo(tablero, campo1);
+        cartaDeCampo.usarEfecto();
+        
+        //Como esta vez hay un efecto de campo, Insecto come hombres debería ganar
+        insectoComeHombres.atacarOtraCarta(huevoMonstruoso);
+        
+        //Los puntos de vida del atacado tienen que disminuir 50
+        assertEquals(7950,atacado.puntosDeVida());
+
+        //Confirmo que la carta atacada fue destruida
+        assertEquals(true, huevoMonstruoso.estaDestruida());
+    
+        CartaMonstruo acechadorDelCraneo = new AcechadorDelCraneo();
+        acechadorDelCraneo.cambiarEstado(new PosicionHorizontal());
+        acechadorDelCraneo.asignarDuenio(atacante);
+        acechadorDelCraneo.colocarEnCampo(tablero, campo1);
+        
+        CartaMonstruo cabezaDeExodia = new CabezaDeExodia();
+        cabezaDeExodia.cambiarEstado(new PosicionVertical());
+        cabezaDeExodia.asignarDuenio(atacado);
+        cabezaDeExodia.colocarEnCampo(tablero, campo2);
+        
+        CartaMagica cartaDeCampo2 = new Sogen();
+        cartaDeCampo2.asignarDuenio(atacante);
+        cartaDeCampo2.colocarEnCampo(tablero, campo1);
+        cartaDeCampo2.usarEfecto();
+        
+        //Normalmente la Cabeza de exodia debería destruir a la otra carta, pero no sucede ya que hay un efecto de campo
+        cabezaDeExodia.atacarOtraCarta(acechadorDelCraneo);
+        
+        //Los puntos de vida del atacado tienen que disminuir 100
+        assertEquals(7850,atacado.puntosDeVida());
+
+        //Confirmo que la carta atacada no fue destruida
+        assertEquals(false, acechadorDelCraneo.estaDestruida());
+        
+        
+    }
 }
 
 

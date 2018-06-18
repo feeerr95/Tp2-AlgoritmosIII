@@ -17,7 +17,6 @@ public class PosicionHorizontal implements PosicionCarta {
 		}
 		else if(diferenciaDeAtaque > 0){
 			cartaAtacante.restarPuntosDeVida( Math.abs(diferenciaDeAtaque) );
-			cartaAtacante.destruir();
 		}
 	}
 
