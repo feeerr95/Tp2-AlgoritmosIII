@@ -12,6 +12,7 @@ public class Campo {
 	private Mazo mazo;
 	private Collection<Carta> mano;
 	private CartaTerreno terreno;
+	private CartaTerreno terrenoEnemigo;
 
 	
 	public Campo() {
@@ -20,9 +21,19 @@ public class Campo {
 		this.mazo = new Mazo();
 		this.mano = new ArrayList<Carta>();
 		this.cementerio = new Stack<>();
+		this.terreno = new CartaTerreno("Carta campo neutro");
+		this.terrenoEnemigo = new CartaTerreno("Carta campo neutro");
 	}
 
 	public void agregarCartaMonstruo(CartaMonstruo unaCarta){
+		//Se comprueba si hay algún bonificador de poder
+		int aumentoAtkDuenio = this.terreno.obtenerAumentoAtkDuenio();
+		int aumentoDefDuenio = this.terreno.obtenerAumentoDefDuenio();
+		int aumentoAtkEnemigo = this.terrenoEnemigo.obtenerAumentoAtkDuenio();
+		int aumentoDefEnemigo = this.terrenoEnemigo.obtenerAumentoDefEnemigo();
+		unaCarta.modificarBonificadorAtaque(aumentoAtkDuenio + aumentoAtkEnemigo);
+		unaCarta.modificarBonificadorDefensa(aumentoDefDuenio + aumentoDefEnemigo);
+		
 		this.zonaAtaque.agregarCarta(unaCarta);
 	}
 
@@ -30,8 +41,12 @@ public class Campo {
 		this.zonaDefensa.agregarCarta(unaCarta);
 	}
 
-	public void agregarCartaCampo(CartaTerreno unaCarta){
-		this.terreno = unaCarta;
+	public void agregarCartaCampo(CartaTerreno unTerreno){
+		this.terreno = unTerreno;
+	}
+	
+	public void agregarCartaCampoEnemigo(CartaTerreno unTerreno) {
+		this.terrenoEnemigo = unTerreno;
 	}
 
 	public boolean eliminarUnaCarta(){
@@ -57,5 +72,9 @@ public class Campo {
 
 	public Carta agarrarCarta() {
 		return mazo.obtenerCartaDeMazo();
+	}
+
+	public void eliminarCartaMasDebil() {
+		this.zonaAtaque.eliminarCartaMasDebil(cementerio);		
 	}
 }

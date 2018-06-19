@@ -27,8 +27,8 @@ public class Mazo {
 		CartaMagica carta14 = new OllaDeLaCodicia();
 		CartaMonstruo carta15 = new PiernaDerechaDeExodia(); 
 		CartaMonstruo carta16 = new PiernaIzquierdaDeExodia(); 
-		CartaMagica carta17 = new Sogen(); 
-		CartaMagica carta18 = new Wasteland(); 
+		CartaTerreno carta17 = new Sogen(); 
+		CartaTerreno carta18 = new Wasteland(); 
 		mazo.add(carta1);
 		mazo.add(carta2);
 		mazo.add(carta3);

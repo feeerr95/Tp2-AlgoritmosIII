@@ -227,10 +227,11 @@ public class AlGoOhTest {
         atacante.agregarEnemigo(atacado);
         atacado.agregarEnemigo(atacante);
         
-        CartaMagica cartaDeCampo = new Wasteland();
+        CartaTerreno cartaDeCampo = new Wasteland();
         cartaDeCampo.asignarDuenio(atacante);
         cartaDeCampo.asignarEnemigo(atacado);
         cartaDeCampo.colocarEnCampo(campo1);
+        campo2.agregarCartaCampoEnemigo(cartaDeCampo);
         cartaDeCampo.usarEfecto();
         
         //Como esta vez hay un efecto de campo, Insecto come hombres debería ganar
@@ -252,10 +253,11 @@ public class AlGoOhTest {
         cabezaDeExodia.asignarDuenio(atacado);
         cabezaDeExodia.colocarEnCampo(campo2);
         
-        CartaMagica cartaDeCampo2 = new Sogen();
+        CartaTerreno cartaDeCampo2 = new Sogen();
         cartaDeCampo2.asignarDuenio(atacante);
         cartaDeCampo2.asignarEnemigo(atacado);
         cartaDeCampo2.colocarEnCampo(campo1);
+        campo2.agregarCartaCampoEnemigo(cartaDeCampo2);
         cartaDeCampo2.usarEfecto();
         
         //Normalmente la Cabeza de exodia debería destruir a la otra carta, pero no sucede ya que hay un efecto de campo
@@ -265,9 +267,7 @@ public class AlGoOhTest {
         assertEquals(7850,atacado.puntosDeVida());
 
         //Confirmo que la carta atacada no fue destruida
-        assertEquals(false, acechadorDelCraneo.estaDestruida());
-        
-        
+        assertEquals(false, acechadorDelCraneo.estaDestruida());  
     }
 }
 

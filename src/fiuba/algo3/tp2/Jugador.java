@@ -52,8 +52,7 @@ public class Jugador {
 //funciones de tablero	
 
 	public void eliminarCartaMasDebil() {
-		// TODO Auto-generated method stub
-		
+		this.campoDeJuego.eliminarCartaMasDebil();
 	}
 
 	public void agregarEnemigo(Jugador unEnemigo) {

@@ -46,11 +46,24 @@ public class ZonaAtaque implements ZonaDeJuego {
     public int cantidadDeMonstruos(){
         return casilleros.size();
 	}
+    
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
 		for(CartaMonstruo carta: casilleros) {
 			carta.cambiarBonificaciones(atkDuenio, defDuenio);
-		}
+		}	
+	}
+	
+	public void eliminarCartaMasDebil(Stack cementerio) {
+		CartaMonstruo cartaDebil = new CartaMonstruo("BorrarDebil", 10000, 0, new NivelBasico());
 		
+		for(CartaMonstruo cartaActual: casilleros) {
+			if(!cartaActual.bocaAbajo && cartaActual.atk < cartaDebil.atk) {
+				cartaDebil = cartaActual;
+			}
+		}
+		cartaDebil.cambiarBonificaciones(0, 0);
+		cartaDebil.destruir();
+		cartaDebil.mandarAlCementerio(cementerio);
 	}
 
 }
