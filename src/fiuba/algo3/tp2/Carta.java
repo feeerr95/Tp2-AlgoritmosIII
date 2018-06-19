@@ -19,10 +19,6 @@ public abstract class Carta{
 
 	}
 
-	public void asignarEnemigo(Jugador unEnemigo){
-		this.enemigo = unEnemigo;
-	}
-
 	public void asignarDuenio(Jugador duenioNuevo){
 		this.duenio = duenioNuevo;
 	}
@@ -49,7 +45,13 @@ public abstract class Carta{
 	
 	protected abstract void colocarEnCampo(Campo campo);
 
-	public void usarEfecto() {
-		
+
+
+	// REVISAR ESTO.
+
+	public void asignarEnemigo(Jugador unEnemigo){
+		this.enemigo = unEnemigo;
 	}
+
+	public abstract void usarEfecto();
 }

@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Stack;
 
 public class Campo {
@@ -10,7 +10,7 @@ public class Campo {
 	private ZonaDefensa  zonaDefensa;
 	private Stack<Carta> cementerio;
 	private Mazo mazo;
-	private Collection<Carta> mano;
+	private List<Carta> mano;
 	private CartaTerreno terreno;
 	private CartaTerreno terrenoEnemigo;
 
@@ -26,7 +26,9 @@ public class Campo {
 	}
 
 	public void agregarCartaMonstruo(CartaMonstruo unaCarta){
-		//Se comprueba si hay algún bonificador de poder
+
+		//VER SI SE PUEDE CAMBIAR ESTO. DE NO PODERSE, HACER UNA FUNCION PRIVADA QUE HAGA ESTO.
+		//Se comprueba si hay algun bonificador de poder
 		int aumentoAtkDuenio = this.terreno.obtenerAumentoAtkDuenio();
 		int aumentoDefDuenio = this.terreno.obtenerAumentoDefDuenio();
 		int aumentoAtkEnemigo = this.terrenoEnemigo.obtenerAumentoAtkDuenio();

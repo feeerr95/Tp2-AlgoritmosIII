@@ -42,25 +42,21 @@ public class ZonaAtaque implements ZonaDeJuego {
         cartaEliminada.destruir();
         return true;
     }
-    
-	public boolean eliminarUnaCarta(String nombreSacrificio) {
-        if(casilleros.isEmpty()) return false;
-        
-        for(CartaMonstruo cartaActual: casilleros) {
-        	if(cartaActual.obtenerNombre() == nombreSacrificio) {
-        		casilleros.remove( casilleros.size() - 1 );
-        		cartaActual.destruir();
-        		return true;
-        	}
-        	
-        } 
-        return false;  
-	}
 
     public int cantidadDeMonstruos(){
         return casilleros.size();
 	}
-    
+
+
+
+
+
+
+
+
+
+	//REVISAR ESTO.
+
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
 		for(CartaMonstruo carta: casilleros) {
 			carta.cambiarBonificaciones(atkDuenio, defDuenio);
@@ -70,7 +66,7 @@ public class ZonaAtaque implements ZonaDeJuego {
 	public void eliminarCartaMasDebil(Stack cementerio) {
 		CartaMonstruo cartaDebil = new CartaMonstruo("BorrarDebil", 10000, 0, new NivelBasico());
 		
-		for(CartaMonstruo cartaActual: casilleros) {
+		for(CartaMonstruo cartaActual: casilleros) { //ESTO ESTA MAL. ROMPE EL ENCAPSULAMIENTO, HAY QUE PREGUNTARLE A LA CARTA SI ES MAS DEBIL QUE OTRA CARTA
 			if(!cartaActual.bocaAbajo && cartaActual.atk < cartaDebil.atk) {
 				cartaDebil = cartaActual;
 			}
@@ -79,5 +75,19 @@ public class ZonaAtaque implements ZonaDeJuego {
 		cartaDebil.destruir();
 		cartaDebil.mandarAlCementerio(cementerio);
 	}
+
+    public boolean eliminarUnaCarta(String nombreSacrificio) { //ESTO ESTA MAL.
+        if(casilleros.isEmpty()) return false;
+
+        for(CartaMonstruo cartaActual: casilleros) {
+            if(cartaActual.obtenerNombre() == nombreSacrificio) {
+                casilleros.remove( casilleros.size() - 1 );
+                cartaActual.destruir();
+                return true;
+            }
+
+        }
+        return false;
+    }
 
 }

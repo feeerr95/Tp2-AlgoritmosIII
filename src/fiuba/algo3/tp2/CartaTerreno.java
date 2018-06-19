@@ -15,7 +15,12 @@ public class CartaTerreno extends Carta{
 	protected void colocarEnCampo(Campo campo) {
 		campo.agregarCartaCampo(this);
 	}
-	
+
+	@Override
+	public void usarEfecto() {
+
+	} //EL EFECTO ES EL QUE DEBERIA AUMENTAR LOS PUNTOS.
+
 	public int obtenerAumentoAtkDuenio() {
 		return this.aumentoAtkDuenio;
 	}

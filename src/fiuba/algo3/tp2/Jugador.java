@@ -1,7 +1,7 @@
 package fiuba.algo3.tp2;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 public class Jugador {
 	
@@ -9,23 +9,17 @@ public class Jugador {
 	private int puntosDeVida;
 	private Campo campoDeJuego;
 	private Jugador enemigo;
-	private Collection<Carta> mano;
+	private List<Carta> mano;
 
-	public Jugador(Campo campo) {
-		this.nombreJugador = "Indefinido";
+	public Jugador(String nombre, Campo campo) {
+		this.nombreJugador = nombre;
 		this.campoDeJuego = campo;
 		this.puntosDeVida = 8000;
 		this.mano = new ArrayList<>();
 	}
 	
-	public Jugador(String nombre, Campo campo) {
-		this.nombreJugador = nombre;
-		this.campoDeJuego = campo;
-		this.puntosDeVida = 8000;
-	}
-	
 	public void restarPuntosDeVida(int cantidad){
-		this.puntosDeVida -= cantidad;
+		this.puntosDeVida = this.puntosDeVida - cantidad;
 	}
 
 	public int puntosDeVida(){
@@ -34,10 +28,6 @@ public class Jugador {
 
 	public void destruirTodasLasCartasMonstruo(){
 		this.campoDeJuego.destruirTodasLasCartasMonstruo();
-	}
-
-	public String obtenerNombre() {
-		return this.nombreJugador;
 	}
 
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
