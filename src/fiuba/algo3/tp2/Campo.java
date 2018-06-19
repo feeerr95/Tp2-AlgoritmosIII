@@ -39,6 +39,10 @@ public class Campo {
 		this.zonaAtaque.agregarCarta(unaCarta);
 	}
 
+	public int cantidadDeCartasEnElMazo(){
+		return mazo.cantidadDeCartasEnElMazo();
+	}
+
 	public void agregarCartaEfecto(CartaEfecto unaCarta){
 		this.zonaDefensa.agregarCarta(unaCarta);
 	}

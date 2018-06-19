@@ -1,17 +1,16 @@
 package fiuba.algo3.tp2;
 
-import java.util.Stack;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import fiuba.algo3.tp2.BaseDatosCartas.*;
 
 public class Mazo {
 
-	private Vector<Carta> mazo;
+	private ArrayList<Carta> mazo;
 	
 	public Mazo() {
-		this.mazo = new  Vector<>(); 
-		CartaMonstruo carta1 = new AbismoReluciente(); 
+		this.mazo = new ArrayList<>();
+		CartaMonstruo carta1 = new AbismoReluciente();
 		CartaMonstruo carta2 = new AcechadorDelCraneo(); 
 		CartaMagica carta3 = new AgujeroNegro(); 
 		CartaMonstruo carta4 = new BrazoDerechoDeExodia(); 
@@ -48,10 +47,13 @@ public class Mazo {
 		mazo.add(carta17);
 		mazo.add(carta18);
 	}
-	
+
+	public int cantidadDeCartasEnElMazo(){
+		return mazo.size();
+	}
+
 	public Carta obtenerCartaDeMazo() { 
 		int numero = (int) (Math.random() * mazo.size());
-
-		return mazo.get(numero);
+		return mazo.remove(numero);
 	}
 }

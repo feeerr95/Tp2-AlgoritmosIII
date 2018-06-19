@@ -38,7 +38,9 @@ public class Jugador {
 		mano.add(this.campoDeJuego.agarrarCarta());
 	}
 
-	
+	public int cantidadDeCartasEnElMazo(){
+		return this.campoDeJuego.cantidadDeCartasEnElMazo();
+	}
 //funciones de tablero	
 
 	public void eliminarCartaMasDebil() {

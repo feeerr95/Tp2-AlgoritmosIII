@@ -206,7 +206,7 @@ public class AlGoOhTest {
     }
 
     @Test
-    public void UsarBonificadoresDeCampoYAtacar() {
+    public void UsarWastelandYBonificarAtaqueDeMisMonstruosYDefensaDelEnemigo() {
     	
         //Seteo el atacante
         Campo campo1 = new Campo();
@@ -231,10 +231,9 @@ public class AlGoOhTest {
         cartaDeCampo.asignarDuenio(atacante);
         cartaDeCampo.asignarEnemigo(atacado);
         cartaDeCampo.colocarEnCampo(campo1);
-        campo2.agregarCartaCampoEnemigo(cartaDeCampo);
         cartaDeCampo.usarEfecto();
         
-        //Como esta vez hay un efecto de campo, Insecto come hombres deber�a ganar
+        //Como esta vez hay un efecto de campo, Insecto come hombres deberia ganar
         insectoComeHombres.atacarOtraCarta(huevoMonstruoso);
         
         //Los puntos de vida del atacado tienen que disminuir 50
@@ -242,34 +241,71 @@ public class AlGoOhTest {
 
         //Confirmo que la carta atacada fue destruida
         assertEquals(true, huevoMonstruoso.estaDestruida());
-    
+
+    }
+
+    @Test
+    public void UsarSogenYBonificarDefensaDeMisMonstruosYAtaqueDelEnemigo(){
+
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador("jugador atacante", campo1);
+        CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacante);
+        insectoComeHombres.colocarEnCampo(campo1);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador("jugador atacado", campo2);
+        CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
+        huevoMonstruoso.cambiarEstado(new PosicionVertical());
+        huevoMonstruoso.asignarDuenio(atacado);
+        huevoMonstruoso.colocarEnCampo(campo2);
+
+        atacante.agregarEnemigo(atacado);
+        atacado.agregarEnemigo(atacante);
+
         CartaMonstruo acechadorDelCraneo = new AcechadorDelCraneo();
         acechadorDelCraneo.cambiarEstado(new PosicionHorizontal());
         acechadorDelCraneo.asignarDuenio(atacante);
         acechadorDelCraneo.colocarEnCampo(campo1);
-        
+
         CartaMonstruo cabezaDeExodia = new CabezaDeExodia();
         cabezaDeExodia.cambiarEstado(new PosicionVertical());
         cabezaDeExodia.asignarDuenio(atacado);
         cabezaDeExodia.colocarEnCampo(campo2);
-        
+
         CartaTerreno cartaDeCampo2 = new Sogen();
         cartaDeCampo2.asignarDuenio(atacante);
         cartaDeCampo2.asignarEnemigo(atacado);
         cartaDeCampo2.colocarEnCampo(campo1);
         campo2.agregarCartaCampoEnemigo(cartaDeCampo2);
         cartaDeCampo2.usarEfecto();
-        
+
         //Normalmente la Cabeza de exodia deberia destruir a la otra carta, pero no sucede ya que hay un efecto de campo
         cabezaDeExodia.atacarOtraCarta(acechadorDelCraneo);
-        
+
         //Los puntos de vida del atacado tienen que disminuir 100
-        assertEquals(7850,atacado.puntosDeVida());
+        assertEquals(7900,atacado.puntosDeVida());
 
         //Confirmo que la carta atacada no fue destruida
-        assertEquals(false, acechadorDelCraneo.estaDestruida());  
+        assertEquals(false, acechadorDelCraneo.estaDestruida());
+    }
+
+    @Test
+    public void UsarOllaDeLaCodiciaYVerQueEnElMazoTengoDosCartasMenos(){
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador jugador = new Jugador("jugador atacante", campo1);
+        CartaEfecto ollaDeLaCodicia = new OllaDeLaCodicia();
+        ollaDeLaCodicia.asignarDuenio(jugador);
+        int cantidadActual = jugador.cantidadDeCartasEnElMazo();
+        ollaDeLaCodicia.usarEfecto();
+        assertEquals(cantidadActual - 2, jugador.cantidadDeCartasEnElMazo());
     }
 }
+
 
 
 
