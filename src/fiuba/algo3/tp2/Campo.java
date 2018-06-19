@@ -52,6 +52,10 @@ public class Campo {
 	public boolean eliminarUnaCarta(){
 		return this.zonaAtaque.eliminarUnaCarta();
 	}
+	
+	public boolean eliminarUnaCarta(String sacrificio) {
+		return this.zonaAtaque.eliminarUnaCarta(sacrificio);
+	}
 
 	public int cantidadDeMonstruos(){
 		return zonaAtaque.cantidadDeMonstruos();
@@ -65,7 +69,6 @@ public class Campo {
 		this.zonaAtaque.destruirTodasLasCartas(cementerio);
 	}
 
-	//Por el momento solo bonifica a las cartas actuales
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
 		this.zonaAtaque.bonificarCartas(atkDuenio, defDuenio);		
 	}
@@ -77,4 +80,5 @@ public class Campo {
 	public void eliminarCartaMasDebil() {
 		this.zonaAtaque.eliminarCartaMasDebil(cementerio);		
 	}
+
 }

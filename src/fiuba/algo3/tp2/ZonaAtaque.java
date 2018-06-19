@@ -42,6 +42,20 @@ public class ZonaAtaque implements ZonaDeJuego {
         cartaEliminada.destruir();
         return true;
     }
+    
+	public boolean eliminarUnaCarta(String nombreSacrificio) {
+        if(casilleros.isEmpty()) return false;
+        
+        for(CartaMonstruo cartaActual: casilleros) {
+        	if(cartaActual.obtenerNombre() == nombreSacrificio) {
+        		casilleros.remove( casilleros.size() - 1 );
+        		cartaActual.destruir();
+        		return true;
+        	}
+        	
+        } 
+        return false;  
+	}
 
     public int cantidadDeMonstruos(){
         return casilleros.size();

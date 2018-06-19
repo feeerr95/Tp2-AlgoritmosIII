@@ -9,4 +9,10 @@ public class Jinzo7 extends CartaMonstruo{
 		super("Jinzo 7", 500, 400, new NivelBasico());
 	}
 
+	@Override
+	public void usarEfecto(){
+		if(!this.bocaAbajo) {
+			this.enemigo.restarPuntosDeVida(500);
+		}
+	}
 }

@@ -45,5 +45,9 @@ public class CartaMonstruo extends Carta{
 		this.bonificadorAtaque = atkDuenio;
 		this.bonificadorDefensa = defDuenio;
 	}
+
+	public String obtenerNombre() {
+		return this.nombreCarta;
+	}
 	
 }
