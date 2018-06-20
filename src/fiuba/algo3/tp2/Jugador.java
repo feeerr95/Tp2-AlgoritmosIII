@@ -40,6 +40,10 @@ public class Jugador {
 		mano.add(cartaAgarrada);
 	}
 
+	public void mandarAlCementerio(Carta carta){
+		this.campoDeJuego.mandarAlCementerio(carta);
+	}
+
 	public int cantidadDeCartasEnElMazo(){
 		return this.campoDeJuego.cantidadDeCartasEnElMazo();
 	}

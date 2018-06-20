@@ -29,6 +29,8 @@ public class Campo {
 
 		//VER SI SE PUEDE CAMBIAR ESTO. DE NO PODERSE, HACER UNA FUNCION PRIVADA QUE HAGA ESTO.
 		//Se comprueba si hay algun bonificador de poder
+
+
 		int aumentoAtkDuenio = this.terreno.obtenerAumentoAtkDuenio();
 		int aumentoDefDuenio = this.terreno.obtenerAumentoDefDuenio();
 		int aumentoAtkEnemigo = this.terrenoEnemigo.obtenerAumentoAtkDuenio();
@@ -55,24 +57,21 @@ public class Campo {
 		this.terrenoEnemigo = unTerreno;
 	}
 
-	public boolean eliminarUnaCarta(){
-		return this.zonaAtaque.eliminarUnaCarta();
-	}
-	
-	public boolean eliminarUnaCarta(String sacrificio) {
-		return this.zonaAtaque.eliminarUnaCarta(sacrificio);
+	public void eliminarUnaCarta(CartaMonstruo carta){
+		this.zonaAtaque.eliminarUnaCarta(carta);
 	}
 
 	public int cantidadDeMonstruos(){
 		return zonaAtaque.cantidadDeMonstruos();
 	}
 
-	public void eliminarCartasDestruidas(){
-		this.zonaAtaque.eliminarCartasDestruidas(cementerio);
+	public void mandarAlCementerio(Carta carta){
+		zonaAtaque.eliminarUnaCarta(carta);
+		cementerio.add(carta);
 	}
 
 	public void destruirTodasLasCartasMonstruo(){
-		this.zonaAtaque.destruirTodasLasCartas(cementerio);
+		this.zonaAtaque.destruirTodasLasCartas();
 	}
 
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
@@ -86,5 +85,13 @@ public class Campo {
 	public void eliminarCartaMasDebil() {
 		this.zonaAtaque.eliminarCartaMasDebil(cementerio);		
 	}
+
+    public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){
+        return zonaAtaque.cartasEstanEnJuego( listaDeCartas );
+    }
+
+    public void eliminarCartaAlAzar(){
+	    zonaAtaque.eliminarCartaAlAzar();
+    }
 
 }

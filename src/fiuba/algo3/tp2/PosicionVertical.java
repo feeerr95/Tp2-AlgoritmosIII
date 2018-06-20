@@ -24,4 +24,9 @@ public class PosicionVertical implements PosicionCarta {
 			cartaAtacante.destruir();
 		}
 	}
+
+	@Override
+	public boolean modoDefensa() {
+		return false;
+	}
 }

@@ -4,4 +4,5 @@ public interface PosicionCarta {
 	
     void recibirAtaque(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, PosicionCarta otraPosicion, int atkAtacante,
                         int atkAtacado, int defAtacado);
+    public boolean modoDefensa();
 }

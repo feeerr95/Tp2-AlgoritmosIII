@@ -19,28 +19,20 @@ public class ZonaAtaque implements ZonaDeJuego {
         }
     }
 
-    public void destruirTodasLasCartas(Stack cementerio) {
+    public void destruirTodasLasCartas() {
         for(CartaMonstruo carta: casilleros){
             carta.destruir();
         }
-        this.eliminarCartasDestruidas(cementerio);
     }
 
     public void agregarCarta(CartaMonstruo unaCarta) {
+
         if(casilleros.size() < 5) {
             casilleros.add(unaCarta);
         }
         else{
             //EXCEPCION NO SE PUEDE PONER MAS
         }
-    }
-
-    //Hay que hacer que se mande por parametro la carta y la elimine (esto es para que pase la prueba) creo que hay que hacer eso
-    public boolean eliminarUnaCarta(){
-        if(casilleros.isEmpty()) return false;
-        Carta cartaEliminada = casilleros.remove( casilleros.size() - 1 );
-        cartaEliminada.destruir();
-        return true;
     }
 
     public int cantidadDeMonstruos(){
@@ -58,10 +50,8 @@ public class ZonaAtaque implements ZonaDeJuego {
             }
             cartaDebil.cambiarBonificaciones(0,0);
             cartaDebil.destruir();
-            cartaDebil.mandarAlCementerio(cementerio);
         }
     }
-
 
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
 		for(CartaMonstruo carta: casilleros) {
@@ -69,20 +59,26 @@ public class ZonaAtaque implements ZonaDeJuego {
 		}	
 	}
 
-
-
-    public boolean eliminarUnaCarta(String nombreSacrificio) { //ESTO ESTA MAL.
-        if(casilleros.isEmpty()) return false;
-
-        for(CartaMonstruo cartaActual: casilleros) {
-            if(cartaActual.obtenerNombre() == nombreSacrificio) {
-                casilleros.remove( casilleros.size() - 1 );
-                cartaActual.destruir();
-                return true;
-            }
-
+    public void eliminarUnaCarta(Carta cartaMonstruo){  //ESTO DEJENLO ASI, QUE TENGO QUE VER COMO ARREGLAR LO DE AGUJERO NEGRO
+        if(!casilleros.contains(cartaMonstruo)){
+            //excepcion de que no esta la carta
         }
-        return false;
+//        System.out.println("Antes de sacar: " + casilleros);
+        casilleros.remove(cartaMonstruo);
+//        System.out.println("Despues de sacar a: " + cartaMonstruo + " queda asi: "+ casilleros);
+//        System.out.println(" ");
+    }
+
+    public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){
+        for(Carta carta: listaDeCartas ){
+            if(!casilleros.contains(carta)) return false;
+        }
+        return true;
+    }
+
+    public void eliminarCartaAlAzar(){
+        CartaMonstruo cartaEliminada = casilleros.remove(0);
+        cartaEliminada.destruir();
     }
 
 }

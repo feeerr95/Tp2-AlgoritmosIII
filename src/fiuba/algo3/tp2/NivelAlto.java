@@ -5,8 +5,8 @@ public class NivelAlto extends Nivel {
     @Override
     public void colocarEnCampo(Campo campo, CartaMonstruo carta) {
         if(campo.cantidadDeMonstruos() >= 2){
-            campo.eliminarUnaCarta();
-            campo.eliminarUnaCarta();
+            campo.eliminarCartaAlAzar();
+            campo.eliminarCartaAlAzar();
             campo.agregarCartaMonstruo(carta);
         }
         else{

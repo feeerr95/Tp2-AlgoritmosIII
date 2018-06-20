@@ -142,12 +142,13 @@ public class AlGoOhTest {
     }
 
     @Test
-    public void colocarYUtilizarAgujeroNegroQueEliminaATodasLasCartas() {
+    public void colocarYUtilizarAgujeroNegroQueEliminaATodasLasCartas() { //ESTO DESPUES LO ARREGLO (ATTE: FER)
 
     	Campo campo1 = new Campo();
-    	Jugador jugador1 = new Jugador("Jugador1", campo1);
+    	Jugador atacado = new Jugador("atacado", campo1);
     	Campo campo2 = new Campo();
-    	Jugador jugador2 = new Jugador("Jugador2", campo2);
+    	Jugador atacante = new Jugador("atacante", campo2);
+
 
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
@@ -155,16 +156,24 @@ public class AlGoOhTest {
         CartaMonstruo cabezaDeExodia = new CabezaDeExodia();
         CartaEfecto agujeroNegro = new AgujeroNegro();
         CartaEfecto agujeroNegro2 = new AgujeroNegro();
-        
-        insectoComeHombres.colocarEnCampo(campo1);
-        huevoMonstruoso.colocarEnCampo(campo1);
-        piernaDerechaDeExodia.colocarEnCampo(campo2);
-        cabezaDeExodia.colocarEnCampo(campo2);
-        agujeroNegro.colocarEnCampo(campo1);
-        agujeroNegro2.colocarEnCampo(campo2);
 
-        agujeroNegro.asignarDuenio(jugador1);
-        agujeroNegro.asignarEnemigo(jugador2);
+        insectoComeHombres.asignarDuenio(atacado);
+        insectoComeHombres.colocarEnCampo(campo1);
+
+        huevoMonstruoso.asignarDuenio(atacado);
+        huevoMonstruoso.colocarEnCampo(campo1);
+
+        piernaDerechaDeExodia.asignarDuenio(atacante);
+        piernaDerechaDeExodia.colocarEnCampo(campo2);
+
+        cabezaDeExodia.asignarDuenio(atacante);
+        cabezaDeExodia.colocarEnCampo(campo2);
+
+        agujeroNegro.asignarDuenio(atacante);
+        agujeroNegro2.asignarDuenio(atacado);
+
+        agujeroNegro.asignarEnemigo(atacado);
+
         agujeroNegro.usarEfecto();
 
         assertEquals(true, insectoComeHombres.estaDestruida());
@@ -181,10 +190,13 @@ public class AlGoOhTest {
     public void colocarMonstruoConUnSacrificio() {
 
     Campo campo = new Campo();
- 
+    Jugador jugador = new Jugador("Jugador", campo);
     CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+    insectoComeHombres.asignarDuenio(jugador);
     insectoComeHombres.colocarEnCampo(campo);
+
     CartaMonstruo chicaMagaOscura = new ChicaMagaOscura();
+    chicaMagaOscura.asignarDuenio(jugador);
     chicaMagaOscura.colocarEnCampo(campo);
     assertEquals(true, insectoComeHombres.estaDestruida());
 }
@@ -193,11 +205,17 @@ public class AlGoOhTest {
     public void colocarMonstruoConDosSacrificios(){
 
         Campo campo = new Campo();
+        Jugador jugador = new Jugador("jugador", campo);
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+        insectoComeHombres.asignarDuenio(jugador);
         insectoComeHombres.colocarEnCampo(campo);
+
         CartaMonstruo abismoReluciente = new AbismoReluciente();
+        abismoReluciente.asignarDuenio(jugador);
         abismoReluciente.colocarEnCampo(campo);
+
         CartaMonstruo dragonBlancoDeOjosAzules = new DragonBlancoDeOjosAzules();
+        dragonBlancoDeOjosAzules.asignarDuenio(jugador);
         dragonBlancoDeOjosAzules.colocarEnCampo(campo);
 
 
@@ -328,6 +346,7 @@ public class AlGoOhTest {
         Campo campo2 = new Campo();
         Jugador atacante = new Jugador("jugador atacante", campo2);
         CartaMagica fisura = new Fisura();
+        fisura.asignarDuenio(atacante);
         fisura.asignarEnemigo(atacado);
         fisura.usarEfecto();
 

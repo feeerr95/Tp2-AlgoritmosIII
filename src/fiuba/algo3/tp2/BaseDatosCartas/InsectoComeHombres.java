@@ -11,6 +11,13 @@ public class InsectoComeHombres extends CartaMonstruo{
 	
 	@Override
 	public void usarEfecto() {
-		//private void 
+
+	}
+
+	@Override
+	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
+		if(this.bocaAbajo && this.modoDefensa()){
+			otraCarta.destruir();
+		}
 	}
 }

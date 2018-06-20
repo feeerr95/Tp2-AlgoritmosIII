@@ -17,11 +17,16 @@ public class CartaMonstruo extends Carta{
 		bonificadorDefensa = 0;
 	}
 
+	public boolean modoDefensa(){
+		return this.posicion.modoDefensa();
+	}
+
 	public void atacarOtraCarta(CartaMonstruo otraCarta){
 		otraCarta.recibirAtaque(this, this.duenio, this.posicion, this.atk + this.bonificadorAtaque);
 	}
 
-	private void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
+	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
+
 		this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk + this.bonificadorAtaque, this.def + this.bonificadorDefensa);
 	}
 

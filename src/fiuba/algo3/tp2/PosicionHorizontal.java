@@ -20,4 +20,9 @@ public class PosicionHorizontal implements PosicionCarta {
 		}
 	}
 
+	@Override
+	public boolean modoDefensa() {
+		return true;
+	}
+
 }
