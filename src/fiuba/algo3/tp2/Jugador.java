@@ -1,42 +1,55 @@
 package fiuba.algo3.tp2;
 
-public class Jugador {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Jugador {
+	
+	private String nombreJugador;
 	private int puntosDeVida;
 	private Campo campoDeJuego;
+	private Jugador enemigo;
+	private List<Carta> mano;
 
-	public Jugador(Campo campo) {
-
+	public Jugador(String nombre, Campo campo) {
+		this.nombreJugador = nombre;
 		this.campoDeJuego = campo;
 		this.puntosDeVida = 8000;
-		this.campoDeJuego = new Campo();
+		this.mano = new ArrayList<>();
 	}
-
+	
 	public void restarPuntosDeVida(int cantidad){
-		this.puntosDeVida -= cantidad;
+		this.puntosDeVida = this.puntosDeVida - cantidad;
 	}
 
 	public int puntosDeVida(){
 		return this.puntosDeVida;
 	}
 
-	public boolean cartaEnCementerio(String nombreCarta) {
-		Carta carta = this.mazo.agarrarCarta(nombreCarta);
-		return this.campoDeJuego.cartaEnCementerio(carta);
+	public void destruirTodasLasCartasMonstruo(){
+		this.campoDeJuego.destruirTodasLasCartasMonstruo();
 	}
 
-	public void atacar(String nombreCartaJugador, String nombreCartaEnemigo) {
-		CartaMonstruo cartaJugador = this.campoDeJuego.obtenerCartaMonstruo(nombreCartaJugador);
-		this.enemigo.recibirAtaque(cartaJugador , nombreCartaEnemigo);
-		
+	public void bonificarCartas(int atkDuenio, int defDuenio) {
+		this.campoDeJuego.bonificarCartas(atkDuenio, defDuenio);
+	}
+	
+	public void agarrarCarta() {
+		Carta cartaAgarrada = this.campoDeJuego.agarrarCarta();
+		cartaAgarrada.darVuelta();
+		mano.add(cartaAgarrada);
 	}
 
-//	private void recibirAtaque(CartaMonstruo cartaEnemigo, String nombreCartaJugador) {
-//		CartaMonstruo cartaAtacada = this.campoDeJuego.obtenerCartaMonstruo(nombreCartaJugador);
-//		this.campoDeJuego.agregarCartaAlCementerio(cartaAtacada.recibirAtaque(cartaEnemigo));
-//	} HAY QUE RESOLVER ESTE METODO
+	public int cantidadDeCartasEnElMazo(){
+		return this.campoDeJuego.cantidadDeCartasEnElMazo();
+	}
+//funciones de tablero	
 
-	public void agregarEnemigo(Jugador unEnemigo){
+	public void eliminarCartaMasDebil() {
+		this.campoDeJuego.eliminarCartaMasDebil();
+	}
+
+	public void agregarEnemigo(Jugador unEnemigo) {
 		this.enemigo = unEnemigo;
 	}
 }
