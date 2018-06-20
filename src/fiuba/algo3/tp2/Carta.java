@@ -45,6 +45,9 @@ public abstract class Carta{
 	
 	protected abstract void colocarEnCampo(Campo campo);
 
+	public boolean estaBocaAbajo(){
+		return bocaAbajo;
+	}
 
 
 	// REVISAR ESTO.

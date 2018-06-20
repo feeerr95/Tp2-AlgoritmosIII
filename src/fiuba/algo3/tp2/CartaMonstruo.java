@@ -38,6 +38,15 @@ public class CartaMonstruo extends Carta{
 
 	}
 
+
+	public boolean esMasDebilQue(CartaMonstruo otraCarta){
+		return otraCarta.compararAtaque(this.atk);
+	}
+
+	private boolean compararAtaque(int unAtaque){
+		return this.atk >= unAtaque;
+	}
+
 	public void cambiarBonificaciones(int atkDuenio, int defDuenio) {
 		this.bonificadorAtaque = atkDuenio;
 		this.bonificadorDefensa = defDuenio;

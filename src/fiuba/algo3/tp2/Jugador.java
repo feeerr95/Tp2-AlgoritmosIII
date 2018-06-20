@@ -35,7 +35,9 @@ public class Jugador {
 	}
 	
 	public void agarrarCarta() {
-		mano.add(this.campoDeJuego.agarrarCarta());
+		Carta cartaAgarrada = this.campoDeJuego.agarrarCarta();
+		cartaAgarrada.darVuelta();
+		mano.add(cartaAgarrada);
 	}
 
 	public int cantidadDeCartasEnElMazo(){

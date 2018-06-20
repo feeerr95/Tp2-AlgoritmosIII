@@ -10,9 +10,7 @@ public class Jinzo7 extends CartaMonstruo{
 	}
 
 	@Override
-	public void usarEfecto(){
-		if(!this.bocaAbajo) {
-			this.enemigo.restarPuntosDeVida(500);
-		}
+	public void usarEfecto(){ //poner restricciones de que si se usa el efecto se da vuelta la carta.
+		this.enemigo.restarPuntosDeVida(500);
 	}
 }

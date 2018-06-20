@@ -47,34 +47,29 @@ public class ZonaAtaque implements ZonaDeJuego {
         return casilleros.size();
 	}
 
+    public void eliminarCartaMasDebil(Stack cementerio) {
 
+        if(!casilleros.isEmpty()){
+            CartaMonstruo cartaDebil = new CartaMonstruo("Carta de referencia", 9999999, 0, new NivelBasico());
+            for(CartaMonstruo carta: casilleros){
+                if(!carta.estaBocaAbajo() && carta.esMasDebilQue(cartaDebil)) {
+                    cartaDebil = carta;
+                }
+            }
+            cartaDebil.cambiarBonificaciones(0,0);
+            cartaDebil.destruir();
+            cartaDebil.mandarAlCementerio(cementerio);
+        }
+    }
 
-
-
-
-
-
-
-	//REVISAR ESTO.
 
 	public void bonificarCartas(int atkDuenio, int defDuenio) {
 		for(CartaMonstruo carta: casilleros) {
 			carta.cambiarBonificaciones(atkDuenio, defDuenio);
 		}	
 	}
-	
-	public void eliminarCartaMasDebil(Stack cementerio) {
-		CartaMonstruo cartaDebil = new CartaMonstruo("BorrarDebil", 10000, 0, new NivelBasico());
-		
-		for(CartaMonstruo cartaActual: casilleros) { //ESTO ESTA MAL. ROMPE EL ENCAPSULAMIENTO, HAY QUE PREGUNTARLE A LA CARTA SI ES MAS DEBIL QUE OTRA CARTA
-			if(!cartaActual.bocaAbajo && cartaActual.atk < cartaDebil.atk) {
-				cartaDebil = cartaActual;
-			}
-		}
-		cartaDebil.cambiarBonificaciones(0, 0);
-		cartaDebil.destruir();
-		cartaDebil.mandarAlCementerio(cementerio);
-	}
+
+
 
     public boolean eliminarUnaCarta(String nombreSacrificio) { //ESTO ESTA MAL.
         if(casilleros.isEmpty()) return false;
