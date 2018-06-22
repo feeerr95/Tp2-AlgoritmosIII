@@ -249,11 +249,57 @@ public class AlGoOhTest {
         CartaTerreno cartaDeCampo = new Wasteland();
         cartaDeCampo.asignarDuenio(atacante);
         campo1.agregarCarta(cartaDeCampo);
-       cartaDeCampo.usarEfectoContra(tablero);
-        
+        cartaDeCampo.usarEfectoContra(tablero);
+
+
         //Como esta vez hay un efecto de campo, Insecto come hombres deberia ganar
         insectoComeHombres.atacarOtraCarta(huevoMonstruoso);
         
+        //Los puntos de vida del atacado tienen que disminuir 50
+        assertEquals(7950,atacado.puntosDeVida());
+
+        //Confirmo que la carta atacada fue destruida
+        assertEquals(true, huevoMonstruoso.estaDestruida());
+
+    }
+
+    @Test
+    public void agregarCartaDespuesDeHaberUsadoWastelandYVerQueSigueEstandoPresenteElEfecto() {
+
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador("jugador atacante", campo1);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador("jugador atacado", campo2);
+
+        Tablero tablero = new Tablero(campo1, campo2);
+
+        CartaTerreno wasteland = new Wasteland();
+        wasteland.asignarDuenio(atacante);
+        campo1.agregarCarta(wasteland);
+        wasteland.usarEfectoContra(tablero);
+
+        CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+        insectoComeHombres.cambiarEstado(new PosicionVertical());
+        insectoComeHombres.asignarDuenio(atacante);
+        campo1.agregarCarta(insectoComeHombres);
+
+
+        CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
+        huevoMonstruoso.cambiarEstado(new PosicionVertical());
+        huevoMonstruoso.asignarDuenio(atacado);
+        campo2.agregarCarta(huevoMonstruoso);
+
+
+        atacante.agregarEnemigo(atacado);
+        atacado.agregarEnemigo(atacante);
+
+
+        //Como esta vez hay un efecto de campo, Insecto come hombres deberia ganar
+        insectoComeHombres.atacarOtraCarta(huevoMonstruoso);
+
         //Los puntos de vida del atacado tienen que disminuir 50
         assertEquals(7950,atacado.puntosDeVida());
 
