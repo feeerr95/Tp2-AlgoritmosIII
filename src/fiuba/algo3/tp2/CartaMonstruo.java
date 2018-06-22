@@ -17,6 +17,11 @@ public class CartaMonstruo extends Carta{
 		bonificadorDefensa = 0;
 	}
 
+	@Override
+	public void agregarseAlCampo(Campo campo){
+		nivel.agregarseAlCampo(campo, this);
+	}
+
 	public boolean modoDefensa(){
 		return this.posicion.modoDefensa();
 	}
@@ -34,16 +39,6 @@ public class CartaMonstruo extends Carta{
 		this.duenio.restarPuntosDeVida(cantidad);
 	}
 
-	protected void colocarEnCampo(Campo campo){
-		nivel.colocarEnCampo(campo, this);
-	}
-
-	@Override
-	public void usarEfecto() {
-
-	}
-
-
 	public boolean esMasDebilQue(CartaMonstruo otraCarta){
 		return otraCarta.compararAtaque(this.atk);
 	}
@@ -52,21 +47,10 @@ public class CartaMonstruo extends Carta{
 		return this.atk >= unAtaque;
 	}
 
-	public void cambiarBonificaciones(int atkDuenio, int defDuenio) {
-		this.bonificadorAtaque = atkDuenio;
-		this.bonificadorDefensa = defDuenio;
-	}
-
-	public void modificarBonificadorAtaque(int unAumento) {
-		this.bonificadorAtaque = unAumento;
-	}
-
-	public void modificarBonificadorDefensa(int unAumento) {
-		this.bonificadorDefensa = unAumento;
-	}
-
-	public String obtenerNombre() {
-		return this.nombreCarta;
+	@Override
+	public void cambiarBonificaciones(int bonAtk, int bonDef) {
+		this.bonificadorAtaque = bonAtk;
+		this.bonificadorDefensa = bonDef;
 	}
 	
 }

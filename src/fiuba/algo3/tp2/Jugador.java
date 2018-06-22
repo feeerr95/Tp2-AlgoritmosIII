@@ -3,7 +3,7 @@ package fiuba.algo3.tp2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Jugador {
+public class Jugador implements Afectable{
 	
 	private String nombreJugador;
 	private int puntosDeVida;
@@ -16,6 +16,10 @@ public class Jugador {
 		this.campoDeJuego = campo;
 		this.puntosDeVida = 8000;
 		this.mano = new ArrayList<>();
+	}
+
+	public void recibirEfecto(Efecto efecto){
+		efecto.aplicarSobreJugador(this);
 	}
 	
 	public void restarPuntosDeVida(int cantidad){

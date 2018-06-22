@@ -12,7 +12,7 @@ public class ZonaAtaque implements ZonaDeJuego {
     }
     @Override
 
-    public void eliminarCartasDestruidas(  Stack cementerio) {
+    public void eliminarCartasDestruidas( Stack cementerio) {
         for(CartaMonstruo carta: casilleros){
             carta.cambiarBonificaciones(0, 0);
         	carta.mandarAlCementerio(cementerio);
@@ -20,7 +20,9 @@ public class ZonaAtaque implements ZonaDeJuego {
     }
 
     public void destruirTodasLasCartas() {
-        for(CartaMonstruo carta: casilleros){
+
+        while(!casilleros.isEmpty()){
+            Carta carta = casilleros.remove(0);
             carta.destruir();
         }
     }
@@ -53,20 +55,17 @@ public class ZonaAtaque implements ZonaDeJuego {
         }
     }
 
-	public void bonificarCartas(int atkDuenio, int defDuenio) {
+	public void bonificarCartas(int bonAtk, int bonDef) {
 		for(CartaMonstruo carta: casilleros) {
-			carta.cambiarBonificaciones(atkDuenio, defDuenio);
+			carta.cambiarBonificaciones(bonAtk, bonDef);
 		}	
 	}
 
-    public void eliminarUnaCarta(Carta cartaMonstruo){  //ESTO DEJENLO ASI, QUE TENGO QUE VER COMO ARREGLAR LO DE AGUJERO NEGRO
+    public void eliminarUnaCarta(Carta cartaMonstruo){
         if(!casilleros.contains(cartaMonstruo)){
             //excepcion de que no esta la carta
         }
-//        System.out.println("Antes de sacar: " + casilleros);
         casilleros.remove(cartaMonstruo);
-//        System.out.println("Despues de sacar a: " + cartaMonstruo + " queda asi: "+ casilleros);
-//        System.out.println(" ");
     }
 
     public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){

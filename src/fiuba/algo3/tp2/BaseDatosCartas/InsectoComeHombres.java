@@ -8,11 +8,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 	public InsectoComeHombres() {
 		super("InsectoComeHombres", 450, 600, new NivelBasico());
 	}
-	
-	@Override
-	public void usarEfecto() {
 
-	}
 
 	@Override
 	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){

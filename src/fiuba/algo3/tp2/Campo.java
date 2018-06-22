@@ -12,7 +12,8 @@ public class Campo {
 	private Mazo mazo;
 	private List<Carta> mano;
 	private CartaTerreno terreno;
-	private CartaTerreno terrenoEnemigo;
+	private int bonificacionAtaque,
+				bonificacionDefensa;
 
 	
 	public Campo() {
@@ -22,39 +23,29 @@ public class Campo {
 		this.mano = new ArrayList<Carta>();
 		this.cementerio = new Stack<>();
 		this.terreno = new CartaTerreno("Carta campo neutro");
-		this.terrenoEnemigo = new CartaTerreno("Carta campo neutro");
+		this.bonificacionAtaque = 0;
+		this.bonificacionDefensa = 0;
 	}
 
-	public void agregarCartaMonstruo(CartaMonstruo unaCarta){
+	public void agregarCarta(Carta carta){
+		carta.agregarseAlCampo(this);
+		carta.cambiarBonificaciones(bonificacionAtaque,bonificacionDefensa);
+	}
 
-		//VER SI SE PUEDE CAMBIAR ESTO. DE NO PODERSE, HACER UNA FUNCION PRIVADA QUE HAGA ESTO.
-		//Se comprueba si hay algun bonificador de poder
+	public void agregarCartaEnZonaDeAtaque(CartaMonstruo carta){
+		this.zonaAtaque.agregarCarta(carta);
+	}
 
+	public void agregarCartaEnZonaDeDefensa(CartaEfecto carta){
+		this.zonaDefensa.agregarCarta(carta);
+	}
 
-		int aumentoAtkDuenio = this.terreno.obtenerAumentoAtkDuenio();
-		int aumentoDefDuenio = this.terreno.obtenerAumentoDefDuenio();
-		int aumentoAtkEnemigo = this.terrenoEnemigo.obtenerAumentoAtkDuenio();
-		int aumentoDefEnemigo = this.terrenoEnemigo.obtenerAumentoDefEnemigo();
-		unaCarta.modificarBonificadorAtaque(aumentoAtkDuenio + aumentoAtkEnemigo);
-		unaCarta.modificarBonificadorDefensa(aumentoDefDuenio + aumentoDefEnemigo);
-		
-		this.zonaAtaque.agregarCarta(unaCarta);
+	public void agregarCartaDeTerreno(CartaTerreno carta){
+		this.terreno = carta;
 	}
 
 	public int cantidadDeCartasEnElMazo(){
 		return mazo.cantidadDeCartasEnElMazo();
-	}
-
-	public void agregarCartaEfecto(CartaEfecto unaCarta){
-		this.zonaDefensa.agregarCarta(unaCarta);
-	}
-
-	public void agregarCartaCampo(CartaTerreno unTerreno){
-		this.terreno = unTerreno;
-	}
-	
-	public void agregarCartaCampoEnemigo(CartaTerreno unTerreno) {
-		this.terrenoEnemigo = unTerreno;
 	}
 
 	public void eliminarUnaCarta(CartaMonstruo carta){
@@ -74,8 +65,10 @@ public class Campo {
 		this.zonaAtaque.destruirTodasLasCartas();
 	}
 
-	public void bonificarCartas(int atkDuenio, int defDuenio) {
-		this.zonaAtaque.bonificarCartas(atkDuenio, defDuenio);		
+	public void bonificarCartas(int bonAtk, int bonDef) {
+		bonificacionAtaque = bonAtk;
+		bonificacionDefensa = bonDef;
+		this.zonaAtaque.bonificarCartas(bonAtk, bonDef);
 	}
 
 	public Carta agarrarCarta() {

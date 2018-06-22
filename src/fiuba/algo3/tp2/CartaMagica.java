@@ -7,10 +7,5 @@ public class CartaMagica extends CartaEfecto {
 	public CartaMagica(String nombre) {
 		nombreCarta = nombre;
 	}
-
-	@Override
-	public void usarEfecto() {
-
-	}
 }
 

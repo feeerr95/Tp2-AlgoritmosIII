@@ -12,7 +12,7 @@ public class NivelFusion extends Nivel{
 	}
 	
 	@Override
-	public void colocarEnCampo(Campo campo, CartaMonstruo unaCarta) {
+	public void agregarseAlCampo(Campo campo, CartaMonstruo unaCarta) {
 		boolean estanEnJuego = campo.cartasEstanEnJuego(sacrificios);
 		if(estanEnJuego){
 			for(CartaMonstruo sacrificio: sacrificios){
@@ -22,6 +22,6 @@ public class NivelFusion extends Nivel{
 		else{
 			//excepcion de que no se puede colocar la carta por falta de sacrificios
 		}
-		campo.agregarCartaMonstruo(unaCarta);
+		campo.agregarCarta(unaCarta);
 	}
 }
