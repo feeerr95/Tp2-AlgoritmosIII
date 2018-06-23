@@ -449,6 +449,39 @@ public class AlGoOhTest {
         assertEquals(true, huevoMonstruoso.estaDestruida());
 
     }
+
+    @Test
+    public void meAtacanYSeActivaCilindroMagico(){
+        //Seteo el atacante
+        Campo campo1 = new Campo();
+        Jugador atacante = new Jugador("jugador atacante", campo1);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador atacado = new Jugador("jugador atacado", campo2);
+
+        atacante.agregarEnemigo(atacado);
+        atacado.agregarEnemigo(atacante);
+
+        CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
+        huevoMonstruoso.asignarDuenio(atacante);
+        campo1.agregarCarta(huevoMonstruoso, new PosicionVertical(), new BocaArriba());
+
+        CartaTrampa cilindroMagico = new CilindroMagico();
+        cilindroMagico.asignarDuenio(atacado);
+        campo2.agregarCarta(cilindroMagico, new PosicionVertical(), new BocaAbajo());
+
+        CartaMonstruo jinzo7 = new Jinzo7();
+        jinzo7.asignarDuenio(atacado);
+        campo2.agregarCarta(jinzo7, new PosicionVertical(), new BocaArriba());
+
+        huevoMonstruoso.atacarOtraCarta(jinzo7);
+
+        assertEquals(true, huevoMonstruoso.estaEnElCampo());
+        assertEquals(true, jinzo7.estaEnElCampo());
+        assertEquals(true, cilindroMagico.estaDestruida());
+        assertEquals(7400, atacante.puntosDeVida());
+    }
 }
 
 
