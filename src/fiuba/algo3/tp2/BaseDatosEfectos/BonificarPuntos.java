@@ -19,9 +19,11 @@ public class BonificarPuntos extends Efecto {
     }
 
     @Override
-    public void usar(Afectable afectado) {
+    public boolean usar(Afectable afectado) {
         afectado.recibirEfecto(this);
+        return false;
     }
+
 
     @Override
     public void aplicarSobreTablero(Tablero tablero){

@@ -71,8 +71,8 @@ public class Jugador implements Afectable{
 		return this.campoDeJuego.estaEnElCampo(carta);
 	}
 
-	public void cartasTrampaEnJuego(Jugador jugadorAtacante){
-		campoDeJuego.cartasTrampaEnJuego(jugadorAtacante);
+	public boolean cartasTrampaEnJuego(Afectable afectable){
+		return campoDeJuego.cartasTrampaEnJuego(afectable);
 	}
 
 

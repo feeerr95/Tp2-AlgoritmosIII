@@ -61,8 +61,8 @@ public abstract class Carta implements Afectable{
 		return this.cara.estaBocaAbajo();
 	}
 
-	public void usarEfectoContra(Afectable afectado){
-		efecto.usar(afectado);
+	public boolean usarEfectoContra(Afectable afectado){
+		return efecto.usar(afectado);
 	}
 
 	public void cambiarBonificaciones(int bonAtk, int bonDef){}

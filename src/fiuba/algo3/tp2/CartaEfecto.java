@@ -9,9 +9,10 @@ public abstract class CartaEfecto extends Carta {
     }
 
     @Override
-    public void usarEfectoContra(Afectable afectado){
-        efecto.usar(afectado);
+    public boolean usarEfectoContra(Afectable afectado){
         this.destruir();
+        return efecto.usar(afectado);
+
     }
 
 }

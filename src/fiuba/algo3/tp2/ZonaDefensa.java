@@ -27,9 +27,10 @@ public class ZonaDefensa implements ZonaDeJuego {
         }
 	}
 
-    public void cartasTrampaEnJuego(Jugador jugadorAtacante){
+    public boolean cartasTrampaEnJuego(Afectable afectable){
         if(!casilleros.isEmpty()){
-            casilleros.get(0).usarEfectoContra(jugadorAtacante);
+            return casilleros.get(0).usarEfectoContra(afectable);
         }
+        return false;
     }
 }

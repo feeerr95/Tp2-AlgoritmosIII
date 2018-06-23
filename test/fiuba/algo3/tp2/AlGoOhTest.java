@@ -477,8 +477,8 @@ public class AlGoOhTest {
 
         huevoMonstruoso.atacarOtraCarta(jinzo7);
 
-        assertEquals(true, huevoMonstruoso.estaEnElCampo());
-        assertEquals(true, jinzo7.estaEnElCampo());
+        assertEquals(false, huevoMonstruoso.estaDestruida());
+        assertEquals(false, jinzo7.estaDestruida());
         assertEquals(true, cilindroMagico.estaDestruida());
         assertEquals(7400, atacante.puntosDeVida());
     }

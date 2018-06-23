@@ -27,12 +27,17 @@ public class CartaMonstruo extends Carta{
 	}
 
 	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
-		this.duenio.cartasTrampaEnJuego(jugadorAtacante);
-	    if(this.estaBocaAbajo() && this.estaEnElCampo()){
-			this.darVuelta();
-		}
-		this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk + this.bonificadorAtaque, this.def + this.bonificadorDefensa);
+	    if(!this.duenio.cartasTrampaEnJuego(otraCarta)) { //El efecto tira false si la carta atacada sigue siendo atacada y true si deja de ser atacada
+            if (this.estaBocaAbajo() && this.estaEnElCampo()) {
+                this.darVuelta();
+            }
+            this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk + this.bonificadorAtaque, this.def + this.bonificadorDefensa);
+        }
 	}
+
+	public int getPuntosDeAtaque(){
+	    return this.atk + this.bonificadorAtaque;
+    }
 
 	public void restarPuntosDeVida(int cantidad){
 		this.duenio.restarPuntosDeVida(cantidad);

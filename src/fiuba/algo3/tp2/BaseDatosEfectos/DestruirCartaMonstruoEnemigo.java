@@ -7,8 +7,9 @@ import fiuba.algo3.tp2.Jugador;
 public class DestruirCartaMonstruoEnemigo extends Efecto {
 
     @Override
-    public void usar(Afectable afectado) {
+    public boolean usar(Afectable afectado) {
         afectado.recibirEfecto(this);
+        return false;
     }
 
     @Override

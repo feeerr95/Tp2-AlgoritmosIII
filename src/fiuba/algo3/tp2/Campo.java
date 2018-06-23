@@ -91,8 +91,8 @@ public class Campo {
 		return zonaAtaque.estaEnElCampo(carta);
 	}
 
-	public void cartasTrampaEnJuego(Jugador jugadorAtacante){
-		zonaDefensa.cartasTrampaEnJuego(jugadorAtacante);
+	public boolean cartasTrampaEnJuego(Afectable afectable){
+		return zonaDefensa.cartasTrampaEnJuego(afectable);
 	}
 
 }

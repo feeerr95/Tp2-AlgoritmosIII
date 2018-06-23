@@ -1,24 +1,18 @@
 package fiuba.algo3.tp2.BaseDatosEfectos;
 
-import fiuba.algo3.tp2.Afectable;
-import fiuba.algo3.tp2.Efecto;
-import fiuba.algo3.tp2.Jugador;
+import fiuba.algo3.tp2.*;
 
 public class NegarYReflejarAtaqueDelEnemigo extends Efecto {
 
-    private int cantidad;
-
-    public NegarYReflejarAtaqueDelEnemigo(int unaCantidad){
-        cantidad = unaCantidad;
-    }
-
     @Override
-    public void usar(Afectable afectado){
+    public boolean usar(Afectable afectado){
         afectado.recibirEfecto(this);
+        return true;
     }
 
     @Override
-    public void aplicarSobreJugador(Jugador jugador){
-        jugador.restarPuntosDeVida(cantidad);
+    public void aplicarSobreCarta(Carta unaCarta){
+        CartaMonstruo carta = (CartaMonstruo) unaCarta;
+        carta.restarPuntosDeVida(carta.getPuntosDeAtaque());
     }
 }

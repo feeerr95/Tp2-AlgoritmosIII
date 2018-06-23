@@ -13,8 +13,9 @@ public class AgarrarCartasDelMazo extends Efecto {
     }
 
     @Override
-    public void usar(Afectable afectado) {
+    public boolean usar(Afectable afectado) {
         afectado.recibirEfecto(this);
+        return false;
     }
 
     @Override
