@@ -22,16 +22,14 @@ public class CartaMonstruo extends Carta{
 		nivel.agregarseAlCampo(campo, this);
 	}
 
-	public boolean modoDefensa(){
-		return this.posicion.modoDefensa();
-	}
-
 	public void atacarOtraCarta(CartaMonstruo otraCarta){
 		otraCarta.recibirAtaque(this, this.duenio, this.posicion, this.atk + this.bonificadorAtaque);
 	}
 
 	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
-
+		if(this.estaBocaAbajo() && this.estaEnElCampo()){
+			this.darVuelta();
+		}
 		this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk + this.bonificadorAtaque, this.def + this.bonificadorDefensa);
 	}
 

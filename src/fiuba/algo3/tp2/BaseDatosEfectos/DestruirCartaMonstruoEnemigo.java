@@ -1,10 +1,10 @@
 package fiuba.algo3.tp2.BaseDatosEfectos;
 
 import fiuba.algo3.tp2.Afectable;
-import fiuba.algo3.tp2.Carta;
 import fiuba.algo3.tp2.Efecto;
+import fiuba.algo3.tp2.Jugador;
 
-public class DestruirCartaAtacante extends Efecto {
+public class DestruirCartaMonstruoEnemigo extends Efecto {
 
     @Override
     public void usar(Afectable afectado) {
@@ -12,8 +12,8 @@ public class DestruirCartaAtacante extends Efecto {
     }
 
     @Override
-    public void aplicarSobreCarta(Carta carta){
-        carta.destruir();
+    public void aplicarSobreJugador(Jugador enemigo){
+        enemigo.eliminarMonstruoEnemigo();
     }
 
 

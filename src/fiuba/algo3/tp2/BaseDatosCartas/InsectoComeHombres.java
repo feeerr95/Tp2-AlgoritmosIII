@@ -1,21 +1,21 @@
 package fiuba.algo3.tp2.BaseDatosCartas;
 
 import fiuba.algo3.tp2.*;
-import fiuba.algo3.tp2.BaseDatosEfectos.DestruirCartaAtacante;
+import fiuba.algo3.tp2.BaseDatosEfectos.DestruirCartaMonstruoEnemigo;
 
 public class InsectoComeHombres extends CartaMonstruo{
 	
 	
 	public InsectoComeHombres() {
 		super("InsectoComeHombres", 450, 600, new NivelBasico());
-		efecto = new DestruirCartaAtacante();
+		efecto = new DestruirCartaMonstruoEnemigo();
 	}
 
-
 	@Override
-	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
-		if(this.bocaAbajo){
-			efecto.usar(otraCarta);
+	public void darVuelta(){
+		if(this.cara.estaBocaAbajo() && this.estaEnElCampo()){
+			this.cara.darseVuelta(this.cara);
+			efecto.usar(this.duenio);
 		}
 	}
 }

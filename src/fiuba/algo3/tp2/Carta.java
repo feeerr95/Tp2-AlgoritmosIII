@@ -7,14 +7,13 @@ public abstract class Carta implements Afectable{
 	protected PosicionCarta posicion;
 	protected Jugador duenio;
 	protected String estado;
-	protected boolean bocaAbajo;
+	protected CaraCarta cara;
 	protected Efecto efecto;
-	
+
 
 	public Carta() {
 		posicion = new PosicionVertical();
 		estado = "En juego";
-		bocaAbajo = true;
 
 	}
 
@@ -27,7 +26,13 @@ public abstract class Carta implements Afectable{
 		this.duenio = duenioNuevo;
 	}
 
-	public abstract void agregarseAlCampo(Campo campo);
+	protected void agregarseAlCampo(Campo campo, PosicionCarta unaPosicion, CaraCarta unaCara){
+		this.cara = unaCara;
+		this.posicion = unaPosicion;
+		this.agregarseAlCampo(campo);
+	}
+
+	protected abstract void agregarseAlCampo(Campo campo);
 
 	public void destruir(){
 		this.estado = "Destruido";
@@ -38,8 +43,8 @@ public abstract class Carta implements Afectable{
 		return this.estado.equals("Destruido");
 	}
 	
-	public void cambiarEstado(PosicionCarta unEstado) {
-		this.posicion = unEstado;
+	public void cambiarPosicion(PosicionCarta unaPosicion) {
+		this.posicion = unaPosicion;
 	}
 
 	protected void mandarAlCementerio(Stack cementerio){
@@ -47,11 +52,13 @@ public abstract class Carta implements Afectable{
 	}
 
 	public void darVuelta() {
-		this.bocaAbajo = !this.bocaAbajo;
+		if(this.cara.estaBocaAbajo() && this.estaEnElCampo()){
+			this.cara.darseVuelta(this.cara);
+		}
 	}
 
 	public boolean estaBocaAbajo(){
-		return bocaAbajo;
+		return this.cara.estaBocaAbajo();
 	}
 
 	public void usarEfectoContra(Afectable afectado){
@@ -59,4 +66,8 @@ public abstract class Carta implements Afectable{
 	}
 
 	public void cambiarBonificaciones(int bonAtk, int bonDef){}
+
+	public boolean estaEnElCampo(){
+		return this.duenio.estaEnElCampo(this);
+	}
 }

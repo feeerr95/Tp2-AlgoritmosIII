@@ -22,6 +22,6 @@ public class NivelFusion extends Nivel{
 		else{
 			//excepcion de que no se puede colocar la carta por falta de sacrificios
 		}
-		campo.agregarCarta(unaCarta);
+		campo.agregarCarta(unaCarta, new PosicionHorizontal(), new BocaArriba());
 	}
 }

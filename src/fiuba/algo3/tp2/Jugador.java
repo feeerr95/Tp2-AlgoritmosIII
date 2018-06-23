@@ -40,7 +40,6 @@ public class Jugador implements Afectable{
 	
 	public void agarrarCarta() {
 		Carta cartaAgarrada = this.campoDeJuego.agarrarCarta();
-		cartaAgarrada.darVuelta();
 		mano.add(cartaAgarrada);
 	}
 
@@ -51,7 +50,6 @@ public class Jugador implements Afectable{
 	public int cantidadDeCartasEnElMazo(){
 		return this.campoDeJuego.cantidadDeCartasEnElMazo();
 	}
-//funciones de tablero	
 
 	public void eliminarCartaMasDebil() {
 		this.campoDeJuego.eliminarCartaMasDebil();
@@ -60,4 +58,17 @@ public class Jugador implements Afectable{
 	public void agregarEnemigo(Jugador unEnemigo) {
 		this.enemigo = unEnemigo;
 	}
+
+	public void eliminarMonstruoEnemigo(){
+		this.enemigo.elminarMonstruo();
+	}
+
+	private void elminarMonstruo(){
+		campoDeJuego.eliminarCartaAlAzar();
+	}
+
+	public boolean estaEnElCampo(Carta carta){
+		return this.campoDeJuego.estaEnElCampo(carta);
+	}
+
 }

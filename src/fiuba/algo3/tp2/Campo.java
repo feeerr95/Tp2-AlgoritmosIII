@@ -27,8 +27,8 @@ public class Campo {
 		this.bonificacionDefensa = 0;
 	}
 
-	public void agregarCarta(Carta carta){
-		carta.agregarseAlCampo(this);
+	public void agregarCarta(Carta carta, PosicionCarta posicion, CaraCarta cara){
+		carta.agregarseAlCampo(this, posicion, cara);
 		carta.cambiarBonificaciones(bonificacionAtaque,bonificacionDefensa);
 	}
 
@@ -86,5 +86,9 @@ public class Campo {
     public void eliminarCartaAlAzar(){
 	    zonaAtaque.eliminarCartaAlAzar();
     }
+
+	public boolean estaEnElCampo(Carta carta){
+		return zonaAtaque.estaEnElCampo(carta);
+	}
 
 }

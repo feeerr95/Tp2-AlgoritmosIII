@@ -5,10 +5,6 @@ public class PosicionVertical implements PosicionCarta {
 	@Override
 	public void recibirAtaque(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, PosicionCarta otraPosicion, int atkAtacante, int atkAtacado, int defAtacado) {
 
-		if(cartaAtacada.bocaAbajo) {		
-			cartaAtacada.darVuelta();
-		}
-		
 		int diferenciaDeAtaque = atkAtacado - atkAtacante;
 
 		if(diferenciaDeAtaque < 0 ){
@@ -23,10 +19,5 @@ public class PosicionVertical implements PosicionCarta {
 			cartaAtacante.restarPuntosDeVida( Math.abs(diferenciaDeAtaque) );
 			cartaAtacante.destruir();
 		}
-	}
-
-	@Override
-	public boolean modoDefensa() {
-		return false;
 	}
 }

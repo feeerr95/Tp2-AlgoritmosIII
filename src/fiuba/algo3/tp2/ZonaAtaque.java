@@ -76,8 +76,16 @@ public class ZonaAtaque implements ZonaDeJuego {
     }
 
     public void eliminarCartaAlAzar(){
-        CartaMonstruo cartaEliminada = casilleros.remove(0);
-        cartaEliminada.destruir();
+        if(casilleros.isEmpty()){
+            //excepcion de que no hay monstruos
+        }
+        else {
+            CartaMonstruo cartaEliminada = casilleros.remove(0);
+            cartaEliminada.destruir();
+        }
     }
 
+    public boolean estaEnElCampo(Carta carta){
+        return casilleros.contains(carta);
+    }
 }
