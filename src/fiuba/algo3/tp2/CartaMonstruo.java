@@ -27,7 +27,8 @@ public class CartaMonstruo extends Carta{
 	}
 
 	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
-		if(this.estaBocaAbajo() && this.estaEnElCampo()){
+		this.duenio.cartasTrampaEnJuego(jugadorAtacante);
+	    if(this.estaBocaAbajo() && this.estaEnElCampo()){
 			this.darVuelta();
 		}
 		this.posicion.recibirAtaque(otraCarta, this, posicionAtacante, ataqueAtacante, this.atk + this.bonificadorAtaque, this.def + this.bonificadorDefensa);

@@ -26,4 +26,10 @@ public class ZonaDefensa implements ZonaDeJuego {
             //EXCEPCION NO SE PUEDE PONER MAS
         }
 	}
+
+    public void cartasTrampaEnJuego(Jugador jugadorAtacante){
+        if(!casilleros.isEmpty()){
+            casilleros.get(0).usarEfectoContra(jugadorAtacante);
+        }
+    }
 }
