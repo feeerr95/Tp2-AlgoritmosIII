@@ -27,7 +27,6 @@ public class AumentaAtaqueDelMonstruoAtacadoHastaElFinalDelTurno extends Efecto 
 
     @Override
     public void aplicarSobreCarta(Carta unaCarta){
-        System.out.println(unaCarta);
         CartaMonstruo carta = (CartaMonstruo) unaCarta;
         carta.cambiarBonificaciones(bonificacionAtkAtacado, bonificacionDefAtacado);
     }

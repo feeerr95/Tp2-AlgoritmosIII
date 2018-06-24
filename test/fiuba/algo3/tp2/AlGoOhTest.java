@@ -510,9 +510,8 @@ public class AlGoOhTest {
 
         acechadorDelCraneo.atacarOtraCarta(jinzo7);
 
-        assertEquals(true, acechadorDelCraneo.estaDestruida()); //900 de atk
-        assertEquals(false, jinzo7.estaDestruida()); //500 atk
-
+        assertEquals(true, acechadorDelCraneo.estaDestruida());
+        assertEquals(false, jinzo7.estaDestruida());
         assertEquals(true, reinforcements.estaDestruida());
         assertEquals(7900, atacante.puntosDeVida());
         assertEquals(8000, atacado.puntosDeVida());
