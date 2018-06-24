@@ -27,7 +27,7 @@ public class CartaMonstruo extends Carta{
 	}
 
 	protected void recibirAtaque(CartaMonstruo otraCarta, Jugador jugadorAtacante, PosicionCarta posicionAtacante, int ataqueAtacante){
-	    if(!this.duenio.cartasTrampaEnJuego(otraCarta)) { //El efecto tira false si la carta atacada sigue siendo atacada y true si deja de ser atacada
+	    if(!this.duenio.cartasTrampaEnJuego(this, otraCarta)) { //El efecto tira false si la carta atacada sigue siendo atacada y true si deja de ser atacada
             if (this.estaBocaAbajo() && this.estaEnElCampo()) {
                 this.darVuelta();
             }

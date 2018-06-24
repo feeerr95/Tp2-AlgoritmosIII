@@ -14,15 +14,20 @@ public class AumentaAtaqueDelMonstruoAtacadoHastaElFinalDelTurno extends Efecto 
         bonificacionAtkAtacado = bonAtkAtacado;
         bonificacionDefAtacado = bonDefAtacado;
     }
+    @Override
+    public boolean usar(Carta cartaAtacada, Carta cartaAtacante) {
+        cartaAtacada.recibirEfecto(this);
+        return false;
+    }
 
     @Override
     public boolean usar(Afectable afectado) {
-        afectado.recibirEfecto(this);
         return false;
     }
 
     @Override
     public void aplicarSobreCarta(Carta unaCarta){
+        System.out.println(unaCarta);
         CartaMonstruo carta = (CartaMonstruo) unaCarta;
         carta.cambiarBonificaciones(bonificacionAtkAtacado, bonificacionDefAtacado);
     }

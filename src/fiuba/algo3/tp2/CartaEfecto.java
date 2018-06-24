@@ -15,4 +15,9 @@ public abstract class CartaEfecto extends Carta {
 
     }
 
+    public boolean usarEfectoContra(Carta cartaAtacada, Carta cartaAtacante) {
+        this.destruir();
+        return efecto.usar(cartaAtacada, cartaAtacante);
+    }
+
 }
