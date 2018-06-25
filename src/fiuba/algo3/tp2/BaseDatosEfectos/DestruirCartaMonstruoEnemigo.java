@@ -13,8 +13,8 @@ public class DestruirCartaMonstruoEnemigo extends Efecto {
     }
 
     @Override
-    public void aplicarSobreJugador(Jugador enemigo){
-        enemigo.eliminarMonstruoEnemigo();
+    public void aplicarSobreJugador(Jugador duenio){
+        duenio.eliminarMonstruoEnemigo();
     }
 
 

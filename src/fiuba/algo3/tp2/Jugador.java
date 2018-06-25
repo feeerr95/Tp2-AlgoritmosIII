@@ -43,6 +43,10 @@ public class Jugador implements Afectable{
 		mano.add(cartaAgarrada);
 	}
 
+	public void agregarCartaAMano(Carta unaCarta) {
+		mano.add(unaCarta);
+	}
+	
 	public void mandarAlCementerio(Carta carta){
 		this.campoDeJuego.mandarAlCementerio(carta);
 	}
@@ -74,6 +78,23 @@ public class Jugador implements Afectable{
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){
 		return campoDeJuego.cartasTrampaEnJuego(cartaAtacada, cartaAtacante);
 	}
+	
+	public boolean estaEnLaMano(String nombreCarta) {
+		for(Carta unaCarta: mano) {
+			if(unaCarta.buscarCarta(nombreCarta)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	//Se usa cuando se gana por un medio inusual o por medio de efectos especiales: Exodia, sin cartas en el mazo
+	public void perderJuego() {
+		this.restarPuntosDeVida(this.puntosDeVida);
+	}
 
+	public void ganarJuego() {
+		this.enemigo.perderJuego();	
+	}
 
 }

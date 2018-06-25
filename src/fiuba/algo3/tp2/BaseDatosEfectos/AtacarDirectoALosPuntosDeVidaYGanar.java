@@ -7,12 +7,6 @@ import fiuba.algo3.tp2.Jugador;
 
 public class AtacarDirectoALosPuntosDeVidaYGanar extends Efecto {
 
-    private int cantidad;
-
-    public AtacarDirectoALosPuntosDeVida(int unaCantidad){
-        cantidad = unaCantidad;
-    }
-
     @Override
     public boolean usar(Afectable afectado) {
         afectado.recibirEfecto(this);
@@ -21,6 +15,7 @@ public class AtacarDirectoALosPuntosDeVidaYGanar extends Efecto {
 
     @Override
     public void aplicarSobreJugador(Jugador jugador){
+    	jugador.ganarJuego();
     }
 
 }

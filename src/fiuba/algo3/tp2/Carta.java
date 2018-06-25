@@ -22,6 +22,14 @@ public abstract class Carta implements Afectable{
 		efecto.aplicarSobreCarta(this);
 	}
 
+	//Es para chequear si las cartas de exodia están en la mano del jugador.
+	public boolean buscarCarta(String unNombre) {
+		if(this.nombreCarta == unNombre) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void asignarDuenio(Jugador duenioNuevo){
 		this.duenio = duenioNuevo;
 	}
@@ -65,9 +73,13 @@ public abstract class Carta implements Afectable{
 		return efecto.usar(afectado);
 	}
 
-	public void cambiarBonificaciones(int bonAtk, int bonDef){}
-
+	public void cambiarBonificaciones(int bonAtk, int bonDef){
+	}
+	
 	public boolean estaEnElCampo(){
 		return this.duenio.estaEnElCampo(this);
 	}
+
+	public void usarEfectoAlSacarCarta() {}
+
 }
