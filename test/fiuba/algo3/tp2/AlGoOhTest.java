@@ -517,6 +517,42 @@ public class AlGoOhTest {
         assertEquals(8000, atacado.puntosDeVida());
 
     }
+
+    @Test
+    public void jugarTodasLasPartesDeExodiaYGanar(){
+        //Seteo el ganador
+        Campo campo1 = new Campo();
+        Jugador ganador = new Jugador("jugador ganador", campo1);
+
+        //Seteo el atacado
+        Campo campo2 = new Campo();
+        Jugador perdedor = new Jugador("jugador perdedor", campo2);
+
+        ganador.agregarEnemigo(perdedor);
+        perdedor.agregarEnemigo(ganador);
+
+        CartaMonstruo cabezaExodia = new CabezaDeExodia();
+        CartaMonstruo brazoDerechoExodia = new BrazoDerechoDeExodia();
+        CartaMonstruo brazoIzquierdoExodia = new BrazoIzquierdoDeExodia();
+        CartaMonstruo piernaDerechaExodia = new PiernaDerechaDeExodia();
+        CartaMonstruo piernaIzquierdaExodia = new PiernaIzquierdaDeExodia();
+
+        cabezaExodia.asignarDuenio(ganador);
+        brazoDerechoExodia.asignarDuenio(ganador);
+        brazoIzquierdoExodia.asignarDuenio(ganador);
+        piernaDerechaExodia.asignarDuenio(ganador);
+        piernaIzquierdaExodia.asignarDuenio(ganador);
+
+        campo1.agregarCarta(cabezaExodia, new PosicionHorizontal(), new BocaAbajo());
+        campo1.agregarCarta(brazoDerechoExodia, new PosicionVertical(), new BocaAbajo());
+        campo1.agregarCarta(brazoIzquierdoExodia, new PosicionHorizontal(), new BocaArriba());
+        campo1.agregarCarta(piernaDerechaExodia, new PosicionVertical(), new BocaArriba());
+        campo1.agregarCarta(piernaIzquierdaExodia, new PosicionHorizontal(), new BocaAbajo());
+
+        assertEquals(0, perdedor.puntosDeVida());
+
+    }
+
 }
 
 

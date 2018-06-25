@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NivelFusion extends Nivel{
 
-	private ArrayList<CartaMonstruo> sacrificios;
+	private ArrayList<CartaMonstruo> sacrificios = new ArrayList<>();
 
 	@Override
 	public void agregarSacrificio(CartaMonstruo carta){
