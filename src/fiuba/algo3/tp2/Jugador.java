@@ -1,7 +1,8 @@
 package fiuba.algo3.tp2;
 
+import fiuba.algo3.tp2.BaseDatosCartas.ParteDeExodia;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Jugador implements Afectable{
 	
@@ -15,6 +16,7 @@ public class Jugador implements Afectable{
 		this.campoDeJuego = campo;
 		this.puntosDeVida = 8000;
 		this.mano = new ArrayList<>();
+
 		for(int i = 0; i < 5; i++) {
 			this.agarrarCarta();
 		}
@@ -32,29 +34,33 @@ public class Jugador implements Afectable{
 		nombreJugador = nombre;
 	}
 
-	public void restarPuntosDeVida(int cantidad){
-		this.puntosDeVida = this.puntosDeVida - cantidad;
+	public void restarPuntosDeVida(Integer cantidad){
+		if(cantidad != null){
+			this.puntosDeVida -= cantidad;
+		}
+		else{
+			this.puntosDeVida -= this.puntosDeVida;
+		}
 	}
 
 	public int puntosDeVida(){
 		return this.puntosDeVida;
 	}
-
-	public void destruirTodasLasCartasMonstruo(){
-		this.campoDeJuego.destruirTodasLasCartasMonstruo();
-	}
-
-	public void bonificarCartas(int atkDuenio, int defDuenio) {
-		this.campoDeJuego.bonificarCartas(atkDuenio, defDuenio);
-	}
 	
 	public void agarrarCarta() {
+
 		Carta cartaAgarrada = this.campoDeJuego.agarrarCarta();
+		cartaAgarrada.asignarDuenio(this);
 		mano.add(cartaAgarrada);
+		if(cartaAgarrada instanceof ParteDeExodia){
+			cartaAgarrada.usarEfectoAlSacarCarta();
+		}
+
+
 	}
 
-	public void agregarCartaAMano(Carta unaCarta) {
-		mano.add(unaCarta);
+	public boolean tieneLaCarta(String nombreCarta){
+		return (this.estaEnLaMano(nombreCarta) || this.estaEnElCampo(nombreCarta));
 	}
 	
 	public void mandarAlCementerio(Carta carta){
@@ -81,8 +87,8 @@ public class Jugador implements Afectable{
 		campoDeJuego.eliminarCartaAlAzar();
 	}
 
-	public boolean estaEnElCampo(Carta carta){
-		return this.campoDeJuego.estaEnElCampo(carta);
+	public boolean estaEnElCampo(String nombreCarta){
+		return this.campoDeJuego.estaEnElCampo(nombreCarta);
 	}
 
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){
@@ -91,22 +97,19 @@ public class Jugador implements Afectable{
 	
 	public boolean estaEnLaMano(String nombreCarta) {
 		for(Carta unaCarta: mano) {
-			if(unaCarta.buscarCarta(nombreCarta)) {
+			if(unaCarta.es(nombreCarta)) {
 				return true;
 			}
 		}
 		return false;
 	}
-	
-	//Se usa cuando se gana por un medio inusual o por medio de efectos especiales: Exodia, sin cartas en el mazo
-	public void perderJuego() {
-		this.restarPuntosDeVida(this.puntosDeVida);
-	}
+
 	public ArrayList<Carta> getMano(){
 		return mano;
 	}
+
 	public void ganarJuego() {
-		this.enemigo.perderJuego();	
+		this.enemigo.restarPuntosDeVida(null);
 	}
 
 }

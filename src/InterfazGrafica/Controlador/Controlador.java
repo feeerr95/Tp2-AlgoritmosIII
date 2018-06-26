@@ -36,9 +36,12 @@ public class Controlador{
     public Modelo getModelo() {
         return modelo;
     }
+
     public void setManosIniciales(){
         ArrayList<Carta> manoJugador1 = modelo.obtenerManoJugador1();
         ArrayList<Carta> manoJugador2 = modelo.obtenerManoJugador2();
+//        modelo.chequearExodiaEfecto(manoJugador1, manoJugador2);
         contenedorPrincipal.setManos(manoJugador1,manoJugador2);
+
     }
 }

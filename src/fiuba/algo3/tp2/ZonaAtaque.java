@@ -85,7 +85,12 @@ public class ZonaAtaque implements ZonaDeJuego {
         }
     }
 
-    public boolean estaEnElCampo(Carta carta){
-        return casilleros.contains(carta);
+    public boolean estaEnElCampo(String nombreCarta){
+        for(Carta unaCarta: casilleros) {
+            if(unaCarta.es(nombreCarta)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

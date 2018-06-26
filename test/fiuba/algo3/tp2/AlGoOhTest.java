@@ -531,25 +531,9 @@ public class AlGoOhTest {
         ganador.agregarEnemigo(perdedor);
         perdedor.agregarEnemigo(ganador);
 
-        CartaMonstruo cabezaExodia = new CabezaDeExodia();
-        CartaMonstruo brazoDerechoExodia = new BrazoDerechoDeExodia();
-        CartaMonstruo brazoIzquierdoExodia = new BrazoIzquierdoDeExodia();
-        CartaMonstruo piernaDerechaExodia = new PiernaDerechaDeExodia();
-        CartaMonstruo piernaIzquierdaExodia = new PiernaIzquierdaDeExodia();
-
-        cabezaExodia.asignarDuenio(ganador);
-        brazoDerechoExodia.asignarDuenio(ganador);
-        brazoIzquierdoExodia.asignarDuenio(ganador);
-        piernaDerechaExodia.asignarDuenio(ganador);
-        piernaIzquierdaExodia.asignarDuenio(ganador);
-
-        ganador.agregarCartaAMano(cabezaExodia);
-        ganador.agregarCartaAMano(brazoDerechoExodia);
-        ganador.agregarCartaAMano(brazoIzquierdoExodia);
-        ganador.agregarCartaAMano(piernaDerechaExodia);
-        ganador.agregarCartaAMano(piernaIzquierdaExodia);
-        
-        cabezaExodia.usarEfectoAlSacarCarta();
+        while(ganador.cantidadDeCartasEnElMazo() != 0){
+            ganador.agarrarCarta();
+        }
 
         assertEquals(0, perdedor.puntosDeVida());
 

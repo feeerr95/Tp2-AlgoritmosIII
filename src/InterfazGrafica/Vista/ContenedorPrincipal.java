@@ -2,6 +2,7 @@ package InterfazGrafica.Vista;
 
 import InterfazGrafica.Controlador.Controlador;
 import InterfazGrafica.Eventos.BotonEmpezarJuegoEventHandler;
+import InterfazGrafica.Eventos.ClickearCartaEventHandler;
 import InterfazGrafica.Modelo.Modelo;
 import fiuba.algo3.tp2.Carta;
 import javafx.beans.value.ChangeListener;
@@ -10,6 +11,7 @@ import javafx.geometry.HorizontalDirection;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollBar;
@@ -25,6 +27,7 @@ public class ContenedorPrincipal extends AnchorPane {
 
     ListView<Button> manoJugador1 = new ListView<>();
     ListView<Button> manoJugador2 = new ListView<>();
+    Controlador controlador;
 
     public ContenedorPrincipal(Stage stage, Modelo modelo, Controlador controlador){
 
@@ -34,6 +37,8 @@ public class ContenedorPrincipal extends AnchorPane {
                 BackgroundRepeat.REPEAT,
                 BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
+
+        this.controlador = controlador;
 
         Background fondo = new Background(imagen);
         this.setBackground(fondo);
@@ -60,6 +65,10 @@ public class ContenedorPrincipal extends AnchorPane {
             imagenCarta.setFitWidth(90);
             cartaBoton.setGraphic(imagenCarta);
             cartaBoton.setMaxSize(94,144);
+
+//            ClickearCartaEventHandler clickearCartaEventHandler = new ClickearCartaEventHandler(cartaBoton);
+//            cartaBoton.setOnMouseExited(clickearCartaEventHandler);
+
             this.manoJugador1.getItems().add(cartaBoton);
             manoJugador1Box.getChildren().add(cartaBoton);
         }
@@ -72,6 +81,10 @@ public class ContenedorPrincipal extends AnchorPane {
             imagenCarta.setFitWidth(90);
             cartaBoton.setGraphic(imagenCarta);
             cartaBoton.setMaxSize(94,144);
+
+//            ClickearCartaEventHandler clickearCartaEventHandler = new ClickearCartaEventHandler(cartaBoton);
+//            cartaBoton.setOnMouseExited(clickearCartaEventHandler);
+
             this.manoJugador2.getItems().add(cartaBoton);
             manoJugador2Box.getChildren().add(cartaBoton);
         }
@@ -85,4 +98,5 @@ public class ContenedorPrincipal extends AnchorPane {
 
         this.getChildren().addAll(manoJugador1Box,manoJugador2Box);
     }
+
 }

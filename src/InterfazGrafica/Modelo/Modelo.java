@@ -41,4 +41,5 @@ public class Modelo {
     public ArrayList<Carta> obtenerManoJugador2(){
         return jugador2.getMano();
     }
+
 }

@@ -87,8 +87,9 @@ public class Campo {
 	    zonaAtaque.eliminarCartaAlAzar();
     }
 
-	public boolean estaEnElCampo(Carta carta){
-		return zonaAtaque.estaEnElCampo(carta);
+	public boolean estaEnElCampo(String nombreCarta){
+
+		return zonaAtaque.estaEnElCampo(nombreCarta);
 	}
 
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){

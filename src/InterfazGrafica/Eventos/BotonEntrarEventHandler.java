@@ -14,6 +14,7 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
         this.ventana = ventana;
         this.proximaEscena = proximaEscena;
     }
+
     @Override
     public void handle(ActionEvent event) {
         ventana.setWidth(1170);
