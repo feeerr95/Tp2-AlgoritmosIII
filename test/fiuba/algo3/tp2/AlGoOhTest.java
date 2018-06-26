@@ -13,14 +13,14 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("Jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
         CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
         insectoComeHombres.asignarDuenio(atacante);
         campo1.agregarCarta(insectoComeHombres, new PosicionVertical(), new BocaArriba());
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("Jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
         CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900, new NivelBasico() );
         huevoMonstruoso.asignarDuenio(atacado);
         campo2.agregarCarta(huevoMonstruoso, new PosicionVertical(), new BocaArriba());
@@ -39,14 +39,14 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo2 = new Campo();
-        Jugador atacante = new Jugador("Juador atacante", campo2);
+        Jugador atacante = new Jugador(campo2);
         CartaMonstruo huevoMonstruoso = new CartaMonstruo("Huevo Monstruoso", 600, 900, new NivelBasico() );
         campo2.agregarCarta(huevoMonstruoso,  new PosicionVertical(), new BocaArriba());
         huevoMonstruoso.asignarDuenio(atacante);
 
         //Seteo el atacado
         Campo campo1 = new Campo();
-        Jugador atacado = new Jugador("Jugador atacado", campo1);
+        Jugador atacado = new Jugador(campo1);
         CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
         campo1.agregarCarta(insectoComeHombres,  new PosicionVertical(), new BocaArriba());
         insectoComeHombres.asignarDuenio(atacado);
@@ -65,14 +65,14 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("Jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
         CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
         campo1.agregarCarta(insectoComeHombres,  new PosicionVertical(), new BocaArriba());
         insectoComeHombres.asignarDuenio(atacante);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("Jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
         CartaMonstruo insectoComeHombres2 = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
         campo2.agregarCarta(insectoComeHombres2,  new PosicionVertical(), new BocaArriba());
         insectoComeHombres2.asignarDuenio(atacado);
@@ -91,14 +91,14 @@ public class AlGoOhTest {
 
        //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("Jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
         CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
         campo1.agregarCarta(abismoReluciente, new PosicionVertical(), new BocaArriba() );
         abismoReluciente.asignarDuenio(atacante);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("Jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
         CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
         campo2.agregarCarta(insectoComeHombres, new PosicionHorizontal(), new BocaArriba());
         insectoComeHombres.asignarDuenio(atacado);
@@ -117,14 +117,14 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo2 = new Campo();
-        Jugador atacante = new Jugador("Jugador atacante", campo2);
+        Jugador atacante = new Jugador(campo2);
         CartaMonstruo insectoComeHombres = new CartaMonstruo("Insecto Come-Hombres", 450, 600, new NivelBasico());
         campo2.agregarCarta(insectoComeHombres, new PosicionVertical(), new BocaArriba() );
         insectoComeHombres.asignarDuenio(atacante);
 
         //Seteo el atacado
         Campo campo1 = new Campo();
-        Jugador atacado = new Jugador("Jugador atacado", campo1);
+        Jugador atacado = new Jugador(campo1);
         CartaMonstruo abismoReluciente = new CartaMonstruo("Abismo Reluciente", 1600, 1800, new NivelBasico());
         campo1.agregarCarta(abismoReluciente, new PosicionHorizontal(), new BocaArriba());
         abismoReluciente.asignarDuenio(atacado);
@@ -144,9 +144,9 @@ public class AlGoOhTest {
     public void colocarYUtilizarAgujeroNegroQueEliminaATodasLasCartas() { //ESTO DESPUES LO ARREGLO (ATTE: FER)
 
     	Campo campo1 = new Campo();
-    	Jugador atacado = new Jugador("atacado", campo1);
+    	Jugador atacado = new Jugador(campo1);
     	Campo campo2 = new Campo();
-    	Jugador atacante = new Jugador("atacante", campo2);
+    	Jugador atacante = new Jugador(campo2);
     	Tablero tablero = new Tablero(campo1, campo2);
 
 
@@ -188,7 +188,7 @@ public class AlGoOhTest {
     public void colocarMonstruoConUnSacrificio() {
 
     Campo campo = new Campo();
-    Jugador jugador = new Jugador("Jugador", campo);
+    Jugador jugador = new Jugador(campo);
     CartaMonstruo insectoComeHombres = new InsectoComeHombres();
     insectoComeHombres.asignarDuenio(jugador);
     campo.agregarCarta(insectoComeHombres, new PosicionHorizontal(), new BocaArriba());
@@ -203,7 +203,7 @@ public class AlGoOhTest {
     public void colocarMonstruoConDosSacrificios(){
 
         Campo campo = new Campo();
-        Jugador jugador = new Jugador("jugador", campo);
+        Jugador jugador = new Jugador(campo);
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.asignarDuenio(jugador);
         campo.agregarCarta(insectoComeHombres, new PosicionHorizontal(), new BocaArriba());
@@ -226,11 +226,11 @@ public class AlGoOhTest {
     	
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
 
         Tablero tablero = new Tablero(campo1, campo2);
 
@@ -269,11 +269,11 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
 
         Tablero tablero = new Tablero(campo1, campo2);
 
@@ -312,12 +312,12 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
 
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
 
         Tablero tablero = new Tablero(campo1, campo2);
 
@@ -362,7 +362,7 @@ public class AlGoOhTest {
     public void usarOllaDeLaCodiciaYVerQueEnElMazoTengoDosCartasMenos(){
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador jugador = new Jugador("jugador atacante", campo1);
+        Jugador jugador = new Jugador(campo1);
         CartaEfecto ollaDeLaCodicia = new OllaDeLaCodicia();
         ollaDeLaCodicia.asignarDuenio(jugador);
         int cantidadActual = jugador.cantidadDeCartasEnElMazo();
@@ -377,7 +377,7 @@ public class AlGoOhTest {
 
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo1);
+        Jugador atacado = new Jugador(campo1);
 
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.cambiarPosicion(new PosicionVertical());
@@ -393,7 +393,7 @@ public class AlGoOhTest {
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo2);
+        Jugador atacante = new Jugador(campo2);
         CartaMagica fisura = new Fisura();
         fisura.asignarDuenio(atacante);
         fisura.usarEfectoContra(atacado);
@@ -407,7 +407,7 @@ public class AlGoOhTest {
     @Test
     public void usarAJinzo7YAtacarDirectamenteALosPuntosDeVida(){
         Campo campo1 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo1);
+        Jugador atacado = new Jugador(campo1);
 
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.cambiarPosicion(new PosicionVertical());
@@ -416,7 +416,7 @@ public class AlGoOhTest {
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo2);
+        Jugador atacante = new Jugador(campo2);
         CartaMonstruo jinzo7 = new Jinzo7();
         jinzo7.usarEfectoContra(atacado);
 
@@ -427,11 +427,11 @@ public class AlGoOhTest {
     public void darVueltaInsectoComeHombresYMatarCartaMonstruoEnemigo(){
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
 
         atacante.agregarEnemigo(atacado);
         atacado.agregarEnemigo(atacante);
@@ -454,11 +454,11 @@ public class AlGoOhTest {
     public void meAtacanYSeActivaCilindroMagico(){
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
 
         atacante.agregarEnemigo(atacado);
         atacado.agregarEnemigo(atacante);
@@ -487,11 +487,11 @@ public class AlGoOhTest {
     public void meAtacanYSeActivaReinforcements(){
         //Seteo el atacante
         Campo campo1 = new Campo();
-        Jugador atacante = new Jugador("jugador atacante", campo1);
+        Jugador atacante = new Jugador(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador atacado = new Jugador("jugador atacado", campo2);
+        Jugador atacado = new Jugador(campo2);
 
         atacante.agregarEnemigo(atacado);
         atacado.agregarEnemigo(atacante);
@@ -522,11 +522,11 @@ public class AlGoOhTest {
     public void jugarTodasLasPartesDeExodiaYGanar(){
         //Seteo el ganador
         Campo campo1 = new Campo();
-        Jugador ganador = new Jugador("jugador ganador", campo1);
+        Jugador ganador = new Jugador(campo1);
 
         //Seteo el atacado
         Campo campo2 = new Campo();
-        Jugador perdedor = new Jugador("jugador perdedor", campo2);
+        Jugador perdedor = new Jugador(campo2);
 
         ganador.agregarEnemigo(perdedor);
         perdedor.agregarEnemigo(ganador);

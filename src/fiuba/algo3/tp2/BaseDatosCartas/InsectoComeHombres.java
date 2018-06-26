@@ -7,7 +7,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 	
 	
 	public InsectoComeHombres() {
-		super("InsectoComeHombres", 450, 600, new NivelBasico());
+		super("Insecto Come Hombres", 450, 600, new NivelBasico());
 		efecto = new DestruirCartaMonstruoEnemigo();
 	}
 
