@@ -111,5 +111,9 @@ public class Jugador implements Afectable{
 	public void ganarJuego() {
 		this.enemigo.restarPuntosDeVida(null);
 	}
+	
+	public int cantidadDeCartasEnMano() {
+		return mano.size();
+	}
 
 }
