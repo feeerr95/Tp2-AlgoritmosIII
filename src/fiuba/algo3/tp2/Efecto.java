@@ -9,4 +9,6 @@ public abstract class Efecto {
     protected void aplicarSobreJugador(Jugador jugador){}
     protected void aplicarSobreCarta(Carta carta){}
     protected void aplicarSobreTablero(Tablero tablero){}
+	protected void usarEfectoAlSacarCarta(){}
+
 }

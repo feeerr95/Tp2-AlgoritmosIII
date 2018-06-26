@@ -543,11 +543,13 @@ public class AlGoOhTest {
         piernaDerechaExodia.asignarDuenio(ganador);
         piernaIzquierdaExodia.asignarDuenio(ganador);
 
-        campo1.agregarCarta(cabezaExodia, new PosicionHorizontal(), new BocaAbajo());
-        campo1.agregarCarta(brazoDerechoExodia, new PosicionVertical(), new BocaAbajo());
-        campo1.agregarCarta(brazoIzquierdoExodia, new PosicionHorizontal(), new BocaArriba());
-        campo1.agregarCarta(piernaDerechaExodia, new PosicionVertical(), new BocaArriba());
-        campo1.agregarCarta(piernaIzquierdaExodia, new PosicionHorizontal(), new BocaAbajo());
+        ganador.agregarCartaAMano(cabezaExodia);
+        ganador.agregarCartaAMano(brazoDerechoExodia);
+        ganador.agregarCartaAMano(brazoIzquierdoExodia);
+        ganador.agregarCartaAMano(piernaDerechaExodia);
+        ganador.agregarCartaAMano(piernaIzquierdaExodia);
+        
+        cabezaExodia.usarEfectoAlSacarCarta();
 
         assertEquals(0, perdedor.puntosDeVida());
 
