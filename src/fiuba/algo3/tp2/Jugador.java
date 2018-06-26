@@ -9,19 +9,29 @@ public class Jugador implements Afectable{
 	private int puntosDeVida;
 	private Campo campoDeJuego;
 	private Jugador enemigo;
-	private List<Carta> mano;
+	private ArrayList<Carta> mano;
 
-	public Jugador(String nombre, Campo campo) {
-		this.nombreJugador = nombre;
+	public Jugador(Campo campo) {
 		this.campoDeJuego = campo;
 		this.puntosDeVida = 8000;
 		this.mano = new ArrayList<>();
+		for(int i = 0; i < 5; i++) {
+			this.agarrarCarta();
+		}
 	}
 
 	public void recibirEfecto(Efecto efecto){
 		efecto.aplicarSobreJugador(this);
 	}
-	
+
+	public String getNombre(){
+		return nombreJugador;
+	}
+
+	public void setNombre(String nombre){
+		nombreJugador = nombre;
+	}
+
 	public void restarPuntosDeVida(int cantidad){
 		this.puntosDeVida = this.puntosDeVida - cantidad;
 	}
@@ -73,6 +83,10 @@ public class Jugador implements Afectable{
 
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){
 		return campoDeJuego.cartasTrampaEnJuego(cartaAtacada, cartaAtacante);
+	}
+
+	public ArrayList<Carta> getMano(){
+		return mano;
 	}
 
 

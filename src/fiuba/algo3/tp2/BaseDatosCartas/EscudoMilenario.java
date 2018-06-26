@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.NivelMedio;
 public class EscudoMilenario extends CartaMonstruo{
 
 	public EscudoMilenario() {
-		super("Escudo milenario", 0, 3000, new NivelMedio());
+		super("Escudo Milenario", 0, 3000, new NivelMedio());
 	}
 
 }

@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.NivelBasico;
 public class PiernaDerechaDeExodia extends CartaMonstruo{
 
 	public PiernaDerechaDeExodia() {
-		super("Pierna derecha del prohibido", 200, 300, new NivelBasico());
+		super("Pierna Derecha De Exodia", 200, 300, new NivelBasico());
 
 	}
 

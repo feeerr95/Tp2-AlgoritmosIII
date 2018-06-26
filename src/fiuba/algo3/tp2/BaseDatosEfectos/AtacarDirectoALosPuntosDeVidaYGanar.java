@@ -9,7 +9,7 @@ public class AtacarDirectoALosPuntosDeVidaYGanar extends Efecto {
 
     private int cantidad;
 
-    public AtacarDirectoALosPuntosDeVida(int unaCantidad){
+    public void AtacarDirectoALosPuntosDeVida(int unaCantidad){
         cantidad = unaCantidad;
     }
 
