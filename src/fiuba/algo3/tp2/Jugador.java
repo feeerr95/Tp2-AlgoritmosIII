@@ -108,5 +108,9 @@ public class Jugador implements Afectable{
 	public void ganarJuego() {
 		this.enemigo.perderJuego();	
 	}
+	
+	public int cantidadDeCartasEnMano() {
+		return mano.size();
+	}
 
 }
