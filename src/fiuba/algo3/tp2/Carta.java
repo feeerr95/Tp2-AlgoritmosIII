@@ -14,6 +14,7 @@ public abstract class Carta implements Afectable{
 	public Carta() {
 		posicion = new PosicionVertical();
 		estado = "En juego";
+
 	}
 
 	@Override
@@ -68,13 +69,5 @@ public abstract class Carta implements Afectable{
 
 	public boolean estaEnElCampo(){
 		return this.duenio.estaEnElCampo(this);
-	}
-
-	public void setNombreCarta(String nombreCarta) {
-		this.nombreCarta = nombreCarta;
-	}
-
-	public String getNombreCarta() {
-		return nombreCarta;
 	}
 }

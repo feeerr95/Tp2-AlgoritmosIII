@@ -6,7 +6,7 @@ import fiuba.algo3.tp2.CartaMagica;
 public class OllaDeLaCodicia extends CartaMagica{
 
 	public OllaDeLaCodicia() {
-		super("Olla De La Codicia");
+		super("Olla de la codicia");
 		efecto = new AgarrarCartasDelMazo(2);
 	}
 }

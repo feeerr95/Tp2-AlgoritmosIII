@@ -7,7 +7,7 @@ import fiuba.algo3.tp2.NivelBasico;
 public class CabezaDeExodia extends CartaMonstruo{
 	
 	public CabezaDeExodia() {
-		super("Cabeza De Exodia", 1000, 1000, new NivelBasico());
+		super("Exodia el prohibido", 1000, 1000, new NivelBasico());
 		//efecto = new AtacarDirectoALosPuntosDeVidaYGanar();
 	}
 
