@@ -1,7 +1,6 @@
 package InterfazGrafica.Vista;
 
 import InterfazGrafica.Controlador.Controlador;
-import InterfazGrafica.Modelo.Modelo;
 import fiuba.algo3.tp2.Campo;
 import fiuba.algo3.tp2.Jugador;
 import fiuba.algo3.tp2.Tablero;
@@ -20,7 +19,6 @@ public class Aplicacion extends Application{
     Jugador jugador1;
     Jugador jugador2;
     Tablero tablero;
-    Modelo modelo;
     Controlador controlador;
 
 
@@ -31,8 +29,7 @@ public class Aplicacion extends Application{
         jugador1 = new Jugador(campo1);
         jugador2 = new Jugador(campo2);
         tablero = new Tablero(campo1, campo2);
-        modelo = new Modelo(tablero, jugador1, jugador2);
-        controlador = new Controlador();
+        controlador = new Controlador(tablero, jugador1, jugador2);
     }
 
 
@@ -41,13 +38,12 @@ public class Aplicacion extends Application{
 
         stage.setTitle("Juego");
 
-        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, modelo, controlador);
+        ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, controlador);
         Scene escenaJuego = new Scene(contenedorPrincipal);
 
         ContenedorInicial contenedorInicial = new ContenedorInicial(stage, escenaJuego);
         Scene escenaBienvenida = new Scene (contenedorInicial);
 
-        controlador.setModelo(modelo);
         controlador.setContenedorInicial(contenedorInicial);
         controlador.setContenedorPrincipal(contenedorPrincipal);
 

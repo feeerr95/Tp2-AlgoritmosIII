@@ -17,6 +17,9 @@ public class Jugador implements Afectable{
 		this.puntosDeVida = 8000;
 		this.mano = new ArrayList<>();
 
+	}
+
+	public void agarrarCartasIniciales(){
 		for(int i = 0; i < 5; i++) {
 			this.agarrarCarta();
 		}

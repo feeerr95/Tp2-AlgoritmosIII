@@ -1,4 +1,4 @@
 package InterfazGrafica.Vista;
 
-public class Tablero {
+public class TableroVista {
 }
