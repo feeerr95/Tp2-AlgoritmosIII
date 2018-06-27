@@ -1,24 +1,26 @@
 package InterfazGrafica.Eventos;
 
-import InterfazGrafica.Vista.ContenedorPrincipal;
+import InterfazGrafica.Controlador.Controlador;
+import InterfazGrafica.Vista.CartaBoton;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 public class ClickearCartaEventHandler implements EventHandler<MouseEvent> {
 
-    Button carta;
-    ContenedorPrincipal contenedorPrincipal;
 
-    public ClickearCartaEventHandler(Button carta){
-        this.carta = carta;
-        this.contenedorPrincipal = contenedorPrincipal;
+    Controlador controlador;
+    CartaBoton cartaBoton;
+
+    public ClickearCartaEventHandler(CartaBoton cartaBoton, Controlador controlador){
+        this.cartaBoton = cartaBoton;
+        this.controlador = controlador;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        carta.setScaleX(2);
-        carta.setScaleY(2);
+        System.out.println(cartaBoton.getCarta());
     }
 }

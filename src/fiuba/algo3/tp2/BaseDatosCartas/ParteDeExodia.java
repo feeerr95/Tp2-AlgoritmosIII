@@ -4,7 +4,7 @@ import fiuba.algo3.tp2.BaseDatosEfectos.AtacarDirectoALosPuntosDeVidaYGanar;
 import fiuba.algo3.tp2.CartaMonstruo;
 import fiuba.algo3.tp2.Nivel;
 
-public class ParteDeExodia extends CartaMonstruo {
+public abstract class ParteDeExodia extends CartaMonstruo {
 
     public ParteDeExodia(String unNombre, int unAtaque, int unaDefensa, Nivel nivelDeLaCarta) {
         super(unNombre, unAtaque, unaDefensa, nivelDeLaCarta);

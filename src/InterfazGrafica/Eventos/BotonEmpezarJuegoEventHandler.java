@@ -19,5 +19,6 @@ public class BotonEmpezarJuegoEventHandler implements EventHandler<ActionEvent> 
     public void handle(ActionEvent event) {
         controlador.setManosIniciales();
         controlador.getContenedorPrincipal().getChildren().remove(botonEmpezar);
+        controlador.getContenedorPrincipal().setInicioJuego();
     }
 }

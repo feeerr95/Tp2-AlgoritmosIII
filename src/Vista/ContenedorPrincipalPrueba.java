@@ -111,7 +111,7 @@ public class ContenedorPrincipalPrueba extends AnchorPane {
     }
 
     private void crearCartaBocaAbajo(int coordenadaX, int coordenadaY){
-        Image image = new Image("Imagenes/E39.png");
+        Image image = new Image("Imagenes/Carta Boca Abajo.png");
         Button carta = new Button();
         ImageView cartaBocaAbajo = new ImageView(image);
 
@@ -127,7 +127,7 @@ public class ContenedorPrincipalPrueba extends AnchorPane {
     }
 
     private void crearMazo(int coordenadaX, int coordenadaY){
-        Image image = new Image("Imagenes/mazo.png");
+        Image image = new Image("Imagenes/Mazo.png");
         Button mazo = new Button();
         ImageView cartaBocaAbajo = new ImageView(image);
 
