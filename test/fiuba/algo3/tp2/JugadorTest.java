@@ -23,18 +23,6 @@ public class JugadorTest {
 		
         assertEquals(0, unJugador.puntosDeVida());
 	}
-	
-	@Test
-	public void usarEfectoYAplicarSobreElJugador() {
-		
-		Campo unCampo = new Campo();
-		Jugador unJugador = new Jugador(unCampo);
-		Efecto agarrarCartas = new AgarrarCartasDelMazo(5);
-		
-		unJugador.recibirEfecto(agarrarCartas);
-		
-        assertEquals(10, unJugador.cantidadDeCartasEnMano());
-	}
 
 	@Test
 	public void agarrarCartasYSumarlasALaMano() {
@@ -45,6 +33,6 @@ public class JugadorTest {
 		unJugador.agarrarCarta();
 		unJugador.agarrarCarta();
 		
-        assertEquals(7, unJugador.cantidadDeCartasEnMano());
+        assertEquals(2, unJugador.cantidadDeCartasEnMano());
 	}
 }
