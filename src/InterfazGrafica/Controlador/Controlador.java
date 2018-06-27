@@ -32,10 +32,19 @@ public class Controlador{
 
     public void terminarTurno(){
         this.turno += 1;
-        if( this.turno%2 == 0) jugador2.agarrarCarta();
-        else jugador1.agarrarCarta();
+        if( this.turno%2 == 0){                     //Turnos pares son del jugador2
+            jugador2.agarrarCarta();
+            this.actualizarManos();
+            contenedorPrincipal.cancelarManoJ1();
+        }
+        else{                                      //Turnos impares son del jugador 1
+            jugador1.agarrarCarta();
+            this.actualizarManos();
+            contenedorPrincipal.cancelarManoJ2();
+        }
         this.actualizarCantMazos();
-        this.actualizarManos();
+
+
     }
 
     private void actualizarManos(){

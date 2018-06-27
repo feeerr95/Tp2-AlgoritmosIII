@@ -21,6 +21,7 @@ public class ClickearCartaEventHandler implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent event) {
+        System.out.println(cartaBoton.obtenerBoton());
         System.out.println(cartaBoton.getCarta());
     }
 }

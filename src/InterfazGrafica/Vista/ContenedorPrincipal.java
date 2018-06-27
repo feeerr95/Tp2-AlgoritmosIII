@@ -4,6 +4,7 @@ import InterfazGrafica.Controlador.Controlador;
 import InterfazGrafica.Eventos.BotonEmpezarJuegoEventHandler;
 import InterfazGrafica.Eventos.BotonTerminarTurnoEventHandler;
 import fiuba.algo3.tp2.Carta;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -15,8 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.util.ArrayList;
 
 public class ContenedorPrincipal extends AnchorPane {
@@ -35,6 +34,9 @@ public class ContenedorPrincipal extends AnchorPane {
     private HBox manoJugador1Box;
     private HBox manoJugador2Box;
 
+    private ScrollPane sp1;
+    private ScrollPane sp2;
+
 
     public ContenedorPrincipal(Stage stage,Controlador controlador){
 
@@ -50,9 +52,11 @@ public class ContenedorPrincipal extends AnchorPane {
         cantCartasMazo1 = new Label();
         cantCartasMazo1 = new Label();
 
-
         manoJugador1Box = new HBox();
         manoJugador2Box = new HBox();
+
+        sp1 = new ScrollPane();
+        sp2 = new ScrollPane();
 
         cartasManoJ1 = new ArrayList<>();
         cartasManoJ2 = new ArrayList<>();
@@ -85,32 +89,14 @@ public class ContenedorPrincipal extends AnchorPane {
 
     private void dibujarManos(ArrayList<Carta> manoJugador1, ArrayList<Carta> manoJugador2){
 
-        this.manoJugador1Box.getChildren().clear();
-        this.manoJugador2Box.getChildren().clear();
-
-        manoJugador1Box = new HBox();
-        manoJugador2Box = new HBox();
-
-        ScrollPane sp1 = new ScrollPane();
-        sp1.setContent(manoJugador1Box);
-        sp1.setMaxSize(565,400);
-
-        sp1.setLayoutX(460);
-        sp1.setLayoutY(0);
-
-        ScrollPane sp2 = new ScrollPane();
-        sp2.setContent(manoJugador2Box);
-
-        sp2.setLayoutX(460);
-        sp2.setLayoutY(860);
-        sp2.setMaxSize(565,400);
+        manoJugador1Box.getChildren().clear();
+        manoJugador2Box.getChildren().clear();
 
         for(Carta carta: manoJugador1){
             CartaBoton cartaBoton = new CartaBoton(carta,controlador);
             listaDeCartasBotonesJ1.add(cartaBoton);
             this.manoJugador1.getItems().add(cartaBoton.obtenerBoton());
             manoJugador1Box.getChildren().add(cartaBoton.obtenerBoton());
-
         }
 
         for(Carta carta: manoJugador2){
@@ -119,8 +105,6 @@ public class ContenedorPrincipal extends AnchorPane {
             this.manoJugador2.getItems().add(cartaBoton.obtenerBoton());
             manoJugador2Box.getChildren().add(cartaBoton.obtenerBoton());
         }
-
-        this.getChildren().addAll(sp1,sp2);
     }
 
     public void actualizarPuntosDeVida(Integer puntosJ1, Integer puntosJ2){
@@ -163,7 +147,17 @@ public class ContenedorPrincipal extends AnchorPane {
         BotonTerminarTurnoEventHandler botonTerminarTurnoEventHandler = new BotonTerminarTurnoEventHandler(controlador);
         terminarTurnoBoton.setOnMouseClicked(botonTerminarTurnoEventHandler);
 
-        this.getChildren().addAll(terminarTurnoBoton, imagenMazo1, imagenMazo2);
+         sp1.setContent(manoJugador1Box);
+         sp1.setLayoutX(460);
+         sp1.setLayoutY(0);
+         sp1.setMaxSize(565,400);
+
+         sp2.setContent(manoJugador2Box);
+         sp2.setLayoutX(460);
+         sp2.setLayoutY(860);
+         sp2.setMaxSize(565,400);
+         this.cancelarManoJ2();
+        this.getChildren().addAll(terminarTurnoBoton, imagenMazo1, imagenMazo2,sp1,sp2);
      }
 
      public void actualizarLabelsMazo(Integer cantidadCartasMazo1, Integer cantidadCartasMazo2){
@@ -183,9 +177,35 @@ public class ContenedorPrincipal extends AnchorPane {
          cantCartasMazo1.toFront();
          cantCartasMazo2.toFront();
 
-
          this.getChildren().addAll(cantCartasMazo1,cantCartasMazo2);
+    }
 
+    public void cancelarManoJ1(){
+        for(Node carta: manoJugador1Box.getChildren()){
+            this.darVueltaCarta((Button)carta);
+            carta.setDisable(true);
+        }
+        for(Node carta: manoJugador2Box.getChildren()){
+            carta.setDisable(false);
+        }
+    }
 
-     }
+    public void cancelarManoJ2(){
+        for(Node carta: manoJugador1Box.getChildren()){
+            carta.setDisable(false);
+        }
+        for(Node carta: manoJugador2Box.getChildren()){
+            this.darVueltaCarta((Button)carta);
+            carta.setDisable(true);
+        }
+    }
+
+    public void darVueltaCarta(Button carta){
+        Image image = new Image("Imagenes/Carta Boca Abajo.png");
+        ImageView imagenCarta = new ImageView(image);
+        imagenCarta.setFitHeight(140);
+        imagenCarta.setFitWidth(90);
+        carta.setGraphic(imagenCarta);
+        carta.setMinSize(94,160);
+    }
 }
