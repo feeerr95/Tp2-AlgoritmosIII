@@ -3,6 +3,8 @@ package fiuba.algo3.tp2;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import excepciones.InsuficienteEspacioEnCampo;
+
 public class ZonaDefensa implements ZonaDeJuego {
 
     private ArrayList<CartaEfecto> casilleros;
@@ -18,12 +20,12 @@ public class ZonaDefensa implements ZonaDeJuego {
         }
     }
 
-    public void agregarCarta(CartaEfecto unaCarta) {
+    public void agregarCarta(CartaEfecto unaCarta) throws InsuficienteEspacioEnCampo{
         if(casilleros.size() < 5) {
             casilleros.add(unaCarta);
         }
         else{
-            //EXCEPCION NO SE PUEDE PONER MAS
+        	throw new InsuficienteEspacioEnCampo("Se puede colocar hasta 5 cartas mágicas o de trampa");
         }
 	}
 

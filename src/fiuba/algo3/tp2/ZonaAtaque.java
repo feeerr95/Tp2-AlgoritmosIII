@@ -3,6 +3,10 @@ package fiuba.algo3.tp2;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import excepciones.InsuficienteEspacioEnCampo;
+import excepciones.NoHayMonstruosEnCampo;
+import excepciones.NoSeEncuentraLaCarta;
+
 public class ZonaAtaque implements ZonaDeJuego {
 
     private ArrayList<CartaMonstruo> casilleros;
@@ -27,13 +31,13 @@ public class ZonaAtaque implements ZonaDeJuego {
         }
     }
 
-    public void agregarCarta(CartaMonstruo unaCarta) {
+    public void agregarCarta(CartaMonstruo unaCarta) throws InsuficienteEspacioEnCampo{
 
         if(casilleros.size() < 5) {
             casilleros.add(unaCarta);
         }
         else{
-            //EXCEPCION NO SE PUEDE PONER MAS
+            throw new InsuficienteEspacioEnCampo("Se puede invocar hasta 5 monstruos");
         }
     }
 
@@ -61,9 +65,9 @@ public class ZonaAtaque implements ZonaDeJuego {
 		}	
 	}
 
-    public void eliminarUnaCarta(Carta cartaMonstruo){
+    public void eliminarUnaCarta(Carta cartaMonstruo) throws NoSeEncuentraLaCarta{
         if(!casilleros.contains(cartaMonstruo)){
-            //excepcion de que no esta la carta
+            throw new NoSeEncuentraLaCarta("No se encuentra la Carta Monstruo");
         }
         casilleros.remove(cartaMonstruo);
     }
@@ -75,9 +79,9 @@ public class ZonaAtaque implements ZonaDeJuego {
         return true;
     }
 
-    public void eliminarCartaAlAzar(){
+    public void eliminarCartaAlAzar() throws NoHayMonstruosEnCampo{
         if(casilleros.isEmpty()){
-            //excepcion de que no hay monstruos
+            throw new NoHayMonstruosEnCampo("No hay monstruos en el campo");
         }
         else {
             CartaMonstruo cartaEliminada = casilleros.remove(0);
