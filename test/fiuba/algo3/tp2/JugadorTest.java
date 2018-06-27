@@ -39,12 +39,11 @@ public class JugadorTest {
 	@Test
 	public void agarrarCartasYSumarlasALaMano() {
 		
-		CartaMonstruo dragon = new DragonBlancoDeOjosAzules();
 		Campo unCampo = new Campo();
 		Jugador unJugador = new Jugador(unCampo);
 		
 		unJugador.agarrarCarta();
-		unJugador.agregarCartaAMano(dragon);
+		unJugador.agarrarCarta();
 		
         assertEquals(7, unJugador.cantidadDeCartasEnMano());
 	}

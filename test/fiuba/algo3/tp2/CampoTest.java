@@ -23,11 +23,11 @@ public class CampoTest {
 		unCampo.agregarCarta(fisura, new PosicionVertical(), new BocaAbajo());
 		unCampo.agregarCartaDeTerreno(sogen);
 		
-		assertEquals(true , unCampo.estaEnElCampo(dragon));
-		assertEquals(true , unCampo.estaEnElCampo(magaOscura));
+		assertEquals(true , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
+		assertEquals(true , unCampo.estaEnElCampo("Chica Maga Oscura"));
 		//Es false ya que no son jugadas en la zona de ataque
-		assertEquals(false , unCampo.estaEnElCampo(fisura));
-		assertEquals(false , unCampo.estaEnElCampo(sogen));
+		assertEquals(false , unCampo.estaEnElCampo("Fisura"));
+		assertEquals(false , unCampo.estaEnElCampo("Sogen"));
 	}
 	
 	@Test
@@ -46,15 +46,15 @@ public class CampoTest {
 		unCampo.agregarCartaEnZonaDeAtaque(dragon);
 		unCampo.agregarCartaEnZonaDeAtaque(escudo);
 		
-		assertEquals(true , unCampo.estaEnElCampo(dragon));
-		assertEquals(true , unCampo.estaEnElCampo(magaOscura));
-		assertEquals(true , unCampo.estaEnElCampo(escudo));
+		assertEquals(true , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
+		assertEquals(true , unCampo.estaEnElCampo("Chica Maga Oscura"));
+		assertEquals(true , unCampo.estaEnElCampo("Escudo Milenario"));
 		
 		unCampo.destruirTodasLasCartasMonstruo();
 		
-		assertEquals(false , unCampo.estaEnElCampo(dragon));
-		assertEquals(false , unCampo.estaEnElCampo(magaOscura));
-		assertEquals(false , unCampo.estaEnElCampo(escudo));
+		assertEquals(false , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
+		assertEquals(false , unCampo.estaEnElCampo("Chica Maga Oscura"));
+		assertEquals(false , unCampo.estaEnElCampo("Escudo Milenario"));
 		
 	}
 

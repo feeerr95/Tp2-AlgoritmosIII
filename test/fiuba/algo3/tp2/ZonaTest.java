@@ -27,15 +27,15 @@ public class ZonaTest {
 		zona.agregarCarta(magaOscura);
 		zona.agregarCarta(acechador);
 		
-		assertEquals(true, zona.estaEnElCampo(dragon));
-		assertEquals(true, zona.estaEnElCampo(magaOscura));
-		assertEquals(true, zona.estaEnElCampo(acechador));
+		assertEquals(true, zona.estaEnElCampo("Dragon Blanco De Ojos Azules"));
+		assertEquals(true, zona.estaEnElCampo("Chica Maga Oscura"));
+		assertEquals(true, zona.estaEnElCampo("Acechador Del Craneo"));
 		
 		zona.destruirTodasLasCartas();
 		
-		assertEquals(false, zona.estaEnElCampo(dragon));
-		assertEquals(false, zona.estaEnElCampo(magaOscura));
-		assertEquals(false, zona.estaEnElCampo(acechador));
+		assertEquals(false, zona.estaEnElCampo("Dragon Blanco De Ojos Azules"));
+		assertEquals(false, zona.estaEnElCampo("Chica Maga Oscura"));
+		assertEquals(false, zona.estaEnElCampo("Acechador Del Craneo"));
 	}
 	
 	@Test 
