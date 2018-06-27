@@ -16,7 +16,7 @@ public class ZonaAtaque implements ZonaDeJuego {
     }
     @Override
 
-    public void eliminarCartasDestruidas( Stack cementerio) {
+    public void mandarAlCementerioCartasDestruidas( Stack cementerio) {
         for(CartaMonstruo carta: casilleros){
             carta.cambiarBonificaciones(0, 0);
         	carta.mandarAlCementerio(cementerio);
@@ -87,6 +87,10 @@ public class ZonaAtaque implements ZonaDeJuego {
             CartaMonstruo cartaEliminada = casilleros.remove(0);
             cartaEliminada.destruir();
         }
+    }
+
+    public boolean estaEnElCampo(Carta carta){
+        return casilleros.contains(carta);
     }
 
     public boolean estaEnElCampo(String nombreCarta){

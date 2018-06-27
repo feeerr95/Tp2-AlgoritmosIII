@@ -65,10 +65,6 @@ public class Jugador implements Afectable{
 	public boolean tieneLaCarta(String nombreCarta){
 		return (this.estaEnLaMano(nombreCarta) || this.estaEnElCampo(nombreCarta));
 	}
-	
-	public void mandarAlCementerio(Carta carta){
-		this.campoDeJuego.mandarAlCementerio(carta);
-	}
 
 	public int cantidadDeCartasEnElMazo(){
 		return this.campoDeJuego.cantidadDeCartasEnElMazo();
@@ -119,4 +115,8 @@ public class Jugador implements Afectable{
 		return mano.size();
 	}
 
+	public void colocarEnElCampo(Carta carta, PosicionCarta posicion, CaraCarta cara){
+		mano.remove(carta);
+		campoDeJuego.agregarCarta(carta, posicion, cara);
+	}
 }

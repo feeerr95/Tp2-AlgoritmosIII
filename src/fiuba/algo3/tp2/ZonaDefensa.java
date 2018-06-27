@@ -14,7 +14,7 @@ public class ZonaDefensa implements ZonaDeJuego {
     }
 
     @Override
-    public void eliminarCartasDestruidas(Stack cementerio) {
+    public void mandarAlCementerioCartasDestruidas(Stack cementerio) {
         for(CartaEfecto carta: casilleros){
             carta.mandarAlCementerio(cementerio);
         }
@@ -25,7 +25,7 @@ public class ZonaDefensa implements ZonaDeJuego {
             casilleros.add(unaCarta);
         }
         else{
-        	throw new InsuficienteEspacioEnCampo("Se puede colocar hasta 5 cartas mágicas o de trampa");
+        	throw new InsuficienteEspacioEnCampo("Se puede colocar hasta 5 cartas magicas o de trampa");
         }
 	}
 

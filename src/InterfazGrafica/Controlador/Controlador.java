@@ -1,23 +1,22 @@
 package InterfazGrafica.Controlador;
 
+import InterfazGrafica.Vista.CartaBoton;
 import InterfazGrafica.Vista.ContenedorInicial;
 import InterfazGrafica.Vista.ContenedorPrincipal;
-import fiuba.algo3.tp2.Carta;
-import fiuba.algo3.tp2.Jugador;
-import fiuba.algo3.tp2.Tablero;
+import fiuba.algo3.tp2.*;
 
 import java.util.ArrayList;
 
 public class Controlador{
 
-    ContenedorPrincipal contenedorPrincipal;
-    ContenedorInicial contenedorInicial;
-    Jugador jugador1;
-    Jugador jugador2;
-    Tablero tablero;
-    int puntosDeVidaJugador1;
-    int puntosDeVidaJugador2;
-    int turno;
+    private ContenedorPrincipal contenedorPrincipal;
+    private ContenedorInicial contenedorInicial;
+    private Jugador jugador1;
+    private Jugador jugador2;
+    private Tablero tablero;
+    private int puntosDeVidaJugador1;
+    private int puntosDeVidaJugador2;
+    private int turno;
 
     public Controlador(Tablero tablero, Jugador jugador1, Jugador jugador2){
         this.tablero = tablero;
@@ -30,9 +29,13 @@ public class Controlador{
         turno = 1;
     }
 
+    private boolean turnoEsPar(){
+        return(this.turno%2 == 0);
+    }
+
     public void terminarTurno(){
         this.turno += 1;
-        if( this.turno%2 == 0){                     //Turnos pares son del jugador2
+        if(turnoEsPar()){                         //Turnos pares son del jugador2
             jugador2.agarrarCarta();
             this.actualizarManos();
             contenedorPrincipal.cancelarManoJ1();
@@ -105,4 +108,16 @@ public class Controlador{
     public void actualizarCantMazos(){
         contenedorPrincipal.actualizarLabelsMazo(jugador1.cantidadDeCartasEnElMazo(),jugador2.cantidadDeCartasEnElMazo());
     }
+
+    public void colocarCartaEnCampo(Carta carta, PosicionCarta posicion, CaraCarta cara){
+        if(jugador1.tieneLaCarta(carta.getNombreCarta())){
+            jugador1.colocarEnElCampo(carta, posicion, cara);
+        }
+    }
+
+    public void colocarMonstruo(CartaBoton carta, String posicionCarta, String caraCarta){
+        contenedorPrincipal.colocarMonstruo(carta, posicionCarta, caraCarta);
+    }
+
+
 }

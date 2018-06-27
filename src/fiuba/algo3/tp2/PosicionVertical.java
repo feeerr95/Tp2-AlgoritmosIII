@@ -1,7 +1,11 @@
 package fiuba.algo3.tp2;
 
-public class PosicionVertical implements PosicionCarta {
-	
+public class PosicionVertical extends PosicionCarta {
+
+	public PosicionVertical() {
+		super("Vertical");
+	}
+
 	@Override
 	public void recibirAtaque(CartaMonstruo cartaAtacante, CartaMonstruo cartaAtacada, PosicionCarta otraPosicion, int atkAtacante, int atkAtacado, int defAtacado) {
 

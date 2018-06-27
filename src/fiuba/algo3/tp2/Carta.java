@@ -39,7 +39,6 @@ public abstract class Carta implements Afectable{
 
 	public void destruir(){
 		this.estado = "Destruido";
-		this.duenio.mandarAlCementerio(this);
 	}
 
 	public boolean estaDestruida(){

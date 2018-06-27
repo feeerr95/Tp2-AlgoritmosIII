@@ -56,9 +56,9 @@ public class Campo {
 		return zonaAtaque.cantidadDeMonstruos();
 	}
 
-	public void mandarAlCementerio(Carta carta){
-		zonaAtaque.eliminarUnaCarta(carta);
-		cementerio.add(carta);
+	public void mandarAlCementerioCartasDestruidas(){
+		zonaAtaque.mandarAlCementerioCartasDestruidas(cementerio);
+		zonaDefensa.mandarAlCementerioCartasDestruidas(cementerio);
 	}
 
 	public void destruirTodasLasCartasMonstruo(){
@@ -88,8 +88,11 @@ public class Campo {
     }
 
 	public boolean estaEnElCampo(String nombreCarta){
-
 		return zonaAtaque.estaEnElCampo(nombreCarta);
+	}
+
+	public boolean estaEnElCampo(Carta carta){
+		return zonaAtaque.estaEnElCampo(carta);
 	}
 
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){

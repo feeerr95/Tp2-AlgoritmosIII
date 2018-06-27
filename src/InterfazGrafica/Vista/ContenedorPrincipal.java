@@ -33,7 +33,7 @@ public class ContenedorPrincipal extends AnchorPane {
     private ArrayList<CartaBoton> listaDeCartasBotonesJ2;
     private HBox manoJugador1Box;
     private HBox manoJugador2Box;
-
+    private TableroVista tableroVista;
     private ScrollPane sp1;
     private ScrollPane sp2;
 
@@ -64,6 +64,8 @@ public class ContenedorPrincipal extends AnchorPane {
         listaDeCartasBotonesJ1 = new ArrayList<>();
         listaDeCartasBotonesJ2 = new ArrayList<>();
 
+        tableroVista = new TableroVista(controlador);
+
 
         Background fondo = new Background(imagen);
         this.setBackground(fondo);
@@ -73,7 +75,8 @@ public class ContenedorPrincipal extends AnchorPane {
         empezarJuegoBoton.setLayoutY(400);
         BotonEmpezarJuegoEventHandler botonEmpezarJuegoEventHandler = new BotonEmpezarJuegoEventHandler(controlador, empezarJuegoBoton);
         empezarJuegoBoton.setOnAction(botonEmpezarJuegoEventHandler);
-        this.getChildren().add(empezarJuegoBoton);
+
+        this.getChildren().addAll(empezarJuegoBoton,tableroVista);
 
     }
 
@@ -95,15 +98,15 @@ public class ContenedorPrincipal extends AnchorPane {
         for(Carta carta: manoJugador1){
             CartaBoton cartaBoton = new CartaBoton(carta,controlador);
             listaDeCartasBotonesJ1.add(cartaBoton);
-            this.manoJugador1.getItems().add(cartaBoton.obtenerBoton());
-            manoJugador1Box.getChildren().add(cartaBoton.obtenerBoton());
+            this.manoJugador1.getItems().add(cartaBoton.getBoton());
+            manoJugador1Box.getChildren().add(cartaBoton.getBoton());
         }
 
         for(Carta carta: manoJugador2){
             CartaBoton cartaBoton = new CartaBoton(carta,controlador);
             listaDeCartasBotonesJ2.add(cartaBoton);
-            this.manoJugador2.getItems().add(cartaBoton.obtenerBoton());
-            manoJugador2Box.getChildren().add(cartaBoton.obtenerBoton());
+            this.manoJugador2.getItems().add(cartaBoton.getBoton());
+            manoJugador2Box.getChildren().add(cartaBoton.getBoton());
         }
     }
 
@@ -207,5 +210,21 @@ public class ContenedorPrincipal extends AnchorPane {
         imagenCarta.setFitWidth(90);
         carta.setGraphic(imagenCarta);
         carta.setMinSize(94,160);
+    }
+
+    public void colocarMonstruo(CartaBoton cartaBoton, String posicionCarta, String caraCarta){
+        cartaBoton.actualizarVista(posicionCarta,caraCarta);
+        Button cartaJugada = cartaBoton.getBoton();
+
+        if(manoJugador1Box.getChildren().contains(cartaJugada)){
+            manoJugador1Box.getChildren().remove(cartaJugada);
+            tableroVista.agregarCartaMonstruoJ1(cartaJugada);
+        }
+        else{
+            manoJugador2Box.getChildren().remove(cartaJugada);
+            tableroVista.agregarCartaMonstruoJ2(cartaJugada);
+        }
+
+
     }
 }
