@@ -1,6 +1,6 @@
 package excepciones;
 
-public class NoHayMonstruosEnCampo extends Exception {
+public class NoHayMonstruosEnCampo extends RuntimeException {
 
 	public static final long serialVersionUID = 700L;
 	

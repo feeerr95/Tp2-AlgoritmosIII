@@ -1,6 +1,6 @@
 package excepciones;
 
-public class NoSeEncuentraLaCarta extends Exception {
+public class NoSeEncuentraLaCarta extends RuntimeException {
 
 	public static final long serialVersionUID = 700L;
 	
