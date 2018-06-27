@@ -52,34 +52,6 @@ public class Mazo {
 		mazo.add(carta19);
 		mazo.add(carta20);
 		mazo.add(carta21);
-//		mazo.add(carta22);
-//		mazo.add(carta23);
-//		mazo.add(carta24);
-//		mazo.add(carta25);
-//		mazo.add(carta26);
-//		mazo.add(carta27);
-//		mazo.add(carta28);
-//		mazo.add(carta29);
-//		mazo.add(carta30);
-//		mazo.add(carta31);
-//		mazo.add(carta32);
-//		mazo.add(carta33);
-//		mazo.add(carta34);
-//		mazo.add(carta35);
-//		mazo.add(carta36);
-//		mazo.add(carta37);
-//		mazo.add(carta38);
-//		mazo.add(carta39);
-//		mazo.add(carta40);
-//		mazo.add(carta41);
-//		mazo.add(carta42);
-//		mazo.add(carta43);
-//		mazo.add(carta44);
-//		mazo.add(carta45);
-//		mazo.add(carta46);
-//		mazo.add(carta47);
-//		mazo.add(carta50);
-
 	}
 
 	public int cantidadDeCartasEnElMazo(){
