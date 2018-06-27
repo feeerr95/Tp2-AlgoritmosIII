@@ -32,7 +32,7 @@ public class BocaArribaBotonEventHandler implements EventHandler<MouseEvent> {
         System.out.println(posicionCarta);
         System.out.println(cara);
         controlador.colocarMonstruo(cartaBoton, posicionCarta.getPosicion(), cara.getCara());
-        controlador.colocarCartaEnCampo(cartaBoton.getCarta(), posicionCarta, cara);
+        controlador.colocarCartaEnCampo(cartaBoton, posicionCarta, cara);
         stage.close();
     }
 }

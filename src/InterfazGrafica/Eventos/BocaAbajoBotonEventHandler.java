@@ -28,7 +28,7 @@ public class BocaAbajoBotonEventHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
         controlador.colocarMonstruo(cartaBoton, posicionCarta.getPosicion(), cara.getCara());
-        controlador.colocarCartaEnCampo(cartaBoton.getCarta(), posicionCarta, cara);
+        controlador.colocarCartaEnCampo(cartaBoton, posicionCarta, cara);
         stage.close();
     }
 }

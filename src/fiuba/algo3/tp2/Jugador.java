@@ -58,8 +58,6 @@ public class Jugador implements Afectable{
 		if(cartaAgarrada instanceof ParteDeExodia){
 			cartaAgarrada.usarEfectoAlSacarCarta();
 		}
-
-
 	}
 
 	public boolean tieneLaCarta(String nombreCarta){

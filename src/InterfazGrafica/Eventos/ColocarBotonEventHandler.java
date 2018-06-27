@@ -25,11 +25,18 @@ public class ColocarBotonEventHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
         switch (tipoDeBoton){
-            case "Terreno":break;
+            case "Terreno":
+                controlador.colocarTerreno(cartaBoton);
+                break;
             case "Monstruo":
                 this.comoColocarCarta();
-            case "Trampa": break;
-            case "Magica": break;
+                break;
+            case "Trampa":
+                controlador.colocarCartaEfecto(cartaBoton);
+                break;
+            case "Magica":
+                controlador.colocarCartaEfecto(cartaBoton);
+                break;
         }
 
         stage.close();

@@ -218,13 +218,45 @@ public class ContenedorPrincipal extends AnchorPane {
 
         if(manoJugador1Box.getChildren().contains(cartaJugada)){
             manoJugador1Box.getChildren().remove(cartaJugada);
-            tableroVista.agregarCartaMonstruoJ1(cartaJugada);
+            tableroVista.agregarCartaMonstruoJ1(cartaJugada, cartaBoton);
         }
         else{
             manoJugador2Box.getChildren().remove(cartaJugada);
-            tableroVista.agregarCartaMonstruoJ2(cartaJugada);
+            tableroVista.agregarCartaMonstruoJ2(cartaJugada, cartaBoton);
         }
-
-
     }
+
+    public void colocarTerreno(CartaBoton cartaBoton, String posicionCarta, String caraCarta){
+
+        cartaBoton.actualizarVista(posicionCarta,caraCarta);
+        Button cartaJugada = cartaBoton.getBoton();
+
+        if(manoJugador1Box.getChildren().contains(cartaJugada)){
+            manoJugador1Box.getChildren().remove(cartaJugada);
+            tableroVista.agregarCartaTerrenoJ1(cartaJugada, cartaBoton);
+        }
+        else{
+            manoJugador2Box.getChildren().remove(cartaJugada);
+            tableroVista.agregarCartaTerrenoJ2(cartaJugada, cartaBoton);
+        }
+    }
+
+
+
+    public void colocarCartaEfecto(CartaBoton cartaBoton, String posicionCarta, String caraCarta){
+
+        cartaBoton.actualizarVista(posicionCarta,caraCarta);
+        Button cartaJugada = cartaBoton.getBoton();
+
+        if(manoJugador1Box.getChildren().contains(cartaJugada)){
+            manoJugador1Box.getChildren().remove(cartaJugada);
+            tableroVista.agregarCartaEfectoJ1(cartaJugada, cartaBoton);
+        }
+        else{
+            manoJugador2Box.getChildren().remove(cartaJugada);
+            tableroVista.agregarCartaEfectoJ2(cartaJugada, cartaBoton);
+        }
+    }
+
+
 }

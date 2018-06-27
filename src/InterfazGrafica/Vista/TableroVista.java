@@ -4,62 +4,95 @@ import InterfazGrafica.Controlador.Controlador;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+
+import java.util.ArrayList;
 
 public class TableroVista extends Pane {
 
     private Controlador controlador;
-    private HBox campoAtaqueJugador2;
-    private HBox campoAtaqueJugador1;
-    private HBox campoDefensaJugador2;
-    private HBox campoDefensaJugador1;
+    private HBox campoAtaqueJ2;
+    private HBox campoAtaqueJ1;
+    private HBox campoDefensaJ2;
+    private HBox campoDefensaJ1;
+    private StackPane terrenoJ1;
+    private StackPane terrenoJ2;
+
+    private ArrayList<CartaBoton> listaDeTodasLasCartasJ1;
+    private ArrayList<CartaBoton> listaDeTodasLasCartasJ2;
 
     public TableroVista(Controlador controlador){
         this.controlador = controlador;
-        this.setLayoutX(361);
+        this.setLayoutX(250);
         this.setLayoutY(108);
-        this.setMinSize(677,696);
+        this.setMinSize(792,696);
 
+        listaDeTodasLasCartasJ1 = new ArrayList<>();
+        listaDeTodasLasCartasJ2 = new ArrayList<>();
 
-        campoAtaqueJugador2 = new HBox();
-        campoAtaqueJugador2.setLayoutX(20);
-        campoAtaqueJugador2.setLayoutY(415);
-        campoAtaqueJugador2.setMinSize(662,157);
-        campoAtaqueJugador2.setSpacing(25);
+        campoAtaqueJ2 = new HBox();
+        campoAtaqueJ2.setLayoutX(130);
+        campoAtaqueJ2.setLayoutY(415);
+        campoAtaqueJ2.setMinSize(662,157);
+        campoAtaqueJ2.setSpacing(25);
 
-        campoAtaqueJugador1 = new HBox();
-        campoAtaqueJugador1.setLayoutX(20);
-        campoAtaqueJugador1.setLayoutY(225);
-        campoAtaqueJugador1.setMinSize(662,157);
-        campoAtaqueJugador1.setSpacing(25);
+        campoAtaqueJ1 = new HBox();
+        campoAtaqueJ1.setLayoutX(130);
+        campoAtaqueJ1.setLayoutY(225);
+        campoAtaqueJ1.setMinSize(662,157);
+        campoAtaqueJ1.setSpacing(25);
 
-        campoDefensaJugador2 = new HBox();
-        campoDefensaJugador2.setLayoutX(20);
-        campoDefensaJugador2.setLayoutY(512);
-        campoDefensaJugador2.setMinSize(662,157);
-        campoDefensaJugador2.setSpacing(25);
+        campoDefensaJ2 = new HBox();
+        campoDefensaJ2.setLayoutX(130);
+        campoDefensaJ2.setLayoutY(576);
+        campoDefensaJ2.setMinSize(662,157);
+        campoDefensaJ2.setSpacing(25);
 
-        campoDefensaJugador1 = new HBox();
-        campoDefensaJugador1.setLayoutX(20);
-        campoDefensaJugador1.setLayoutY(0);
-        campoDefensaJugador1.setMinSize(662,157);
-        campoDefensaJugador1.setSpacing(25);
+        campoDefensaJ1 = new HBox();
+        campoDefensaJ1.setLayoutX(130);
+        campoDefensaJ1.setLayoutY(60);
+        campoDefensaJ1.setMinSize(662,157);
+        campoDefensaJ1.setSpacing(25);
 
-        this.getChildren().addAll(campoAtaqueJugador1, campoAtaqueJugador2, campoDefensaJugador1, campoDefensaJugador2);
+        terrenoJ1 = new StackPane();
+        terrenoJ1.setLayoutX(0);
+        terrenoJ1.setLayoutY(135);
+        terrenoJ1.setMinSize(100,157);
+
+        terrenoJ2 = new StackPane();
+        terrenoJ2.setLayoutX(0);
+        terrenoJ2.setLayoutY(493);
+        terrenoJ2.setMinSize(100,157);
+
+        this.getChildren().addAll(campoAtaqueJ1, campoAtaqueJ2, campoDefensaJ1, campoDefensaJ2, terrenoJ1, terrenoJ2);
     }
 
-    public void agregarCartaMonstruoJ1(Button carta){
-        campoAtaqueJugador1.getChildren().add(carta);
+    public void agregarCartaMonstruoJ1(Button carta, CartaBoton cartaBoton){
+        listaDeTodasLasCartasJ1.add(cartaBoton);
+        campoAtaqueJ1.getChildren().add(carta);
     }
-    public void agregarCartaMonstruoJ2(Button carta){
-        campoAtaqueJugador2.getChildren().add(carta);
+    public void agregarCartaMonstruoJ2(Button carta, CartaBoton cartaBoton){
+        listaDeTodasLasCartasJ2 = new ArrayList<>();
+        campoAtaqueJ2.getChildren().add(carta);
     }
-    public void agregarCartaEfectoJ1(Button carta){
-        campoDefensaJugador1.getChildren().add(carta);
+    public void agregarCartaEfectoJ1(Button carta, CartaBoton cartaBoton){
+        listaDeTodasLasCartasJ1 = new ArrayList<>();
+        campoDefensaJ1.getChildren().add(carta);
     }
-    public void agregarCartaEfectoJ2(Button carta){
-        campoDefensaJugador2.getChildren().add(carta);
+    public void agregarCartaEfectoJ2(Button carta, CartaBoton cartaBoton){
+        listaDeTodasLasCartasJ2 = new ArrayList<>();
+        campoDefensaJ2.getChildren().add(carta);
     }
 
+    public void agregarCartaTerrenoJ1(Button carta, CartaBoton cartaBoton){
+        listaDeTodasLasCartasJ1 = new ArrayList<>();
+        terrenoJ1.getChildren().add(carta);
+    }
+
+    public void agregarCartaTerrenoJ2(Button carta, CartaBoton cartaBoton){
+        listaDeTodasLasCartasJ2 = new ArrayList<>();
+        terrenoJ2.getChildren().add(carta);
+    }
 
 
 }

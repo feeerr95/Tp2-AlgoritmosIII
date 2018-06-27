@@ -46,8 +46,6 @@ public class Controlador{
             contenedorPrincipal.cancelarManoJ2();
         }
         this.actualizarCantMazos();
-
-
     }
 
     private void actualizarManos(){
@@ -109,14 +107,52 @@ public class Controlador{
         contenedorPrincipal.actualizarLabelsMazo(jugador1.cantidadDeCartasEnElMazo(),jugador2.cantidadDeCartasEnElMazo());
     }
 
-    public void colocarCartaEnCampo(Carta carta, PosicionCarta posicion, CaraCarta cara){
-        if(jugador1.tieneLaCarta(carta.getNombreCarta())){
-            jugador1.colocarEnElCampo(carta, posicion, cara);
+    public void colocarCartaEnCampo(CartaBoton carta, PosicionCarta posicion, CaraCarta cara){
+        Carta cartaSelecionada = carta.getCarta();
+        if(jugador1.tieneLaCarta(cartaSelecionada.getNombreCarta())){
+            jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
+        }
+        else{
+            jugador2.colocarEnElCampo(cartaSelecionada,posicion,cara);
         }
     }
 
     public void colocarMonstruo(CartaBoton carta, String posicionCarta, String caraCarta){
         contenedorPrincipal.colocarMonstruo(carta, posicionCarta, caraCarta);
+    }
+
+    public void colocarTerreno(CartaBoton carta){
+
+        Carta cartaSelecionada = carta.getCarta();
+
+        PosicionCarta posicion = new PosicionVertical();
+        CaraCarta cara = new BocaArriba();
+
+        if(jugador1.tieneLaCarta(cartaSelecionada.getNombreCarta())){
+            cartaSelecionada.usarEfectoContra(tablero);
+            jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
+        }
+        else{
+            jugador2.colocarEnElCampo(cartaSelecionada, posicion,cara);
+        }
+
+        contenedorPrincipal.colocarTerreno(carta,"Vertical", "Arriba");
+    }
+
+    public void colocarCartaEfecto(CartaBoton carta){
+
+        PosicionCarta posicion = new PosicionVertical();
+        CaraCarta cara = new BocaAbajo();
+        Carta cartaSelecionada = carta.getCarta();
+
+        if(jugador1.tieneLaCarta(cartaSelecionada.getNombreCarta())){
+            jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
+        }
+        else{
+            jugador2.colocarEnElCampo(cartaSelecionada,posicion,cara);
+        }
+
+        contenedorPrincipal.colocarCartaEfecto(carta,"Vertical", "Abajo");
     }
 
 

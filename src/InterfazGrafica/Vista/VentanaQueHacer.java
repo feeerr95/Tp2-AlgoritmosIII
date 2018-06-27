@@ -61,6 +61,9 @@ public class VentanaQueHacer extends Stage {
 
     private void setBotonesTerreno(){
         Button colocarBoton = new Button("Colocar");
+        ColocarBotonEventHandler colocarBotonEventHandler = new ColocarBotonEventHandler(this,"Terreno", controlador, cartaBoton);
+        colocarBoton.setOnMouseClicked(colocarBotonEventHandler);
+
         layout.getChildren().add(colocarBoton);
     }
     private void setBotonesMonstruo(){
@@ -79,9 +82,15 @@ public class VentanaQueHacer extends Stage {
         Button colocarBoton = new Button("Colocar");
         Button usarEfectoBoton = new Button("Usar Efecto");
         layout.getChildren().addAll(colocarBoton, usarEfectoBoton);
+
+        ColocarBotonEventHandler colocarBotonEventHandler = new ColocarBotonEventHandler(this, "Magica", controlador, cartaBoton);
+        colocarBoton.setOnMouseClicked(colocarBotonEventHandler);
     }
     private void setBotonesTrampa(){
         Button colocarBoton = new Button("Colocar");
         layout.getChildren().add(colocarBoton);
+
+        ColocarBotonEventHandler colocarBotonEventHandler = new ColocarBotonEventHandler(this, "Trampa", controlador, cartaBoton);
+        colocarBoton.setOnMouseClicked(colocarBotonEventHandler);
     }
 }

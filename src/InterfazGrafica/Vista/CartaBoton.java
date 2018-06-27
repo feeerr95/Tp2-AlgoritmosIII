@@ -45,7 +45,6 @@ public class CartaBoton {
         this.vistaVerticalArriba();
         ClickearCartaEventHandler clickearCartaEventHandler = new ClickearCartaEventHandler(this, controlador);
         cartaBoton.setOnMouseClicked(clickearCartaEventHandler);
-
     }
 
     public Button getBoton(){
