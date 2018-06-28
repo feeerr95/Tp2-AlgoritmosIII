@@ -50,7 +50,9 @@ public class CampoTest {
 		assertEquals(true , unCampo.estaEnElCampo("Chica Maga Oscura"));
 		assertEquals(true , unCampo.estaEnElCampo("Escudo Milenario"));
 		
-		unCampo.destruirTodasLasCartasMonstruo();
+		unCampo.eliminarUnaCarta(escudo);
+		unCampo.eliminarUnaCarta(dragon);
+		unCampo.eliminarUnaCarta(magaOscura);
 		
 		assertEquals(false , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
 		assertEquals(false , unCampo.estaEnElCampo("Chica Maga Oscura"));
