@@ -22,4 +22,12 @@ public class Tablero implements Afectable {
         campo1.bonificarCartas(bonAtkAtacante,bonDefAtacante);
         campo2.bonificarCartas(bonAtkAtacado,bonDefAtacado);
     }
+
+    public void eliminarCartasDestruidasJ1(){
+        campo1.mandarAlCementerioCartasDestruidas();
+    }
+
+    public void eliminarCartasDestruidasJ2(){
+        campo2.mandarAlCementerioCartasDestruidas();
+    }
 }

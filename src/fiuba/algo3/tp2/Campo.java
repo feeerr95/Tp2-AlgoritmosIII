@@ -8,7 +8,7 @@ public class Campo {
 	
 	private ZonaAtaque zonaAtaque;
 	private ZonaDefensa  zonaDefensa;
-	private Stack<Carta> cementerio;
+	private ArrayList<Carta> cementerio;
 	private Mazo mazo;
 	private List<Carta> mano;
 	private CartaTerreno terreno;
@@ -21,7 +21,7 @@ public class Campo {
 		this.zonaAtaque = new ZonaAtaque();
 		this.mazo = new Mazo();
 		this.mano = new ArrayList<Carta>();
-		this.cementerio = new Stack<>();
+		this.cementerio = new ArrayList<Carta>();
 		this.terreno = new CartaTerreno("Carta campo neutro");
 		this.bonificacionAtaque = 0;
 		this.bonificacionDefensa = 0;
@@ -56,9 +56,10 @@ public class Campo {
 		return zonaAtaque.cantidadDeMonstruos();
 	}
 
-	public void mandarAlCementerioCartasDestruidas(){
+	public ArrayList<Carta> mandarAlCementerioCartasDestruidas(){
 		zonaAtaque.mandarAlCementerioCartasDestruidas(cementerio);
 		zonaDefensa.mandarAlCementerioCartasDestruidas(cementerio);
+		return cementerio;
 	}
 
 	public void destruirTodasLasCartasMonstruo(){
@@ -76,7 +77,7 @@ public class Campo {
 	}
 
 	public void eliminarCartaMasDebil() {
-		this.zonaAtaque.eliminarCartaMasDebil(cementerio);		
+		this.zonaAtaque.eliminarCartaMasDebil();
 	}
 
     public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){

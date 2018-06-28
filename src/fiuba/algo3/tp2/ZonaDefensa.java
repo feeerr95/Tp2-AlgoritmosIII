@@ -14,7 +14,7 @@ public class ZonaDefensa implements ZonaDeJuego {
     }
 
     @Override
-    public void mandarAlCementerioCartasDestruidas(Stack cementerio) {
+    public void mandarAlCementerioCartasDestruidas(ArrayList<Carta> cementerio) {
         for(CartaEfecto carta: casilleros){
             carta.mandarAlCementerio(cementerio);
         }

@@ -155,5 +155,9 @@ public class Controlador{
         contenedorPrincipal.colocarCartaEfecto(carta,"Vertical", "Abajo");
     }
 
+    public void eliminarCartasDestruidas(){
+        tablero.eliminarCartasDestruidasJ1();
+        tablero.eliminarCartasDestruidasJ2();
+    }
 
 }

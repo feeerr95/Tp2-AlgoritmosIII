@@ -1,5 +1,6 @@
 package fiuba.algo3.tp2;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public abstract class Carta implements Afectable{
@@ -49,8 +50,8 @@ public abstract class Carta implements Afectable{
 		this.posicion = unaPosicion;
 	}
 
-	protected void mandarAlCementerio(Stack cementerio){
-		if(this.estaDestruida()) cementerio.push(this);
+	protected void mandarAlCementerio(ArrayList<Carta> cementerio){
+		if(this.estaDestruida()) cementerio.add(this);
 	}
 
 	public void darVuelta() {

@@ -16,7 +16,7 @@ public class ZonaAtaque implements ZonaDeJuego {
     }
     @Override
 
-    public void mandarAlCementerioCartasDestruidas( Stack cementerio) {
+    public void mandarAlCementerioCartasDestruidas( ArrayList<Carta> cementerio) {
         for(CartaMonstruo carta: casilleros){
             carta.cambiarBonificaciones(0, 0);
         	carta.mandarAlCementerio(cementerio);
@@ -45,7 +45,7 @@ public class ZonaAtaque implements ZonaDeJuego {
         return casilleros.size();
 	}
 
-    public void eliminarCartaMasDebil(Stack cementerio) {
+    public void eliminarCartaMasDebil() {
 
         if(!casilleros.isEmpty()){
             CartaMonstruo cartaDebil = new CartaMonstruo("Carta de referencia", 9999999, 0, new NivelBasico());

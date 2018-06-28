@@ -16,6 +16,7 @@ public class BotonTerminarTurnoEventHandler implements EventHandler<MouseEvent> 
     @Override
     public void handle(MouseEvent event) {
         if(!controlador.revisarSiSeGano()){
+            controlador.eliminarCartasDestruidas();
             controlador.terminarTurno();
         }
     }
