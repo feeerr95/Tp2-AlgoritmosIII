@@ -19,6 +19,7 @@ public class Controlador{
     private int turno;
 
     public Controlador(Tablero tablero, Jugador jugador1, Jugador jugador2){
+
         this.tablero = tablero;
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
@@ -159,7 +160,6 @@ public class Controlador{
         ArrayList<Carta> cartasJ1 = tablero.eliminarCartasDestruidasJ1();
         ArrayList<Carta> cartasJ2 = tablero.eliminarCartasDestruidasJ2();
         contenedorPrincipal.eliminarCartasDestruidas(cartasJ1, cartasJ2);
-
     }
 
 }

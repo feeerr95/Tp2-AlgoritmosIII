@@ -26,8 +26,6 @@ public class ZonaDefensa implements ZonaDeJuego {
         return cartasEliminadas;
     }
 
-
-
     public void agregarCarta(CartaEfecto unaCarta) throws InsuficienteEspacioEnCampo{
         if(casilleros.size() < 5) {
             casilleros.add(unaCarta);

@@ -1,6 +1,8 @@
 package InterfazGrafica.Vista;
 
 import InterfazGrafica.Controlador.Controlador;
+import InterfazGrafica.Eventos.AtacarMonstruoBotonEventHandler;
+import InterfazGrafica.Eventos.CambiarPosicionBotonEventHandler;
 import InterfazGrafica.Eventos.ColocarBotonEventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -74,6 +76,12 @@ public class VentanaQueHacer extends Stage {
 
         ColocarBotonEventHandler colocarBotonEventHandler = new ColocarBotonEventHandler(this, "Monstruo", controlador, cartaBoton);
         colocarBoton.setOnMouseClicked(colocarBotonEventHandler);
+
+        CambiarPosicionBotonEventHandler cambiarPosicionBotonEventHandler = new CambiarPosicionBotonEventHandler(this, controlador, cartaBoton);
+        cambiarPosicionBoton.setOnMouseClicked(cambiarPosicionBotonEventHandler);
+
+        AtacarMonstruoBotonEventHandler atacarMonstruoBotonEventHandler = new AtacarMonstruoBotonEventHandler(this, controlador, cartaBoton);
+        atacarMonstruoBoton.setOnMouseClicked(atacarMonstruoBotonEventHandler);
 
 
         layout.getChildren().addAll(colocarBoton, usarEfectoBoton, atacarMonstruoBoton, cambiarPosicionBoton);

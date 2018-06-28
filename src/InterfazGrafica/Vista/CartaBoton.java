@@ -14,12 +14,14 @@ public class CartaBoton {
     Carta carta;
     Controlador controlador;
     Button cartaBoton;
+    String posicion;
 
     public CartaBoton(Carta carta, Controlador controlador){
         this.carta = carta;
         this.controlador = controlador;
         this.setCaracteristicas();
         this.tipoDeBoton();
+
     }
 
     private void tipoDeBoton(){
@@ -56,6 +58,8 @@ public class CartaBoton {
     }
 
     public void actualizarVista(String posicionCarta, String caraCarta){
+        this.posicion = posicionCarta;
+
         if (posicionCarta.equals("Horizontal") && caraCarta.equals("Abajo")){
             this.vistaHorizontalAbajo();
         }
@@ -101,5 +105,20 @@ public class CartaBoton {
         imagenCarta.setFitHeight(140);
         imagenCarta.setFitWidth(90);
         cartaBoton.setGraphic(imagenCarta);
+    }
+
+    public void cambiarDePosicion(){
+        ImageView imagen = (ImageView) cartaBoton.getGraphic();
+        if(posicion.equals("Vertical")){
+            posicion = "Horizontal";
+            carta.cambiarPosicion(new PosicionHorizontal());
+            imagen.setRotate(90);
+        }
+        else{
+            posicion = "Vertical";
+            carta.cambiarPosicion(new PosicionVertical());
+            imagen.setRotate(0);
+        }
+
     }
 }
