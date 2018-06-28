@@ -6,24 +6,32 @@ import excepciones.NoHayMonstruosEnCampo;
 
 public class NivelFusion extends Nivel{
 
-	private ArrayList<CartaMonstruo> sacrificios = new ArrayList<>();
+	private ArrayList<String> sacrificios = new ArrayList<>();
 
 	@Override
-	public void agregarSacrificio(CartaMonstruo carta){
-		sacrificios.add(carta);
+	public void agregarSacrificio(String nombreCarta){
+		sacrificios.add(nombreCarta);
 	}
 	
 	@Override
-	public void agregarseAlCampo(Campo campo, CartaMonstruo unaCarta) throws NoHayMonstruosEnCampo{
-		boolean estanEnJuego = campo.cartasEstanEnJuego(sacrificios);
-		if(estanEnJuego){
-			for(CartaMonstruo sacrificio: sacrificios){
-				campo.eliminarUnaCarta(sacrificio);
+	public void agregarseAlCampo(Campo campo, CartaMonstruo unaCarta) throws NoHayMonstruosEnCampo {
+
+		boolean estanEnJuego = false;
+
+		for (String nombreCarta : sacrificios) {
+			if (!campo.estaEnElCampo(nombreCarta)) {
+				estanEnJuego = false;
+				break;
 			}
+			estanEnJuego = true;
 		}
-		else{
-			throw new NoHayMonstruosEnCampo("No se encuentran los sacrificios necesarios");
+		if (estanEnJuego) {
+			for(String nombreCarta: sacrificios){
+				campo.destruirCarta(nombreCarta);
+			}
+			campo.agregarCartaEnZonaDeAtaque(unaCarta);
+		} else {
+			throw new NoHayMonstruosEnCampo(("No se encuentran los sacrificios necesarios"));
 		}
-		campo.agregarCarta(unaCarta, new PosicionHorizontal(), new BocaArriba());
 	}
 }

@@ -6,7 +6,7 @@ import fiuba.algo3.tp2.NivelBasico;
 public class GuardianCelta extends CartaMonstruo{
 
 	public GuardianCelta() {
-		super("Guardián Celta", 1400, 1200, new NivelBasico());
+		super("Guardian Celta", 1400, 1200, new NivelBasico());
 	}
 
 }

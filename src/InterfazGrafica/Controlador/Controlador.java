@@ -110,7 +110,7 @@ public class Controlador{
 
     public void colocarCartaEnCampo(CartaBoton carta, PosicionCarta posicion, CaraCarta cara){
         Carta cartaSelecionada = carta.getCarta();
-        if(jugador1.tieneLaCarta(cartaSelecionada.getNombreCarta())){
+        if(jugador1.tieneLaCarta(cartaSelecionada)){
             jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
         }
         else{
@@ -129,7 +129,7 @@ public class Controlador{
         PosicionCarta posicion = new PosicionVertical();
         CaraCarta cara = new BocaArriba();
 
-        if(jugador1.tieneLaCarta(cartaSelecionada.getNombreCarta())){
+        if(jugador1.tieneLaCarta(cartaSelecionada)){
             cartaSelecionada.usarEfectoContra(tablero);
             jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
         }
@@ -146,7 +146,7 @@ public class Controlador{
         CaraCarta cara = new BocaAbajo();
         Carta cartaSelecionada = carta.getCarta();
 
-        if(jugador1.tieneLaCarta(cartaSelecionada.getNombreCarta())){
+        if(jugador1.tieneLaCarta(cartaSelecionada)){
             jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
         }
         else{

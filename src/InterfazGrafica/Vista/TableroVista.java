@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class TableroVista extends Pane {
 
-    private Controlador controlador;
+
     private HBox campoAtaqueJ2;
     private HBox campoAtaqueJ1;
     private HBox campoDefensaJ2;
@@ -21,8 +21,7 @@ public class TableroVista extends Pane {
     private ArrayList<CartaBoton> listaDeTodasLasCartasJ1;
     private ArrayList<CartaBoton> listaDeTodasLasCartasJ2;
 
-    public TableroVista(Controlador controlador){
-        this.controlador = controlador;
+    public TableroVista(){
         this.setLayoutX(250);
         this.setLayoutY(108);
         this.setMinSize(792,696);
@@ -72,25 +71,25 @@ public class TableroVista extends Pane {
         campoAtaqueJ1.getChildren().add(carta);
     }
     public void agregarCartaMonstruoJ2(Button carta, CartaBoton cartaBoton){
-        listaDeTodasLasCartasJ2 = new ArrayList<>();
+        listaDeTodasLasCartasJ2.add(cartaBoton);
         campoAtaqueJ2.getChildren().add(carta);
     }
     public void agregarCartaEfectoJ1(Button carta, CartaBoton cartaBoton){
-        listaDeTodasLasCartasJ1 = new ArrayList<>();
+        listaDeTodasLasCartasJ1.add(cartaBoton);
         campoDefensaJ1.getChildren().add(carta);
     }
     public void agregarCartaEfectoJ2(Button carta, CartaBoton cartaBoton){
-        listaDeTodasLasCartasJ2 = new ArrayList<>();
+        listaDeTodasLasCartasJ2.add(cartaBoton);
         campoDefensaJ2.getChildren().add(carta);
     }
 
     public void agregarCartaTerrenoJ1(Button carta, CartaBoton cartaBoton){
-        listaDeTodasLasCartasJ1 = new ArrayList<>();
+        listaDeTodasLasCartasJ1.add(cartaBoton);
         terrenoJ1.getChildren().add(carta);
     }
 
     public void agregarCartaTerrenoJ2(Button carta, CartaBoton cartaBoton){
-        listaDeTodasLasCartasJ2 = new ArrayList<>();
+        listaDeTodasLasCartasJ2.add(cartaBoton);
         terrenoJ2.getChildren().add(carta);
     }
 
@@ -100,14 +99,19 @@ public class TableroVista extends Pane {
             for(CartaBoton cartaAEliminar: cartasAEliminar) {
                 if (campoAtaqueJ1.getChildren().contains(cartaAEliminar.getBoton()))
                     campoAtaqueJ1.getChildren().remove(cartaAEliminar.getBoton());
+
                 else if (campoDefensaJ1.getChildren().contains(cartaAEliminar.getBoton()))
                     campoDefensaJ1.getChildren().remove(cartaAEliminar.getBoton());
+
                 else if (terrenoJ1.getChildren().contains(cartaAEliminar.getBoton()))
                     terrenoJ1.getChildren().remove(cartaAEliminar.getBoton());
+
                 else if (campoAtaqueJ2.getChildren().contains(cartaAEliminar.getBoton()))
                     campoAtaqueJ2.getChildren().remove(cartaAEliminar.getBoton());
+
                 else if (campoDefensaJ2.getChildren().contains(cartaAEliminar.getBoton()))
                     campoDefensaJ2.getChildren().remove(cartaAEliminar.getBoton());
+
                 else if (terrenoJ2.getChildren().contains(cartaAEliminar.getBoton()))
                     terrenoJ2.getChildren().remove(cartaAEliminar.getBoton());
             }

@@ -64,6 +64,10 @@ public class Jugador implements Afectable{
 		return (this.estaEnLaMano(nombreCarta) || this.estaEnElCampo(nombreCarta));
 	}
 
+	public boolean tieneLaCarta(Carta carta){
+		return (this.estaEnLaMano(carta) || this.estaEnElCampo(carta));
+	}
+
 	public int cantidadDeCartasEnElMazo(){
 		return this.campoDeJuego.cantidadDeCartasEnElMazo();
 	}
@@ -88,6 +92,10 @@ public class Jugador implements Afectable{
 		return this.campoDeJuego.estaEnElCampo(nombreCarta);
 	}
 
+	public boolean estaEnElCampo(Carta carta){
+		return this.campoDeJuego.estaEnElCampo(carta);
+	}
+
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){
 		return campoDeJuego.cartasTrampaEnJuego(cartaAtacada, cartaAtacante);
 	}
@@ -99,6 +107,10 @@ public class Jugador implements Afectable{
 			}
 		}
 		return false;
+	}
+
+	public boolean estaEnLaMano(Carta carta) {
+		return mano.contains(carta);
 	}
 
 	public ArrayList<Carta> getMano(){

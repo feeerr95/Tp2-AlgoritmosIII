@@ -51,6 +51,7 @@ public abstract class Carta implements Afectable{
 	}
 
 	protected void mandarAlCementerio(ArrayList<Carta> cementerio, ArrayList<Carta> cartasAEliminar){
+
 		if(this.estaDestruida()){
 			cartasAEliminar.add(this);
 			cementerio.add(this);
@@ -76,10 +77,6 @@ public abstract class Carta implements Afectable{
 	
 	public boolean estaEnElCampo(){
 		return this.duenio.estaEnElCampo(this.nombreCarta);
-	}
-
-	public void setNombreCarta(String nombreCarta) {
-		this.nombreCarta = nombreCarta;
 	}
 
 	public String getNombreCarta() {

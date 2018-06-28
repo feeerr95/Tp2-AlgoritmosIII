@@ -48,8 +48,8 @@ public class Campo {
 		return mazo.cantidadDeCartasEnElMazo();
 	}
 
-	public void eliminarUnaCarta(CartaMonstruo carta){
-		this.zonaAtaque.eliminarUnaCarta(carta);
+	public void destruirCarta(String carta){
+		this.zonaAtaque.destruirCarta(carta);
 	}
 
 	public int cantidadDeMonstruos(){
@@ -81,10 +81,6 @@ public class Campo {
 	public void eliminarCartaMasDebil() {
 		this.zonaAtaque.eliminarCartaMasDebil();
 	}
-
-    public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){
-        return zonaAtaque.cartasEstanEnJuego( listaDeCartas );
-    }
 
     public void eliminarCartaAlAzar(){
 	    zonaAtaque.eliminarCartaAlAzar();

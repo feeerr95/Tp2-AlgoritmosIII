@@ -1,6 +1,8 @@
 package fiuba.algo3.tp2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import excepciones.InsuficienteEspacioEnCampo;
 import excepciones.NoHayMonstruosEnCampo;
 import excepciones.NoSeEncuentraLaCarta;
@@ -8,9 +10,11 @@ import excepciones.NoSeEncuentraLaCarta;
 public class ZonaAtaque implements ZonaDeJuego {
 
     private ArrayList<CartaMonstruo> casilleros;
+    private HashMap<String, ArrayList<CartaMonstruo>> cartasEnJuego;
 
     public ZonaAtaque(){
         this.casilleros = new ArrayList<>();
+        this.cartasEnJuego = new HashMap<>();
     }
 
     @Override
@@ -21,15 +25,14 @@ public class ZonaAtaque implements ZonaDeJuego {
         	carta.mandarAlCementerio(cementerio, cartasEliminadas);
         }
         for(Carta carta: cartasEliminadas){
-            casilleros.remove(carta);
+            this.eliminarUnaCarta(carta.getNombreCarta());
         }
         return cartasEliminadas;
     }
 
     public void destruirTodasLasCartas() {
 
-        while(!casilleros.isEmpty()){
-            Carta carta = casilleros.get(0);
+        for(Carta carta: casilleros){
             carta.destruir();
         }
     }
@@ -37,6 +40,10 @@ public class ZonaAtaque implements ZonaDeJuego {
     public void agregarCarta(CartaMonstruo unaCarta) throws InsuficienteEspacioEnCampo{
 
         if(casilleros.size() < 5) {
+            if(!cartasEnJuego.containsKey(unaCarta.getNombreCarta())){
+                cartasEnJuego.put(unaCarta.getNombreCarta(), new ArrayList<>());
+            }
+            cartasEnJuego.get(unaCarta.getNombreCarta()).add(unaCarta);
             casilleros.add(unaCarta);
         }
         else{
@@ -57,7 +64,6 @@ public class ZonaAtaque implements ZonaDeJuego {
                     cartaDebil = carta;
                 }
             }
-            cartaDebil.cambiarBonificaciones(0,0);
             cartaDebil.destruir();
         }
     }
@@ -68,19 +74,27 @@ public class ZonaAtaque implements ZonaDeJuego {
 		}	
 	}
 
-    public void eliminarUnaCarta(Carta carta) throws NoSeEncuentraLaCarta{
-        if(!casilleros.contains(carta)){
-            throw new NoSeEncuentraLaCarta("No se encuentra la Carta Monstruo");
+	public void destruirCarta(String nombreCarta){
+        for(Carta carta: cartasEnJuego.get(nombreCarta)){
+            if(!carta.estaDestruida()){
+                carta.destruir();
+                break;
+            }
         }
-        int index = casilleros.indexOf(carta);
-        casilleros.remove(index).destruir();
     }
 
-    public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){
-        for(Carta carta: listaDeCartas ){
-            if(!casilleros.contains(carta)) return false;
+    public void eliminarUnaCarta(String nombreCarta) throws NoSeEncuentraLaCarta{
+        if(!cartasEnJuego.containsKey(nombreCarta)){
+            throw new NoSeEncuentraLaCarta("No se encuentra la Carta Monstruo");
         }
-        return true;
+
+        CartaMonstruo cartaEliminada = cartasEnJuego.get(nombreCarta).remove(0);
+        if(cartasEnJuego.get(nombreCarta).isEmpty()){
+            cartasEnJuego.remove(nombreCarta);
+        }
+        int index = casilleros.indexOf(cartaEliminada);
+        cartaEliminada.destruir();
+        casilleros.remove(index);
     }
 
     public void eliminarCartaAlAzar() throws NoHayMonstruosEnCampo{
@@ -98,10 +112,6 @@ public class ZonaAtaque implements ZonaDeJuego {
         }
     }
 
-    public boolean estaEnElCampo(Carta carta){
-        return casilleros.contains(carta);
-    }
-
     public boolean estaEnElCampo(String nombreCarta){
         for(Carta unaCarta: casilleros) {
             if(unaCarta.es(nombreCarta)) {
@@ -109,5 +119,9 @@ public class ZonaAtaque implements ZonaDeJuego {
             }
         }
         return false;
+    }
+
+    public boolean estaEnElCampo(Carta carta){
+        return casilleros.contains(carta);
     }
 }

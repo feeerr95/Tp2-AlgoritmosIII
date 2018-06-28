@@ -51,15 +51,15 @@ public class Mazo {
 		CartaTrampa carta39 = new Reinforcements();
 		CartaMonstruo carta40 = new Sablesaurio();
 		CartaMonstruo carta41 = new SaggiElPayasoOscuro();
-		CartaMonstruo carta42 = new SapoViscoso();
+		CartaMonstruo carta42 = new DragonBlancoDeOjosAzules();
 		CartaMonstruo carta43 = new Seiyaryu();
-		CartaMonstruo carta44 = new Sengenjin();
+		CartaMonstruo carta44 = new DragonBlancoDeOjosAzules();
 		CartaMonstruo carta45 = new SerpienteMarinaRojaGigante();
 		CartaTerreno carta46 = new Sogen();
 		CartaTerreno carta47 = new Wasteland();
 		CartaMonstruo carta48 = new Yamadron();
 		CartaMonstruo carta49 = new Zoa();
-		CartaMonstruo carta50 = new ZombiDeDragon();
+		CartaMonstruo carta50 = new ZombiDragon();
 		mazo.add(carta1);
 		mazo.add(carta2);
 		mazo.add(carta3);

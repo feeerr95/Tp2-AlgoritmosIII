@@ -69,7 +69,7 @@ public class ContenedorPrincipal extends AnchorPane {
         listaDeCartasBotonesJ1 = new ArrayList<>();
         listaDeCartasBotonesJ2 = new ArrayList<>();
 
-        tableroVista = new TableroVista(controlador);
+        tableroVista = new TableroVista();
 
 
         Background fondo = new Background(imagen);
