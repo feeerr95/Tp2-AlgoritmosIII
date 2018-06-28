@@ -14,11 +14,19 @@ public class ZonaDefensa implements ZonaDeJuego {
     }
 
     @Override
-    public void mandarAlCementerioCartasDestruidas(ArrayList<Carta> cementerio) {
+    public ArrayList<Carta> mandarAlCementerioCartasDestruidas(ArrayList<Carta> cementerio) {
+
+        ArrayList<Carta> cartasEliminadas = new ArrayList<>();
         for(CartaEfecto carta: casilleros){
-            carta.mandarAlCementerio(cementerio);
+            carta.mandarAlCementerio(cementerio, cartasEliminadas);
         }
+        for(Carta carta: cartasEliminadas){
+            casilleros.remove(carta);
+        }
+        return cartasEliminadas;
     }
+
+
 
     public void agregarCarta(CartaEfecto unaCarta) throws InsuficienteEspacioEnCampo{
         if(casilleros.size() < 5) {

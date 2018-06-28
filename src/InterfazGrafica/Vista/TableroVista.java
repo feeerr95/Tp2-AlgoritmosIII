@@ -94,5 +94,25 @@ public class TableroVista extends Pane {
         terrenoJ2.getChildren().add(carta);
     }
 
+    public void elminarCartasDestruidas(ArrayList<CartaBoton> cartasAEliminar){
+
+        if(!cartasAEliminar.isEmpty()){
+            for(CartaBoton cartaAEliminar: cartasAEliminar) {
+                if (campoAtaqueJ1.getChildren().contains(cartaAEliminar.getBoton()))
+                    campoAtaqueJ1.getChildren().remove(cartaAEliminar.getBoton());
+                else if (campoDefensaJ1.getChildren().contains(cartaAEliminar.getBoton()))
+                    campoDefensaJ1.getChildren().remove(cartaAEliminar.getBoton());
+                else if (terrenoJ1.getChildren().contains(cartaAEliminar.getBoton()))
+                    terrenoJ1.getChildren().remove(cartaAEliminar.getBoton());
+                else if (campoAtaqueJ2.getChildren().contains(cartaAEliminar.getBoton()))
+                    campoAtaqueJ2.getChildren().remove(cartaAEliminar.getBoton());
+                else if (campoDefensaJ2.getChildren().contains(cartaAEliminar.getBoton()))
+                    campoDefensaJ2.getChildren().remove(cartaAEliminar.getBoton());
+                else if (terrenoJ2.getChildren().contains(cartaAEliminar.getBoton()))
+                    terrenoJ2.getChildren().remove(cartaAEliminar.getBoton());
+            }
+        }
+    }
+
 
 }

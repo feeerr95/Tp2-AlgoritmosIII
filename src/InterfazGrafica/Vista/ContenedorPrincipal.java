@@ -17,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ContenedorPrincipal extends AnchorPane {
 
@@ -36,6 +37,8 @@ public class ContenedorPrincipal extends AnchorPane {
     private TableroVista tableroVista;
     private ScrollPane sp1;
     private ScrollPane sp2;
+
+    private HashMap<Carta, CartaBoton> cartasEnJuego;
 
 
     public ContenedorPrincipal(Stage stage,Controlador controlador){
@@ -57,6 +60,8 @@ public class ContenedorPrincipal extends AnchorPane {
 
         sp1 = new ScrollPane();
         sp2 = new ScrollPane();
+
+        cartasEnJuego = new HashMap<>();
 
         cartasManoJ1 = new ArrayList<>();
         cartasManoJ2 = new ArrayList<>();
@@ -215,6 +220,7 @@ public class ContenedorPrincipal extends AnchorPane {
     public void colocarMonstruo(CartaBoton cartaBoton, String posicionCarta, String caraCarta){
         cartaBoton.actualizarVista(posicionCarta,caraCarta);
         Button cartaJugada = cartaBoton.getBoton();
+        cartasEnJuego.put(cartaBoton.getCarta(), cartaBoton);
 
         if(manoJugador1Box.getChildren().contains(cartaJugada)){
             manoJugador1Box.getChildren().remove(cartaJugada);
@@ -230,6 +236,7 @@ public class ContenedorPrincipal extends AnchorPane {
 
         cartaBoton.actualizarVista(posicionCarta,caraCarta);
         Button cartaJugada = cartaBoton.getBoton();
+        cartasEnJuego.put(cartaBoton.getCarta(), cartaBoton);
 
         if(manoJugador1Box.getChildren().contains(cartaJugada)){
             manoJugador1Box.getChildren().remove(cartaJugada);
@@ -247,6 +254,7 @@ public class ContenedorPrincipal extends AnchorPane {
 
         cartaBoton.actualizarVista(posicionCarta,caraCarta);
         Button cartaJugada = cartaBoton.getBoton();
+        cartasEnJuego.put(cartaBoton.getCarta(), cartaBoton);
 
         if(manoJugador1Box.getChildren().contains(cartaJugada)){
             manoJugador1Box.getChildren().remove(cartaJugada);
@@ -256,6 +264,22 @@ public class ContenedorPrincipal extends AnchorPane {
             manoJugador2Box.getChildren().remove(cartaJugada);
             tableroVista.agregarCartaEfectoJ2(cartaJugada, cartaBoton);
         }
+    }
+
+    public void eliminarCartasDestruidas(ArrayList<Carta> cartasJ1, ArrayList<Carta> cartasJ2){
+
+        ArrayList<CartaBoton> cartasAEliminar = new ArrayList<>();
+
+        for(Carta carta: cartasJ1){
+            cartasAEliminar.add(cartasEnJuego.get(carta));
+            cartasEnJuego.remove(carta);
+        }
+        for(Carta carta: cartasJ2){
+            cartasAEliminar.add(cartasEnJuego.get(carta));
+            cartasEnJuego.remove(carta);
+        }
+
+        tableroVista.elminarCartasDestruidas(cartasAEliminar);
     }
 
 

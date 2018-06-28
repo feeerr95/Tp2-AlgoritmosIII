@@ -50,8 +50,11 @@ public abstract class Carta implements Afectable{
 		this.posicion = unaPosicion;
 	}
 
-	protected void mandarAlCementerio(ArrayList<Carta> cementerio){
-		if(this.estaDestruida()) cementerio.add(this);
+	protected void mandarAlCementerio(ArrayList<Carta> cementerio, ArrayList<Carta> cartasAEliminar){
+		if(this.estaDestruida()){
+			cartasAEliminar.add(this);
+			cementerio.add(this);
+		}
 	}
 
 	public void darVuelta() {

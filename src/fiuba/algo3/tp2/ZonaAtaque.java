@@ -1,8 +1,6 @@
 package fiuba.algo3.tp2;
 
 import java.util.ArrayList;
-import java.util.Stack;
-
 import excepciones.InsuficienteEspacioEnCampo;
 import excepciones.NoHayMonstruosEnCampo;
 import excepciones.NoSeEncuentraLaCarta;
@@ -14,19 +12,24 @@ public class ZonaAtaque implements ZonaDeJuego {
     public ZonaAtaque(){
         this.casilleros = new ArrayList<>();
     }
-    @Override
 
-    public void mandarAlCementerioCartasDestruidas( ArrayList<Carta> cementerio) {
+    @Override
+    public ArrayList<Carta> mandarAlCementerioCartasDestruidas( ArrayList<Carta> cementerio) {
+
+        ArrayList<Carta> cartasEliminadas = new ArrayList<>();
         for(CartaMonstruo carta: casilleros){
-            carta.cambiarBonificaciones(0, 0);
-        	carta.mandarAlCementerio(cementerio);
+        	carta.mandarAlCementerio(cementerio, cartasEliminadas);
         }
+        for(Carta carta: cartasEliminadas){
+            casilleros.remove(carta);
+        }
+        return cartasEliminadas;
     }
 
     public void destruirTodasLasCartas() {
 
         while(!casilleros.isEmpty()){
-            Carta carta = casilleros.remove(0);
+            Carta carta = casilleros.get(0);
             carta.destruir();
         }
     }
@@ -65,11 +68,12 @@ public class ZonaAtaque implements ZonaDeJuego {
 		}	
 	}
 
-    public void eliminarUnaCarta(Carta cartaMonstruo) throws NoSeEncuentraLaCarta{
-        if(!casilleros.contains(cartaMonstruo)){
+    public void eliminarUnaCarta(Carta carta) throws NoSeEncuentraLaCarta{
+        if(!casilleros.contains(carta)){
             throw new NoSeEncuentraLaCarta("No se encuentra la Carta Monstruo");
         }
-        casilleros.remove(cartaMonstruo);
+        int index = casilleros.indexOf(carta);
+        casilleros.remove(index).destruir();
     }
 
     public boolean cartasEstanEnJuego(ArrayList<CartaMonstruo> listaDeCartas){
@@ -84,7 +88,12 @@ public class ZonaAtaque implements ZonaDeJuego {
             throw new NoHayMonstruosEnCampo("No hay monstruos en el campo");
         }
         else {
-            CartaMonstruo cartaEliminada = casilleros.remove(0);
+            int index = 0;
+            CartaMonstruo cartaEliminada = casilleros.get(index);
+            while(cartaEliminada.estaDestruida()){
+                index += 1;
+                cartaEliminada = casilleros.get(index);
+            }
             cartaEliminada.destruir();
         }
     }

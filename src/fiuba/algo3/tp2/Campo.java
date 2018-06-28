@@ -57,9 +57,11 @@ public class Campo {
 	}
 
 	public ArrayList<Carta> mandarAlCementerioCartasDestruidas(){
-		zonaAtaque.mandarAlCementerioCartasDestruidas(cementerio);
-		zonaDefensa.mandarAlCementerioCartasDestruidas(cementerio);
-		return cementerio;
+
+		ArrayList<Carta> cartasAtaque = zonaAtaque.mandarAlCementerioCartasDestruidas(cementerio);
+		ArrayList<Carta> cartaDefensa = zonaDefensa.mandarAlCementerioCartasDestruidas(cementerio);
+		cartasAtaque.addAll(cartaDefensa);
+		return cartasAtaque;
 	}
 
 	public void destruirTodasLasCartasMonstruo(){

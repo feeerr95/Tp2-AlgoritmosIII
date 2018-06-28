@@ -156,8 +156,10 @@ public class Controlador{
     }
 
     public void eliminarCartasDestruidas(){
-        tablero.eliminarCartasDestruidasJ1();
-        tablero.eliminarCartasDestruidasJ2();
+        ArrayList<Carta> cartasJ1 = tablero.eliminarCartasDestruidasJ1();
+        ArrayList<Carta> cartasJ2 = tablero.eliminarCartasDestruidasJ2();
+        contenedorPrincipal.eliminarCartasDestruidas(cartasJ1, cartasJ2);
+
     }
 
 }

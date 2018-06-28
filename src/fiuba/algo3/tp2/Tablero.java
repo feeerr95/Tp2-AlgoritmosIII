@@ -1,5 +1,7 @@
 package fiuba.algo3.tp2;
 
+import java.util.ArrayList;
+
 public class Tablero implements Afectable {
 
     private Campo campo1;
@@ -23,11 +25,11 @@ public class Tablero implements Afectable {
         campo2.bonificarCartas(bonAtkAtacado,bonDefAtacado);
     }
 
-    public void eliminarCartasDestruidasJ1(){
-        campo1.mandarAlCementerioCartasDestruidas();
+    public ArrayList<Carta> eliminarCartasDestruidasJ1(){
+        return campo1.mandarAlCementerioCartasDestruidas();
     }
 
-    public void eliminarCartasDestruidasJ2(){
-        campo2.mandarAlCementerioCartasDestruidas();
+    public ArrayList<Carta> eliminarCartasDestruidasJ2(){
+        return campo2.mandarAlCementerioCartasDestruidas();
     }
 }

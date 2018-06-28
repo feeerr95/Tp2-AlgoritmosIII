@@ -13,6 +13,7 @@ public class ClickearCartaMonstruoEventHandler extends ClickearCartaEventHandler
 
     @Override
     public void handle(MouseEvent event) {
+
         VentanaQueHacer ventanaQueHacer = new VentanaQueHacer("Monstruo", controlador, cartaBoton);
         ventanaQueHacer.show();
     }
