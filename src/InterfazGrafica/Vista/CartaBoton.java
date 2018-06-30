@@ -7,7 +7,6 @@ import fiuba.algo3.tp2.*;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 
 public class CartaBoton {
 
@@ -120,5 +119,16 @@ public class CartaBoton {
             imagen.setRotate(0);
         }
 
+    }
+
+    public void darVuelta(){
+        if(posicion.equals("Vertical")){
+            carta.darVuelta();
+            this.vistaVerticalArriba();
+        }
+        else{
+            carta.darVuelta();
+            this.vistaHorizontalArriba();
+        }
     }
 }

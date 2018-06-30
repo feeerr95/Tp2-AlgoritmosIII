@@ -126,7 +126,7 @@ public class Jugador implements Afectable{
 	}
 
 	public void colocarEnElCampo(Carta carta, PosicionCarta posicion, CaraCarta cara){
-		mano.remove(carta);
 		campoDeJuego.agregarCarta(carta, posicion, cara);
+		mano.remove(carta);
 	}
 }

@@ -5,7 +5,8 @@ import InterfazGrafica.Eventos.PosicionAtaqueBotonEventHandler;
 import InterfazGrafica.Eventos.PosicionDefensaBotonEventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class VentanaPosicionAColocar extends Stage {
@@ -14,6 +15,8 @@ public class VentanaPosicionAColocar extends Stage {
     private CartaBoton cartaBoton;
     private HBox layout;
     private Scene escena;
+    private int alto;
+    private int ancho;
 
     public VentanaPosicionAColocar(Controlador controlador, CartaBoton cartaBoton) {
             this.controlador = controlador;
@@ -21,7 +24,22 @@ public class VentanaPosicionAColocar extends Stage {
             this.centerOnScreen();
             layout = new HBox();
             escena = new Scene(layout);
-            layout.setPrefSize(300,100);
+            layout.setPrefSize(ancho,alto);
+
+        this.setResizable(false);
+        ancho = 280;
+        alto = 420;
+
+        Image imagen = new Image("Imagenes/"+cartaBoton.getCarta().getNombreCarta()+".png");
+        layout.setPrefSize(ancho,alto);
+        BackgroundImage fondo = new BackgroundImage(imagen,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.DEFAULT,
+                new BackgroundSize(ancho,alto,false,false,false, false));
+        Background background = new Background(fondo);
+        layout.setBackground(background);
+
             this.setScene(escena);
             this.setBotonera();
     }

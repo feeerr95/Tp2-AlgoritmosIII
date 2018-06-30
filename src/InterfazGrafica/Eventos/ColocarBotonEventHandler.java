@@ -12,13 +12,13 @@ public class ColocarBotonEventHandler implements EventHandler<MouseEvent> {
     String tipoDeBoton;
     Controlador controlador;
     CartaBoton cartaBoton;
-    Stage stage;
+    Stage ventanaQueHacer;
 
-    public ColocarBotonEventHandler(Stage stage, String tipoDeBoton, Controlador controlador, CartaBoton cartaBoton){
+    public ColocarBotonEventHandler(Stage ventanaQueHacer, String tipoDeBoton, Controlador controlador, CartaBoton cartaBoton){
         this.cartaBoton = cartaBoton;
         this.tipoDeBoton = tipoDeBoton;
         this.controlador = controlador;
-        this.stage = stage;
+        this.ventanaQueHacer = ventanaQueHacer;
     }
 
 
@@ -38,8 +38,7 @@ public class ColocarBotonEventHandler implements EventHandler<MouseEvent> {
                 controlador.colocarCartaEfecto(cartaBoton);
                 break;
         }
-
-        stage.close();
+        ventanaQueHacer.close();
     }
 
     private void comoColocarCarta(){

@@ -234,6 +234,9 @@ public class AlGoOhTest {
 
         Tablero tablero = new Tablero(campo1, campo2);
 
+        campo1.setTablero(tablero);
+        campo2.setTablero(tablero);
+
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.asignarDuenio(atacante);
         campo1.agregarCarta(insectoComeHombres, new PosicionVertical(), new BocaArriba());
@@ -250,7 +253,6 @@ public class AlGoOhTest {
         CartaTerreno wasteland = new Wasteland();
         wasteland.asignarDuenio(atacante);
         campo1.agregarCarta(wasteland, new PosicionVertical(), new BocaArriba());
-        wasteland.usarEfectoContra(tablero);
 
 
         //Como esta vez hay un efecto de campo, Insecto come hombres deberia ganar
@@ -320,6 +322,8 @@ public class AlGoOhTest {
         Jugador atacado = new Jugador(campo2);
 
         Tablero tablero = new Tablero(campo1, campo2);
+        campo1.setTablero(tablero);
+        campo2.setTablero(tablero);
 
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.asignarDuenio(atacante);
@@ -346,7 +350,6 @@ public class AlGoOhTest {
         CartaTerreno sogen = new Sogen();
         sogen.asignarDuenio(atacante);
         campo1.agregarCarta(sogen, new PosicionVertical(), new BocaArriba());
-        sogen.usarEfectoContra(tablero);
 
         //Normalmente la Cabeza de exodia deberia destruir a la otra carta, pero no sucede ya que hay un efecto de campo
         cabezaDeExodia.atacarOtraCarta(acechadorDelCraneo);

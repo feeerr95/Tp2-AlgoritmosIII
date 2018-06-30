@@ -14,6 +14,7 @@ public class Campo {
 	private CartaTerreno terreno;
 	private int bonificacionAtaque,
 				bonificacionDefensa;
+	private Tablero tablero;
 
 	
 	public Campo() {
@@ -25,6 +26,10 @@ public class Campo {
 		this.terreno = new CartaTerreno("Carta campo neutro");
 		this.bonificacionAtaque = 0;
 		this.bonificacionDefensa = 0;
+	}
+
+	public void setTablero(Tablero tablero){
+		this.tablero = tablero;
 	}
 
 	public void agregarCarta(Carta carta, PosicionCarta posicion, CaraCarta cara){
@@ -42,6 +47,7 @@ public class Campo {
 
 	public void agregarCartaDeTerreno(CartaTerreno carta){
 		this.terreno = carta;
+		carta.usarEfectoContra(tablero);
 	}
 
 	public int cantidadDeCartasEnElMazo(){

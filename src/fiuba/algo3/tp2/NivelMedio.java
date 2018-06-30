@@ -7,7 +7,7 @@ public class NivelMedio extends Nivel{
     @Override
     public void agregarseAlCampo(Campo campo, CartaMonstruo carta) throws NoHayMonstruosEnCampo{
         if(campo.cantidadDeMonstruos() >= 1){
-            campo.eliminarCartaAlAzar(); //ACA SE TIENE QUE SELECCIONAR LA CARTA A ELIMINAR
+            campo.eliminarCartaAlAzar();
             campo.agregarCartaEnZonaDeAtaque(carta);
         }
         else{

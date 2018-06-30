@@ -1,28 +1,28 @@
 package InterfazGrafica.Eventos;
 
-
 import InterfazGrafica.Controlador.Controlador;
 import InterfazGrafica.Vista.CartaBoton;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class CambiarPosicionBotonEventHandler implements EventHandler<MouseEvent> {
+public class DarVueltaBotonEventHandler implements EventHandler<MouseEvent> {
 
 
     Controlador controlador;
-    CartaBoton botonCambiarPosicion;
+    CartaBoton botonDarVuelta;
     Stage ventanaQueHacer;
 
-    public CambiarPosicionBotonEventHandler(Stage ventanaQueHacer, Controlador controlador, CartaBoton botonCambiarPosicion){
+    public DarVueltaBotonEventHandler(Stage ventanaQueHacer, Controlador controlador, CartaBoton botonDarVuelta){
         this.controlador = controlador;
-        this.botonCambiarPosicion = botonCambiarPosicion;
+        this.botonDarVuelta = botonDarVuelta;
         this.ventanaQueHacer = ventanaQueHacer;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        botonCambiarPosicion.cambiarDePosicion();
+
+        botonDarVuelta.darVuelta();
         ventanaQueHacer.close();
     }
 }

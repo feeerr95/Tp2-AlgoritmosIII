@@ -1,12 +1,13 @@
 package InterfazGrafica.Vista;
 
 import InterfazGrafica.Controlador.Controlador;
-import InterfazGrafica.Eventos.AtacarMonstruoBotonEventHandler;
-import InterfazGrafica.Eventos.CambiarPosicionBotonEventHandler;
-import InterfazGrafica.Eventos.ColocarBotonEventHandler;
+import InterfazGrafica.Eventos.*;
+import excepciones.NoHayMonstruosEnCampo;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -17,27 +18,37 @@ public class VentanaQueHacer extends Stage {
     private String tipoDeCarta;
     private Controlador controlador;
     private CartaBoton cartaBoton;
+    private int ancho;
+    private int alto;
 
     public VentanaQueHacer(String tipoDeCarta, Controlador controlador, CartaBoton cartaBoton){
+
         this.controlador = controlador;
         this.cartaBoton = cartaBoton;
         this.centerOnScreen();
         layout = new VBox();
-//------------------------------------------------------------------------------------------------
-        Image imagenCarta = new Image("Imagenes/"+cartaBoton.getCarta().getNombreCarta()+".png");
-        BackgroundImage imagen = new BackgroundImage(imagenCarta,
+
+        this.setResizable(false);
+        ancho = 280;
+        alto = 420;
+        Image imagen;
+        if(cartaBoton.getCarta().estaDestruida()){
+            imagen = new Image("Imagenes/Carta Destruida.png");
+        }
+        else{
+            imagen = new Image("Imagenes/"+cartaBoton.getCarta().getNombreCarta()+".png");
+        }
+        layout.setPrefSize(ancho,alto);
+        BackgroundImage fondo = new BackgroundImage(imagen,
                 BackgroundRepeat.REPEAT,
                 BackgroundRepeat.REPEAT,
                 BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT);
-        Background fondo = new Background(imagen);
-        layout.setBackground(fondo);
+                new BackgroundSize(ancho,alto,false,false,false, false));
+        Background background = new Background(fondo);
+        layout.setBackground(background);
 
-        this.widthProperty().add(imagenCarta.getWidth());
-        this.heightProperty().add(imagenCarta.getHeight());
-//-------------------------------------------------------------------------------------------------
+
         escena = new Scene(layout);
-        layout.setPrefSize(300,100);
         this.setScene(escena);
         this.tipoDeCarta = tipoDeCarta;
         this.setBotonera();
@@ -73,6 +84,30 @@ public class VentanaQueHacer extends Stage {
         Button atacarMonstruoBoton = new Button("Atacar Monstruo");
         Button usarEfectoBoton = new Button("Usar Efecto");
         Button cambiarPosicionBoton = new Button("Cambiar Posicion");
+        Button darVueltaBoton = new Button("Dar Vuelta");
+
+        if(controlador.estaEnJuego(cartaBoton.getCarta())){
+            colocarBoton.setDisable(true);
+            if(!cartaBoton.getCarta().estaBocaAbajo()){
+                darVueltaBoton.setDisable(true);
+            }
+        }
+        else{
+            darVueltaBoton.setDisable(true);
+            atacarMonstruoBoton.setDisable(true);
+            usarEfectoBoton.setDisable(true);
+            cambiarPosicionBoton.setDisable(true);
+        }
+        if(cartaBoton.getCarta().estaDestruida()){
+            darVueltaBoton.setDisable(true);
+            atacarMonstruoBoton.setDisable(true);
+            usarEfectoBoton.setDisable(true);
+            cambiarPosicionBoton.setDisable(true);
+            colocarBoton.setDisable(true);
+        }
+
+        UsarEfectoBotonHandler usarEfectoBotonHandler = new UsarEfectoBotonHandler(this, controlador, cartaBoton);
+        usarEfectoBoton.setOnMouseClicked(usarEfectoBotonHandler);
 
         ColocarBotonEventHandler colocarBotonEventHandler = new ColocarBotonEventHandler(this, "Monstruo", controlador, cartaBoton);
         colocarBoton.setOnMouseClicked(colocarBotonEventHandler);
@@ -83,8 +118,10 @@ public class VentanaQueHacer extends Stage {
         AtacarMonstruoBotonEventHandler atacarMonstruoBotonEventHandler = new AtacarMonstruoBotonEventHandler(this, controlador, cartaBoton);
         atacarMonstruoBoton.setOnMouseClicked(atacarMonstruoBotonEventHandler);
 
+        DarVueltaBotonEventHandler darVueltaBotonEventHandler = new DarVueltaBotonEventHandler(this, controlador, cartaBoton);
+        darVueltaBoton.setOnMouseClicked(darVueltaBotonEventHandler);
 
-        layout.getChildren().addAll(colocarBoton, usarEfectoBoton, atacarMonstruoBoton, cambiarPosicionBoton);
+        layout.getChildren().addAll(colocarBoton, usarEfectoBoton, atacarMonstruoBoton, cambiarPosicionBoton, darVueltaBoton);
     }
     private void setBotonesMagica(){
         Button colocarBoton = new Button("Colocar");

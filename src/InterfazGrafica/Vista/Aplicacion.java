@@ -29,6 +29,8 @@ public class Aplicacion extends Application{
         jugador1 = new Jugador(campo1);
         jugador2 = new Jugador(campo2);
         tablero = new Tablero(campo1, campo2);
+        campo1.setTablero(tablero);
+        campo2.setTablero(tablero);
         controlador = new Controlador(tablero, jugador1, jugador2);
     }
 
@@ -39,6 +41,7 @@ public class Aplicacion extends Application{
         stage.setTitle("Juego");
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, controlador);
+
         Scene escenaJuego = new Scene(contenedorPrincipal);
 
         ContenedorInicial contenedorInicial = new ContenedorInicial(stage, escenaJuego);

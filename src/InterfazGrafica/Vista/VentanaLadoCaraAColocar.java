@@ -6,7 +6,8 @@ import InterfazGrafica.Eventos.BocaArribaBotonEventHandler;
 import fiuba.algo3.tp2.PosicionCarta;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 public class VentanaLadoCaraAColocar extends Stage {
@@ -16,6 +17,8 @@ public class VentanaLadoCaraAColocar extends Stage {
     private PosicionCarta posicionCarta;
     private Scene escena;
     private HBox layout;
+    private int ancho;
+    private int alto;
 
     public VentanaLadoCaraAColocar(Controlador controlador, CartaBoton cartaBoton, PosicionCarta posicionCarta) {
 
@@ -25,7 +28,23 @@ public class VentanaLadoCaraAColocar extends Stage {
         this.posicionCarta = posicionCarta;
         layout = new HBox();
         escena = new Scene(layout);
-        layout.setPrefSize(300,100);
+        layout.setPrefSize(ancho,alto);
+
+        this.setResizable(false);
+        ancho = 280;
+        alto = 420;
+
+        Image imagen = new Image("Imagenes/"+cartaBoton.getCarta().getNombreCarta()+".png");
+        layout.setPrefSize(ancho,alto);
+        BackgroundImage fondo = new BackgroundImage(imagen,
+                BackgroundRepeat.REPEAT,
+                BackgroundRepeat.REPEAT,
+                BackgroundPosition.DEFAULT,
+                new BackgroundSize(ancho,alto,false,false,false, false));
+        Background background = new Background(fondo);
+        layout.setBackground(background);
+
+
         this.setScene(escena);
         this.setBotonera();
     }

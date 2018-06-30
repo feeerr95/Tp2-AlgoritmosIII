@@ -17,8 +17,8 @@ public class BotonEntrarEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        ventana.setWidth(1170);
         ventana.setHeight(1082);
+        ventana.setWidth(1170);
         ventana.centerOnScreen();
         ventana.setScene(proximaEscena);
     }

@@ -17,6 +17,8 @@ public class TableroVista extends Pane {
     private HBox campoDefensaJ1;
     private StackPane terrenoJ1;
     private StackPane terrenoJ2;
+    private ArrayList<CartaBoton> monstruosJ1;
+    private ArrayList<CartaBoton> monstruosJ2;
 
     private ArrayList<CartaBoton> listaDeTodasLasCartasJ1;
     private ArrayList<CartaBoton> listaDeTodasLasCartasJ2;
@@ -28,7 +30,8 @@ public class TableroVista extends Pane {
 
         listaDeTodasLasCartasJ1 = new ArrayList<>();
         listaDeTodasLasCartasJ2 = new ArrayList<>();
-
+        monstruosJ1 = new ArrayList<>();
+        monstruosJ2 = new ArrayList<>();
         campoAtaqueJ2 = new HBox();
         campoAtaqueJ2.setLayoutX(130);
         campoAtaqueJ2.setLayoutY(415);
@@ -68,10 +71,12 @@ public class TableroVista extends Pane {
 
     public void agregarCartaMonstruoJ1(Button carta, CartaBoton cartaBoton){
         listaDeTodasLasCartasJ1.add(cartaBoton);
+        monstruosJ1.add(cartaBoton);
         campoAtaqueJ1.getChildren().add(carta);
     }
     public void agregarCartaMonstruoJ2(Button carta, CartaBoton cartaBoton){
         listaDeTodasLasCartasJ2.add(cartaBoton);
+        monstruosJ2.add(cartaBoton);
         campoAtaqueJ2.getChildren().add(carta);
     }
     public void agregarCartaEfectoJ1(Button carta, CartaBoton cartaBoton){
@@ -97,8 +102,14 @@ public class TableroVista extends Pane {
 
         if(!cartasAEliminar.isEmpty()){
             for(CartaBoton cartaAEliminar: cartasAEliminar) {
-                if (campoAtaqueJ1.getChildren().contains(cartaAEliminar.getBoton()))
+                if (campoAtaqueJ1.getChildren().contains(cartaAEliminar.getBoton())){
                     campoAtaqueJ1.getChildren().remove(cartaAEliminar.getBoton());
+                    monstruosJ1.remove(cartaAEliminar);
+                }
+                else if (campoAtaqueJ2.getChildren().contains(cartaAEliminar.getBoton())){
+                    campoAtaqueJ2.getChildren().remove(cartaAEliminar.getBoton());
+                    monstruosJ2.remove(cartaAEliminar);
+                }
 
                 else if (campoDefensaJ1.getChildren().contains(cartaAEliminar.getBoton()))
                     campoDefensaJ1.getChildren().remove(cartaAEliminar.getBoton());
@@ -106,8 +117,7 @@ public class TableroVista extends Pane {
                 else if (terrenoJ1.getChildren().contains(cartaAEliminar.getBoton()))
                     terrenoJ1.getChildren().remove(cartaAEliminar.getBoton());
 
-                else if (campoAtaqueJ2.getChildren().contains(cartaAEliminar.getBoton()))
-                    campoAtaqueJ2.getChildren().remove(cartaAEliminar.getBoton());
+
 
                 else if (campoDefensaJ2.getChildren().contains(cartaAEliminar.getBoton()))
                     campoDefensaJ2.getChildren().remove(cartaAEliminar.getBoton());
@@ -116,6 +126,14 @@ public class TableroVista extends Pane {
                     terrenoJ2.getChildren().remove(cartaAEliminar.getBoton());
             }
         }
+    }
+
+    public ArrayList<CartaBoton> obtenerMonstruosJ2(){
+        return monstruosJ2;
+    }
+
+    public ArrayList<CartaBoton> obtenerMonstruosJ1(){
+        return monstruosJ1;
     }
 
 

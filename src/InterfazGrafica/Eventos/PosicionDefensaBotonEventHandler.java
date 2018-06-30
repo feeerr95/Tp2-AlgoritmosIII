@@ -13,20 +13,20 @@ public class PosicionDefensaBotonEventHandler implements EventHandler<MouseEvent
 
     private Controlador controlador;
     private CartaBoton cartaBoton;
-    private Stage stage;
+    private Stage ventanaPosicionAColocar;
     private PosicionCarta posicion;
 
-    public PosicionDefensaBotonEventHandler(Stage stage, Controlador controlador, CartaBoton cartaBoton){
+    public PosicionDefensaBotonEventHandler(Stage ventanaPosicionAColocar, Controlador controlador, CartaBoton cartaBoton){
         this.cartaBoton = cartaBoton;
         this.controlador = controlador;
-        this.stage = stage;
+        this.ventanaPosicionAColocar = ventanaPosicionAColocar;
         this.posicion = new PosicionHorizontal();
     }
 
     @Override
     public void handle(MouseEvent event) {
         VentanaLadoCaraAColocar ventanaLadoCaraAColocar = new VentanaLadoCaraAColocar(controlador, cartaBoton, posicion);
-        stage.close();
+        ventanaPosicionAColocar.close();
         ventanaLadoCaraAColocar.show();
     }
 }

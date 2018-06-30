@@ -12,17 +12,19 @@ public class AtacarMonstruoBotonEventHandler implements EventHandler<MouseEvent>
 
     Controlador controlador;
     CartaBoton cartaBoton;
-    Stage stage;
+    Stage ventanaQueHacer;
 
-    public AtacarMonstruoBotonEventHandler(Stage stage, Controlador controlador, CartaBoton cartaBoton){
+    public AtacarMonstruoBotonEventHandler(Stage ventanaQueHacer, Controlador controlador, CartaBoton cartaBoton){
         this.controlador = controlador;
         this.cartaBoton = cartaBoton;
-        this.stage = stage;
+        this.ventanaQueHacer = ventanaQueHacer;
     }
 
     @Override
     public void handle(MouseEvent event) {
-        VentanaAtacar ventanaAtacar = new VentanaAtacar(controlador, cartaBoton);
-        ventanaAtacar.mostrar();
+        VentanaAtacar ventanaAtacar = new VentanaAtacar(ventanaQueHacer,controlador, cartaBoton);
+        ventanaAtacar.setHeight(300);
+        ventanaAtacar.setWidth(300);
+        ventanaAtacar.show();
     }
 }

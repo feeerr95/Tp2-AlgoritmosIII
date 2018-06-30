@@ -3,7 +3,9 @@ package InterfazGrafica.Controlador;
 import InterfazGrafica.Vista.CartaBoton;
 import InterfazGrafica.Vista.ContenedorInicial;
 import InterfazGrafica.Vista.ContenedorPrincipal;
+import excepciones.NoHayMonstruosEnCampo;
 import fiuba.algo3.tp2.*;
+import javafx.scene.control.Alert;
 
 import java.util.ArrayList;
 
@@ -79,19 +81,24 @@ public class Controlador{
 
     public boolean revisarSiSeGano(){
 
-        if( jugador1.puntosDeVida() == 0 && jugador2.puntosDeVida() == 0){
-            System.out.println("Hubo un empate");
+        if( jugador1.puntosDeVida() <= 0 && jugador2.puntosDeVida() <= 0){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("HUBO UN EMPATE");
+            alerta.showAndWait();
             return true;
         }
-        else if(jugador1.cantidadDeCartasEnElMazo() == 0 || jugador1.puntosDeVida() == 0){
-            //ventana de que gano el jugador 2 y terminar juego
-            System.out.println("Gano el jugador 2");
+        else if(jugador1.cantidadDeCartasEnElMazo() == 0 || jugador1.puntosDeVida() <= 0){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("GANO EL JUGADOR 2");
             return true;
         }
-        else if(jugador1.cantidadDeCartasEnElMazo() == 0 || jugador1.puntosDeVida() == 0){
-            System.out.println("Gano el jugador 1");
+        else if(jugador2.cantidadDeCartasEnElMazo() == 0 || jugador2.puntosDeVida() <= 0){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("GANO EL JUGADOR 1");
             return true;
-            //ventana de que gano el jugador 2 y terminar juego
         }
         return false;
     }
@@ -110,6 +117,7 @@ public class Controlador{
 
     public void colocarCartaEnCampo(CartaBoton carta, PosicionCarta posicion, CaraCarta cara){
         Carta cartaSelecionada = carta.getCarta();
+
         if(jugador1.tieneLaCarta(cartaSelecionada)){
             jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
         }
@@ -160,6 +168,21 @@ public class Controlador{
         ArrayList<Carta> cartasJ1 = tablero.eliminarCartasDestruidasJ1();
         ArrayList<Carta> cartasJ2 = tablero.eliminarCartasDestruidasJ2();
         contenedorPrincipal.eliminarCartasDestruidas(cartasJ1, cartasJ2);
+    }
+
+    public ArrayList<CartaBoton> obtenerEnemigos(){
+        if(turnoEsPar()){
+            return contenedorPrincipal.obtenerMonstruosJ1();
+        }
+        return contenedorPrincipal.obtenerMonstruosJ2();
+    }
+
+    public void realizarAtaque(CartaMonstruo cartaAtacada, CartaMonstruo cartaAtacante){
+        cartaAtacante.atacarOtraCarta(cartaAtacada);
+    }
+
+    public boolean estaEnJuego(Carta carta){
+        return !(jugador1.estaEnLaMano(carta) || jugador2.estaEnLaMano(carta));
     }
 
 }

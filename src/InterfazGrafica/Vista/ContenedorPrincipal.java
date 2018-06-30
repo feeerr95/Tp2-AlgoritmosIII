@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -38,10 +39,15 @@ public class ContenedorPrincipal extends AnchorPane {
     private ScrollPane sp1;
     private ScrollPane sp2;
 
+    private Label puntosJ1Label;
+    private Label puntosJ2Label;
+
     private HashMap<Carta, CartaBoton> cartasEnJuego;
 
 
     public ContenedorPrincipal(Stage stage,Controlador controlador){
+
+
 
         Image imagenFondo = new Image("Imagenes/Tablero.jpg");
         BackgroundImage imagen = new BackgroundImage(imagenFondo,
@@ -51,6 +57,9 @@ public class ContenedorPrincipal extends AnchorPane {
                 BackgroundSize.DEFAULT);
 
         this.controlador = controlador;
+
+        puntosJ1Label = new Label();
+        puntosJ2Label = new Label();
 
         cantCartasMazo1 = new Label();
         cantCartasMazo1 = new Label();
@@ -80,8 +89,7 @@ public class ContenedorPrincipal extends AnchorPane {
         empezarJuegoBoton.setLayoutY(400);
         BotonEmpezarJuegoEventHandler botonEmpezarJuegoEventHandler = new BotonEmpezarJuegoEventHandler(controlador, empezarJuegoBoton);
         empezarJuegoBoton.setOnAction(botonEmpezarJuegoEventHandler);
-
-        this.getChildren().addAll(empezarJuegoBoton,tableroVista);
+        this.getChildren().addAll(empezarJuegoBoton,tableroVista,puntosJ1Label,puntosJ2Label);
 
     }
 
@@ -89,10 +97,6 @@ public class ContenedorPrincipal extends AnchorPane {
         this.cartasManoJ1 = cartasManoJ1;
         this.cartasManoJ2 = cartasManoJ2;
         this.dibujarManos(cartasManoJ1,cartasManoJ2);
-    }
-
-    public ArrayList<Carta> getManoJugador1Cartas() {
-        return cartasManoJ1;
     }
 
     private void dibujarManos(ArrayList<Carta> manoJugador1, ArrayList<Carta> manoJugador2){
@@ -116,19 +120,19 @@ public class ContenedorPrincipal extends AnchorPane {
     }
 
     public void actualizarPuntosDeVida(Integer puntosJ1, Integer puntosJ2){
-        Label puntosJ1Label = new Label(puntosJ1.toString());
+
+        puntosJ1Label.setText(puntosJ1.toString());
         puntosJ1Label.setFont(Font.font("Tahoma", FontWeight.BOLD, 14));
         puntosJ1Label.setTextFill(Color.web("FFFFFF"));
 
-        puntosJ1Label.setLayoutX(60);
+        puntosJ1Label.setLayoutX(100);
         puntosJ1Label.setLayoutY(150);
 
-        Label puntosJ2Label = new Label(puntosJ2.toString());
+        puntosJ2Label.setText(puntosJ2.toString());
         puntosJ2Label.setFont(Font.font("Tahoma", FontWeight.BOLD, 14));
         puntosJ2Label.setTextFill(Color.web("FFFFFF"));
-        puntosJ2Label.setLayoutX(60);
+        puntosJ2Label.setLayoutX(100);
         puntosJ2Label.setLayoutY(250);
-        this.getChildren().addAll(puntosJ1Label,puntosJ2Label);
     }
 
      public void setInicioJuego() {
@@ -146,6 +150,19 @@ public class ContenedorPrincipal extends AnchorPane {
         imagenMazo1.setFitHeight(150);
         imagenMazo1.setLayoutX(1045);
         imagenMazo1.setLayoutY(168);
+
+         Label J1 = new Label("Jugador N°1");
+         Label J2 = new Label("Jugador N°2");
+
+         J1.setLayoutX(60);
+         J1.setLayoutY(135);
+         J1.setFont(Font.font("Tahoma", FontWeight.BOLD, 14));
+         J1.setTextFill(Color.web("FFFFFF"));
+
+         J2.setLayoutX(60);
+         J2.setLayoutY(235);
+         J2.setFont(Font.font("Tahoma", FontWeight.BOLD, 14));
+         J2.setTextFill(Color.web("FFFFFF"));
 
         controlador.actualizarCantMazos();
 
@@ -165,7 +182,8 @@ public class ContenedorPrincipal extends AnchorPane {
          sp2.setLayoutY(860);
          sp2.setMaxSize(565,400);
          this.cancelarManoJ2();
-        this.getChildren().addAll(terminarTurnoBoton, imagenMazo1, imagenMazo2,sp1,sp2);
+
+        this.getChildren().addAll(terminarTurnoBoton, imagenMazo1, imagenMazo2,sp1,sp2,J1,J2);
      }
 
      public void actualizarLabelsMazo(Integer cantidadCartasMazo1, Integer cantidadCartasMazo2){
@@ -280,6 +298,14 @@ public class ContenedorPrincipal extends AnchorPane {
         }
 
         tableroVista.elminarCartasDestruidas(cartasAEliminar);
+    }
+
+    public ArrayList<CartaBoton> obtenerMonstruosJ2(){
+        return tableroVista.obtenerMonstruosJ2();
+    }
+
+    public ArrayList<CartaBoton> obtenerMonstruosJ1(){
+        return tableroVista.obtenerMonstruosJ1();
     }
 
 

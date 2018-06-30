@@ -1,7 +1,6 @@
 package fiuba.algo3.tp2;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public abstract class Carta implements Afectable{
 	protected String nombreCarta;
@@ -10,7 +9,6 @@ public abstract class Carta implements Afectable{
 	protected String estado;
 	protected CaraCarta cara;
 	protected Efecto efecto;
-
 
 	public Carta() {
 		posicion = new PosicionVertical();
