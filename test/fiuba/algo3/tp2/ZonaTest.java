@@ -121,4 +121,19 @@ public class ZonaTest {
 
 	}
 
+	@Test
+	public void elminarUnaCarta(){
+
+		ZonaAtaque zonaAtaque = new ZonaAtaque();
+		CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+		zonaAtaque.agregarCarta(insectoComeHombres);
+
+		zonaAtaque.eliminarUnaCarta("Insecto Come Hombres");
+		assertEquals(true, insectoComeHombres.estaDestruida());
+
+		zonaAtaque.mandarAlCementerioCartasDestruidas(new ArrayList<Carta>());
+		assertEquals(false, zonaAtaque.estaEnElCampo(insectoComeHombres));
+
+	}
+
 }
