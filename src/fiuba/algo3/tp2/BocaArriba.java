@@ -11,8 +11,4 @@ public class BocaArriba extends CaraCarta {
         return false;
     }
 
-    @Override
-    public void darseVuelta(CaraCarta cara) {
-        cara = new BocaAbajo();
-    }
 }

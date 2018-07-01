@@ -9,6 +9,31 @@ import static org.junit.Assert.assertEquals;
 public class CartaTest {
 
 	@Test
+	public void saberSiEstaDestruida(){
+		Carta carta = new CartaMonstruo("carta", 0, 0, new NivelBasico());
+		carta.destruir();
+		assertEquals(true, carta.estaDestruida());
+	}
+
+	@Test
+	public void saberSiEstaBocaAbajoLaCarta(){
+		Carta carta = new CartaMonstruo("carta", 0, 0, new NivelBasico());
+		Campo campo = new Campo();
+		carta.agregarseAlCampo(campo ,new PosicionVertical(), new BocaAbajo());
+		assertEquals(true, carta.estaBocaAbajo());
+	}
+
+	@Test
+	public void darVueltaLaCartaSoloSePuedeSiEstaBocaAbajo(){
+		Carta carta = new CartaMonstruo("carta", 0, 0, new NivelBasico());
+		Campo campo = new Campo();
+		carta.agregarseAlCampo(campo ,new PosicionVertical(), new BocaAbajo());
+		assertEquals(true, carta.estaBocaAbajo());
+		carta.darVuelta();
+		assertEquals(false, carta.estaBocaAbajo());
+	}
+
+	@Test
 	public void agregarseAlCampo() {
 		Campo unCampo = new Campo();
 		Jugador unJugador = new Jugador(unCampo);
@@ -24,6 +49,7 @@ public class CartaTest {
 		Campo unCampo = new Campo();
 		Jugador unJugador = new Jugador(unCampo);
 		CartaMonstruo unaCarta = new CartaMonstruo("carta", 0, 0, new NivelBasico());
+
 		unaCarta.asignarDuenio(unJugador);
 		unaCarta.cambiarBonificaciones(1, 1);
 		
@@ -57,7 +83,7 @@ public class CartaTest {
 		
 		unaCarta.agregarseAlCampo(unCampo, new PosicionVertical(), new BocaArriba());
 		unaCarta2.agregarseAlCampo(unCampo2, new PosicionVertical(), new BocaArriba());
-		
+
 		unaCarta2.recibirEfecto(unEfecto);
 		unaCarta.atacarOtraCarta(unaCarta2);
 		
@@ -65,4 +91,6 @@ public class CartaTest {
 		assertEquals(false, unaCarta2.estaDestruida());
 		
 	}
+
+
 }

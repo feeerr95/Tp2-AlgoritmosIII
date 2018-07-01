@@ -15,24 +15,52 @@ public class JugadorTest {
 		Campo unCampo = new Campo();
 		Jugador unJugador = new Jugador(unCampo);
 		
-		unJugador.restarPuntosDeVida(7999);
+		unJugador.restarPuntosDeVida(400);
 		
-        assertEquals(1, unJugador.puntosDeVida());
-        
-		unJugador.restarPuntosDeVida(1);
-		
-        assertEquals(0, unJugador.puntosDeVida());
+        assertEquals(7600, unJugador.puntosDeVida());
 	}
 
 	@Test
-	public void agarrarCartasYSumarlasALaMano() {
+	public void agarrarCartasYAumentarLaCantidadEnLaMano() {
 		
 		Campo unCampo = new Campo();
 		Jugador unJugador = new Jugador(unCampo);
 		
 		unJugador.agarrarCarta();
 		unJugador.agarrarCarta();
-		
         assertEquals(2, unJugador.cantidadDeCartasEnMano());
 	}
+
+	@Test
+	public void agarrarCartasIniciales(){
+		Campo campo = new Campo();
+		Jugador jugador = new Jugador(campo);
+
+		jugador.agarrarCartasIniciales();
+
+		assertEquals(5, jugador.cantidadDeCartasEnMano());
+	}
+
+	@Test
+	public void agarrarCartasInicialesYQueSeHayanDescontadoDelMazo(){
+		Campo campo = new Campo();
+		Jugador jugador = new Jugador(campo);
+
+		jugador.agarrarCartasIniciales();
+
+		assertEquals(5, jugador.cantidadDeCartasEnMano());
+		assertEquals(45,jugador.cantidadDeCartasEnElMazo());
+	}
+
+	@Test
+	public void colocarCartaEnElCampo(){
+		Campo campo = new Campo();
+		Jugador jugador = new Jugador(campo);
+		CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+
+		jugador.colocarEnElCampo(insectoComeHombres, new PosicionVertical(), new BocaArriba());
+		assertEquals(true, campo.estaEnElCampo(insectoComeHombres));
+	}
+
+
 }

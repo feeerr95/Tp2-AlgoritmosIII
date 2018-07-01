@@ -58,7 +58,7 @@ public abstract class Carta implements Afectable{
 
 	public void darVuelta() {
 		if(this.cara.estaBocaAbajo()){
-			this.cara.darseVuelta(this.cara);
+			this.cara = new BocaArriba();
 		}
 	}
 

@@ -14,7 +14,7 @@ public class InsectoComeHombres extends CartaMonstruo{
 	@Override
 	public void darVuelta(){
 		if(this.cara.estaBocaAbajo()){
-			this.cara.darseVuelta(this.cara);
+			this.cara = new BocaArriba();
 			efecto.usar(this.duenio);
 		}
 	}

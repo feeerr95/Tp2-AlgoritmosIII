@@ -9,51 +9,81 @@ import static org.junit.Assert.assertEquals;
 public class CampoTest {
 
 	@Test
-	public void agregarCartaAlCampo() {
-		
-		Campo unCampo = new Campo();
-		
-		CartaMonstruo dragon = new DragonBlancoDeOjosAzules();
-		CartaMonstruo magaOscura = new ChicaMagaOscura();
+	public void agregarCartasAlCampo() {
+
+		Campo campo1 = new Campo();
+		Campo campo2 = new Campo();
+		Tablero tablero = new Tablero(campo1, campo2);
+
+		campo1.setTablero(tablero);
+		campo2.setTablero(tablero);
+
+		CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+		CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
 		CartaMagica fisura = new Fisura();
 		CartaTerreno sogen = new Sogen();
-		
-		unCampo.agregarCartaEnZonaDeAtaque(magaOscura);
-		unCampo.agregarCartaEnZonaDeAtaque(dragon);
-		unCampo.agregarCarta(fisura, new PosicionVertical(), new BocaAbajo());
-		unCampo.agregarCartaDeTerreno(sogen);
-		
-		assertEquals(true , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
-		assertEquals(true , unCampo.estaEnElCampo("Chica Maga Oscura"));
-		//Es false ya que no son jugadas en la zona de ataque
-		assertEquals(false , unCampo.estaEnElCampo("Fisura"));
-		assertEquals(false , unCampo.estaEnElCampo("Sogen"));
-	}
-	
-	@Test
-	public void jugarMonstruosYDestruirlos() {
-		
-		Campo unCampo = new Campo();
-		Jugador unJugador = new Jugador(unCampo);
-		CartaMonstruo dragon = new DragonBlancoDeOjosAzules();
-		CartaMonstruo magaOscura = new ChicaMagaOscura();
-		CartaMonstruo escudo = new EscudoMilenario();
-		dragon.asignarDuenio(unJugador);
-		magaOscura.asignarDuenio(unJugador);
-		escudo.asignarDuenio(unJugador);
-		
-		unCampo.agregarCartaEnZonaDeAtaque(magaOscura);
-		unCampo.agregarCartaEnZonaDeAtaque(dragon);
-		unCampo.agregarCartaEnZonaDeAtaque(escudo);
-		
-		assertEquals(true , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
-		assertEquals(true , unCampo.estaEnElCampo("Chica Maga Oscura"));
-		assertEquals(true , unCampo.estaEnElCampo("Escudo Milenario"));
-		
-		assertEquals(false , unCampo.estaEnElCampo("Dragon Blanco De Ojos Azules"));
-		assertEquals(false , unCampo.estaEnElCampo("Chica Maga Oscura"));
-		assertEquals(false , unCampo.estaEnElCampo("Escudo Milenario"));
-		
+
+		campo1.agregarCarta(insectoComeHombres, new PosicionVertical(), new BocaArriba());
+		campo1.agregarCarta(huevoMonstruoso, new PosicionVertical(), new BocaArriba());
+		campo1.agregarCarta(fisura, new PosicionVertical(), new BocaAbajo());
+		campo1.agregarCarta(sogen, new PosicionVertical(), new BocaArriba());
+
+		assertEquals(true, campo1.estaEnElCampo(insectoComeHombres));
+		assertEquals(true, campo1.estaEnElCampo(huevoMonstruoso));
+		assertEquals(true, campo1.estaEnElCampo(fisura));
+		assertEquals(true, campo1.estaEnElCampo(sogen));
 	}
 
+	@Test
+	public void mandarAlCementerioLasCartasDestruidas() {
+
+		Campo campo = new Campo();
+
+		CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+		CartaMonstruo huevoMonstruoso = new HuevoMonstruoso();
+		CartaMagica fisura = new Fisura();
+
+		campo.agregarCarta(insectoComeHombres, new PosicionVertical(), new BocaArriba());
+		campo.agregarCarta(huevoMonstruoso, new PosicionVertical(), new BocaArriba());
+		campo.agregarCarta(fisura, new PosicionVertical(), new BocaAbajo());
+
+		assertEquals(true, campo.estaEnElCampo(insectoComeHombres));
+		assertEquals(true, campo.estaEnElCampo(huevoMonstruoso));
+		assertEquals(true, campo.estaEnElCampo(fisura));
+
+		insectoComeHombres.destruir();
+		huevoMonstruoso.destruir();
+
+		campo.mandarAlCementerioCartasDestruidas();
+
+		assertEquals(false, campo.estaEnElCampo(insectoComeHombres));
+		assertEquals(false, campo.estaEnElCampo(huevoMonstruoso));
+
+		//Fisura tiene que seguir en el campo debido a que no fue destruida
+		assertEquals(true, campo.estaEnElCampo(fisura));
+
+	}
+
+	@Test
+	public void agregarCartaALaZonaDeAtaque() {
+
+		Campo campo = new Campo();
+		CartaMonstruo insectoComeHombres = new InsectoComeHombres();
+		campo.agregarCartaEnZonaDeAtaque(insectoComeHombres);
+
+		assertEquals(true, campo.estaEnElCampo(insectoComeHombres));
+	}
+
+	@Test
+	public void agregarCartaALaZonaDeDefensa() {
+
+		Campo campo = new Campo();
+		CartaMagica fisura = new Fisura();
+		campo.agregarCartaEnZonaDeDefensa(fisura);
+
+		assertEquals(true, campo.estaEnElCampo(fisura));
+	}
 }
+
+
+

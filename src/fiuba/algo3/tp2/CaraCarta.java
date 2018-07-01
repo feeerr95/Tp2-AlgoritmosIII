@@ -10,8 +10,6 @@ public abstract class CaraCarta {
 
     public abstract boolean estaBocaAbajo();
 
-    public abstract void darseVuelta(CaraCarta cara);
-
     public String getCara() {
         return cara;
     }

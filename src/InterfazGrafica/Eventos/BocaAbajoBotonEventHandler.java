@@ -2,6 +2,7 @@ package InterfazGrafica.Eventos;
 
 import InterfazGrafica.Controlador.Controlador;
 import InterfazGrafica.Vista.CartaBoton;
+import excepciones.InsuficienteEspacioEnCampo;
 import excepciones.NoHayMonstruosEnCampo;
 import fiuba.algo3.tp2.BocaAbajo;
 import fiuba.algo3.tp2.CaraCarta;
@@ -38,6 +39,11 @@ public class BocaAbajoBotonEventHandler implements EventHandler<MouseEvent> {
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText(null);
             alerta.setContentText("No tiene los suficientes monstruos para convocar a este");
+            alerta.showAndWait();
+        }catch(InsuficienteEspacioEnCampo excepcion){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("No se pueden colocar mas cartas");
             alerta.showAndWait();
         }
 

@@ -279,10 +279,12 @@ public class AlGoOhTest {
 
         Tablero tablero = new Tablero(campo1, campo2);
 
+        campo1.setTablero(tablero);
+        campo2.setTablero(tablero);
+
         CartaTerreno wasteland = new Wasteland();
         wasteland.asignarDuenio(atacante);
         campo1.agregarCarta(wasteland, new PosicionVertical(), new BocaArriba());
-        wasteland.usarEfectoContra(tablero);
 
         CartaMonstruo insectoComeHombres = new InsectoComeHombres();
         insectoComeHombres.asignarDuenio(atacante);

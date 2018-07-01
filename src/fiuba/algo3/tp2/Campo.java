@@ -93,11 +93,11 @@ public class Campo {
     }
 
 	public boolean estaEnElCampo(String nombreCarta){
-		return zonaAtaque.estaEnElCampo(nombreCarta);
+		return zonaAtaque.estaEnElCampo(nombreCarta) || zonaDefensa.estaEnElCampo(nombreCarta) || terreno.es(nombreCarta);
 	}
 
 	public boolean estaEnElCampo(Carta carta){
-		return zonaAtaque.estaEnElCampo(carta);
+		return zonaAtaque.estaEnElCampo(carta) || zonaDefensa.estaEnElCampo(carta) || terreno == carta;
 	}
 
 	public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){

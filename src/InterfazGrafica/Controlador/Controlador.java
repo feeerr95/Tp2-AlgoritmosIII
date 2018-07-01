@@ -3,6 +3,7 @@ package InterfazGrafica.Controlador;
 import InterfazGrafica.Vista.CartaBoton;
 import InterfazGrafica.Vista.ContenedorInicial;
 import InterfazGrafica.Vista.ContenedorPrincipal;
+import excepciones.InsuficienteEspacioEnCampo;
 import excepciones.NoHayMonstruosEnCampo;
 import fiuba.algo3.tp2.*;
 import javafx.scene.control.Alert;
@@ -154,14 +155,22 @@ public class Controlador{
         CaraCarta cara = new BocaAbajo();
         Carta cartaSelecionada = carta.getCarta();
 
-        if(jugador1.tieneLaCarta(cartaSelecionada)){
-            jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
-        }
-        else{
-            jugador2.colocarEnElCampo(cartaSelecionada,posicion,cara);
+        try{
+            if(jugador1.tieneLaCarta(cartaSelecionada)){
+                jugador1.colocarEnElCampo(cartaSelecionada, posicion, cara);
+            }
+            else{
+                jugador2.colocarEnElCampo(cartaSelecionada,posicion,cara);
+            }
+            contenedorPrincipal.colocarCartaEfecto(carta,"Vertical", "Abajo");
+
+        }catch(InsuficienteEspacioEnCampo excepcion){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText(null);
+            alerta.setContentText("No se pueden colocar mas cartas");
+            alerta.showAndWait();
         }
 
-        contenedorPrincipal.colocarCartaEfecto(carta,"Vertical", "Abajo");
     }
 
     public void eliminarCartasDestruidas(){

@@ -36,9 +36,26 @@ public class ZonaDefensa implements ZonaDeJuego {
 	}
 
     public boolean cartasTrampaEnJuego(Carta cartaAtacada, Carta cartaAtacante){
-        if(!casilleros.isEmpty()){
-            return casilleros.get(0).usarEfectoContra(cartaAtacada, cartaAtacante);
+        int index = 0;
+        while(!casilleros.isEmpty() && index < casilleros.size()){
+            if(casilleros.get(index) instanceof CartaTrampa){
+                return casilleros.get(index).usarEfectoContra(cartaAtacada,cartaAtacante);
+            }
+            index = index+1;
         }
         return false;
+    }
+
+    public boolean estaEnElCampo(String nombreCarta){
+        for(Carta unaCarta: casilleros) {
+            if(unaCarta.es(nombreCarta)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean estaEnElCampo(Carta carta){
+        return casilleros.contains(carta);
     }
 }

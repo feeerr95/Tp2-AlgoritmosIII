@@ -10,9 +10,4 @@ public class BocaAbajo extends CaraCarta {
     public boolean estaBocaAbajo() {
         return true;
     }
-
-    @Override
-    public void darseVuelta(CaraCarta cara) {
-        cara = new BocaArriba();
-    }
 }
