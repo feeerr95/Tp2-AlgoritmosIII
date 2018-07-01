@@ -29,8 +29,6 @@ public class VentanaAtacar extends Stage {
     public VentanaAtacar(Stage ventanaQueHacer, Controlador controlador, CartaBoton botonCartaAtacante) {
 
         this.setTitle("Seleccione a que carta atacar");
-        ArrayList<CartaBoton> cartasEnemigas = new ArrayList<>();
-
         layout = new HBox();
         escena = new Scene(layout);
         this.setScene(escena);
@@ -49,11 +47,12 @@ public class VentanaAtacar extends Stage {
         cartasEnemigas = this.controlador.obtenerEnemigos();
         for(CartaBoton botonCartaAtacada: cartasEnemigas) {
 
-            CartaBoton carta = new CartaBoton(botonCartaAtacada.getCarta(), controlador);
-            RecibirAtaqueEventHandler recibirAtaqueEventHandler = new RecibirAtaqueEventHandler(this, controlador, botonCartaAtacada, this.botonCartaAtacante, ventanaQueHacer);
-            carta.getBoton().setOnMouseClicked(recibirAtaqueEventHandler);
-            layout.getChildren().add(carta.getBoton());
-
+            if(!botonCartaAtacada.getCarta().estaDestruida()){
+                CartaBoton carta = new CartaBoton(botonCartaAtacada.getCarta(), controlador);
+                RecibirAtaqueEventHandler recibirAtaqueEventHandler = new RecibirAtaqueEventHandler(this, controlador, botonCartaAtacada, this.botonCartaAtacante, ventanaQueHacer);
+                carta.getBoton().setOnMouseClicked(recibirAtaqueEventHandler);
+                layout.getChildren().add(carta.getBoton());
+            }
         }
     }
 }
