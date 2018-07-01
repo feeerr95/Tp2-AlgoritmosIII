@@ -5,11 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-public class BotonTerminarTurnoEventHandler implements EventHandler<MouseEvent> {
+public class TerminarTurnoBotonEventHandler implements EventHandler<MouseEvent> {
 
     Controlador controlador;
 
-    public BotonTerminarTurnoEventHandler(Controlador controlador){
+    public TerminarTurnoBotonEventHandler(Controlador controlador){
         this.controlador = controlador;
     }
 

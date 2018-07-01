@@ -1,8 +1,8 @@
 package InterfazGrafica.Vista;
 
 import InterfazGrafica.Controlador.Controlador;
-import InterfazGrafica.Eventos.BotonEmpezarJuegoEventHandler;
-import InterfazGrafica.Eventos.BotonTerminarTurnoEventHandler;
+import InterfazGrafica.Eventos.EmpezarJuegoBotonEventHandler;
+import InterfazGrafica.Eventos.TerminarTurnoBotonEventHandler;
 import fiuba.algo3.tp2.Carta;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,7 +11,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -45,9 +44,7 @@ public class ContenedorPrincipal extends AnchorPane {
     private HashMap<Carta, CartaBoton> cartasEnJuego;
 
 
-    public ContenedorPrincipal(Stage stage,Controlador controlador){
-
-
+    public ContenedorPrincipal(Stage stage, Controlador controlador){
 
         Image imagenFondo = new Image("Imagenes/Tablero.jpg");
         BackgroundImage imagen = new BackgroundImage(imagenFondo,
@@ -57,6 +54,7 @@ public class ContenedorPrincipal extends AnchorPane {
                 BackgroundSize.DEFAULT);
 
         this.controlador = controlador;
+
 
         puntosJ1Label = new Label();
         puntosJ2Label = new Label();
@@ -80,15 +78,14 @@ public class ContenedorPrincipal extends AnchorPane {
 
         tableroVista = new TableroVista();
 
-
         Background fondo = new Background(imagen);
         this.setBackground(fondo);
 
         Button empezarJuegoBoton = new Button("Empezar Juego");
         empezarJuegoBoton.setLayoutX(80);
         empezarJuegoBoton.setLayoutY(400);
-        BotonEmpezarJuegoEventHandler botonEmpezarJuegoEventHandler = new BotonEmpezarJuegoEventHandler(controlador, empezarJuegoBoton);
-        empezarJuegoBoton.setOnAction(botonEmpezarJuegoEventHandler);
+        EmpezarJuegoBotonEventHandler empezarJuegoBotonEventHandler = new EmpezarJuegoBotonEventHandler(controlador, empezarJuegoBoton);
+        empezarJuegoBoton.setOnAction(empezarJuegoBotonEventHandler);
         this.getChildren().addAll(empezarJuegoBoton,tableroVista,puntosJ1Label,puntosJ2Label);
 
     }
@@ -169,8 +166,8 @@ public class ContenedorPrincipal extends AnchorPane {
         Button terminarTurnoBoton = new Button("Terminar Turno");
         terminarTurnoBoton.setLayoutX(80);
         terminarTurnoBoton.setLayoutY(400);
-        BotonTerminarTurnoEventHandler botonTerminarTurnoEventHandler = new BotonTerminarTurnoEventHandler(controlador);
-        terminarTurnoBoton.setOnMouseClicked(botonTerminarTurnoEventHandler);
+        TerminarTurnoBotonEventHandler terminarTurnoBotonEventHandler = new TerminarTurnoBotonEventHandler(controlador);
+        terminarTurnoBoton.setOnMouseClicked(terminarTurnoBotonEventHandler);
 
          sp1.setContent(manoJugador1Box);
          sp1.setLayoutX(460);

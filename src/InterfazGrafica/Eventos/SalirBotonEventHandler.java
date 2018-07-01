@@ -4,11 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
-public class BotonSalirEventHandler implements EventHandler<ActionEvent> {
+public class SalirBotonEventHandler implements EventHandler<ActionEvent> {
 
     Stage ventana;
 
-    public BotonSalirEventHandler(Stage ventana){
+    public SalirBotonEventHandler(Stage ventana){
         this.ventana = ventana;
     }
 

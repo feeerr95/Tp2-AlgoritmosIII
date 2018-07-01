@@ -5,7 +5,10 @@ import fiuba.algo3.tp2.Campo;
 import fiuba.algo3.tp2.Jugador;
 import fiuba.algo3.tp2.Tablero;
 import javafx.application.Application;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Aplicacion extends Application{
@@ -41,10 +44,15 @@ public class Aplicacion extends Application{
         stage.setTitle("Juego");
 
         ContenedorPrincipal contenedorPrincipal = new ContenedorPrincipal(stage, controlador);
+        AnchorPane ap = (AnchorPane) contenedorPrincipal;
+        ScrollPane sp = new ScrollPane();
+        sp.setMinSize(800,700);
+        sp.setMaxSize(1170,1038);
 
-        Scene escenaJuego = new Scene(contenedorPrincipal);
+        sp.setContent(ap);
+        Scene escenaJuego = new Scene(sp);
 
-        ContenedorInicial contenedorInicial = new ContenedorInicial(stage, escenaJuego);
+        ContenedorInicial contenedorInicial = new ContenedorInicial(stage, escenaJuego,sp.getMaxWidth(), sp.getMaxHeight());
         Scene escenaBienvenida = new Scene (contenedorInicial);
 
         controlador.setContenedorInicial(contenedorInicial);

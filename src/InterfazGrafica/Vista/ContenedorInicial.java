@@ -1,8 +1,8 @@
 package InterfazGrafica.Vista;
 
 import InterfazGrafica.Controlador.Controlador;
-import InterfazGrafica.Eventos.BotonEntrarEventHandler;
-import InterfazGrafica.Eventos.BotonSalirEventHandler;
+import InterfazGrafica.Eventos.EntrarBotonEventHandler;
+import InterfazGrafica.Eventos.SalirBotonEventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,7 +22,7 @@ public class ContenedorInicial extends AnchorPane {
     Controlador controlador;
     ArrayList<Node> listaDeElementos;
 
-    public ContenedorInicial(Stage ventana, Scene proximaEscena){
+    public ContenedorInicial(Stage ventana, Scene proximaEscena, double ancho, double alto){
 
         listaDeElementos = new ArrayList<>();
         this.ventana = ventana;
@@ -40,15 +40,15 @@ public class ContenedorInicial extends AnchorPane {
         Button salirBoton = new Button("Salir");
         salirBoton.setLayoutX(225);
         salirBoton.setLayoutY(140);
-        BotonSalirEventHandler botonSalirEventHandler = new BotonSalirEventHandler(ventana);
-        salirBoton.setOnAction(botonSalirEventHandler);
+        SalirBotonEventHandler salirBotonEventHandler = new SalirBotonEventHandler(ventana);
+        salirBoton.setOnAction(salirBotonEventHandler);
         listaDeElementos.add(salirBoton);
 
         Button entrarAlJuegoBoton = new Button("Entrar al juego");
         entrarAlJuegoBoton.setLayoutX(197);
         entrarAlJuegoBoton.setLayoutY(100);
-        BotonEntrarEventHandler botonEntrarEventHandler = new BotonEntrarEventHandler(ventana, proximaEscena);
-        entrarAlJuegoBoton.setOnAction(botonEntrarEventHandler);
+        EntrarBotonEventHandler entrarBotonEventHandler = new EntrarBotonEventHandler(ventana, proximaEscena, ancho, alto);
+        entrarAlJuegoBoton.setOnAction(entrarBotonEventHandler);
         listaDeElementos.add(entrarAlJuegoBoton);
 
         this.getChildren().addAll(listaDeElementos);
