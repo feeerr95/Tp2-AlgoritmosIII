@@ -46,7 +46,7 @@ public class ContenedorPrincipal extends AnchorPane {
 
     public ContenedorPrincipal(Stage stage, Controlador controlador){
 
-        Image imagenFondo = new Image("Imagenes/Tablero.jpg");
+        Image imagenFondo = new Image("Imagenes/Tablero.png");
         BackgroundImage imagen = new BackgroundImage(imagenFondo,
                 BackgroundRepeat.REPEAT,
                 BackgroundRepeat.REPEAT,
