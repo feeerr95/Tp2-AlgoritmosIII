@@ -7,7 +7,6 @@ import fiuba.algo3.tp2.BaseDatosCartas.*;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Stack;
 
 public class ZonaTest {
 
