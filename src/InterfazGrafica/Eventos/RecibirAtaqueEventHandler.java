@@ -26,6 +26,7 @@ public class RecibirAtaqueEventHandler implements EventHandler<MouseEvent> {
     @Override
     public void handle(MouseEvent event) {
         controlador.realizarAtaque((CartaMonstruo)cartaBotonAtacado.getCarta(), (CartaMonstruo) cartaBotonAtacante.getCarta());
+        cartaBotonAtacado.darVuelta();
         controlador.actualizarPuntosDeVida();
         ventanaAtacar.close();
         ventanaQueHacer.close();

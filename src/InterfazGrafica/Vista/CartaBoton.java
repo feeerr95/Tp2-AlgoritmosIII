@@ -43,7 +43,11 @@ public class CartaBoton {
     }
     private void setCaracteristicas(){
         cartaBoton = new Button();
-        this.vistaVerticalArriba();
+        if(carta.estaEnElCampo() && carta.estaBocaAbajo()){
+            this.vistaVerticalAbajo();
+        }else {
+            this.vistaVerticalArriba();
+        }
         ClickearCartaEventHandler clickearCartaEventHandler = new ClickearCartaEventHandler(this, controlador);
         cartaBoton.setOnMouseClicked(clickearCartaEventHandler);
     }

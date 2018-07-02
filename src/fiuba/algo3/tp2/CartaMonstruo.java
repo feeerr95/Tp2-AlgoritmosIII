@@ -56,5 +56,9 @@ public class CartaMonstruo extends Carta{
 		this.bonificadorAtaque = bonAtk;
 		this.bonificadorDefensa = bonDef;
 	}
+
+	public void restarPuntosDeVidaDelEnemigo(){
+		this.duenio.restarPuntosDeVidaDelEnemigo(atk);
+	}
 	
 }

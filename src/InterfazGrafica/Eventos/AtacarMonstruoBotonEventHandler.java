@@ -23,8 +23,9 @@ public class AtacarMonstruoBotonEventHandler implements EventHandler<MouseEvent>
     @Override
     public void handle(MouseEvent event) {
         VentanaAtacar ventanaAtacar = new VentanaAtacar(ventanaQueHacer,controlador, cartaBoton);
-        ventanaAtacar.setHeight(300);
-        ventanaAtacar.setWidth(300);
+        ventanaAtacar.setHeight(200);
+        ventanaAtacar.setWidth(608);
+        ventanaAtacar.setResizable(false);
         ventanaAtacar.show();
     }
 }

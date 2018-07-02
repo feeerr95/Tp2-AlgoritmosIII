@@ -93,12 +93,14 @@ public class Controlador{
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText(null);
             alerta.setContentText("GANO EL JUGADOR 2");
+            alerta.showAndWait();
             return true;
         }
         else if(jugador2.cantidadDeCartasEnElMazo() == 0 || jugador2.puntosDeVida() <= 0){
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText(null);
             alerta.setContentText("GANO EL JUGADOR 1");
+            alerta.showAndWait();
             return true;
         }
         return false;
@@ -194,4 +196,11 @@ public class Controlador{
         return !(jugador1.estaEnLaMano(carta) || jugador2.estaEnLaMano(carta));
     }
 
+    public boolean esElPrimerTurno(){
+        return turno == 1;
+    }
+
+    public void atacarPuntosDeVidaEnemigo(CartaMonstruo carta){
+        carta.restarPuntosDeVidaDelEnemigo();
+    }
 }

@@ -129,4 +129,8 @@ public class Jugador implements Afectable{
 		campoDeJuego.agregarCarta(carta, posicion, cara);
 		mano.remove(carta);
 	}
+
+	public void restarPuntosDeVidaDelEnemigo(int cantidad){
+		this.enemigo.restarPuntosDeVida(cantidad);
+	}
 }
